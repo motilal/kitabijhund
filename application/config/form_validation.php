@@ -34,7 +34,7 @@ $config = array(
         array(
             'field' => 'short_description',
             'label' => 'Short Description',
-            'rules' => 'trim|required|max_length[1000]'
+            'rules' => 'trim|required|max_length[2000]'
         ),
         array(
             'field' => 'start_date',
@@ -66,7 +66,7 @@ $config = array(
         array(
             'field' => 'short_description',
             'label' => 'Short Description',
-            'rules' => 'trim|required|max_length[1000]'
+            'rules' => 'trim|required|max_length[2000]'
         ),
         array(
             'field' => 'description',
@@ -216,7 +216,7 @@ $config = array(
             'field' => 'name',
             'label' => 'Name',
             'rules' => "trim|required|max_length[255]"
-        ), 
+        ),
         array(
             'field' => 'subject[]',
             'label' => 'Subject',
@@ -226,6 +226,23 @@ $config = array(
             'field' => 'order',
             'label' => 'Order',
             'rules' => "trim|max_length[11]"
+        )
+    ),
+    'manage_chapter_pages' => array(
+        array(
+            'field' => 'title',
+            'label' => 'Title',
+            'rules' => "trim|required|max_length[255]"
+        ),
+        array(
+            'field' => 'content',
+            'label' => 'Content',
+            'rules' => "trim|required"
+        ),
+        array(
+            'field' => 'qa',
+            'label' => 'Question Answer',
+            'rules' => "trim"
         )
     )
 );

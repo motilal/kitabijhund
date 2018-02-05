@@ -19,24 +19,15 @@
                     <div class="col-lg-4">
                         <div class="form-group <?php echo form_error('subject[]') != "" ? 'has-error' : ''; ?>">
                             <label class="control-label" for="subject">Subject(s)</label> 
-                            <?php echo form_dropdown('subject[]', $subject_options, set_value("subject[]", isset($data->subject) ? $data->subject : "", false), 'class="form-control" multiple="multiple" id="subject" style="width:100%;"'); ?> 
+                            <?php echo form_dropdown('subject[]', $subject_options, set_value("subject[]", isset($subjects) && $subjects != "" ? $subjects : "", false), 'class="form-control" multiple="multiple" id="subject" style="width:100%;"'); ?> 
                             <?php echo form_error('subject[]'); ?>
                         </div>
-                    </div> 
-
-                    <div class="clearfix"></div>
-                    <div class="col-lg-4">
-                        <div class="form-group <?php echo form_error('order') != "" ? 'has-error' : ''; ?>">
-                            <label class="control-label" for="order">Order</label>
-                            <?php echo form_input(array('type' => 'number', 'name' => 'order', 'value' => set_value("order", isset($data->order) ? $data->order : "", false), 'id' => 'order', 'class' => 'form-control')); ?>
-                            <?php echo form_error('order'); ?>
-                        </div>
-                    </div> 
+                    </div>   
 
                     <div class="col-lg-12">
                         <?php echo form_hidden('id', set_value('id', isset($data->id) ? $data->id : "")); ?>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo site_url("admin/permissions"); ?>'">Cancel</button>
+                        <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo site_url("admin/chapters"); ?>'">Cancel</button>
                     </div>
                     <?php echo form_close(); ?>
                 </div>

@@ -170,10 +170,10 @@ class News extends CI_Controller {
                 $rowData[1] = img($img_path, FALSE, array('width' => 100));
                 $rowData[2] = $row->title;
                 $rowData[3] = date(DATE_FORMATE, strtotime($row->start_date));
-                $rowData[4] = $this->layout->element('admin/element/_module_status', array('status' => $row->status, 'id' => $row->id, 'url' => "admin/news/changestatus"), true);
+                $rowData[4] = $this->layout->element('admin/element/_module_status', array('status' => $row->status, 'id' => $row->id, 'url' => "admin/news/changestatus", 'permissionKey' => "news-status"), true);
                 $editUrl = 'admin/news/manage/' . $row->id;
                 $deleteUrl = 'admin/news/delete';
-                $rowData[5] = $this->layout->element('admin/element/_module_action', array('id' => $row->id, 'editUrl' => $editUrl, 'deleteUrl' => $deleteUrl), true);
+                $rowData[5] = $this->layout->element('admin/element/_module_action', array('id' => $row->id, 'editUrl' => $editUrl, 'deleteUrl' => $deleteUrl, 'editPermissionKey' => 'news-edit', 'deletePermissionKey' => 'news-delete'), true);
                 $resultData[] = $rowData;
             }
         }

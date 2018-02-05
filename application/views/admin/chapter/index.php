@@ -8,8 +8,7 @@
                     <div class="btn-group" data-toggle="btn-toggle">
                         <?php if (is_allow_action('chapter-add')) { ?>
                             <a href="<?php echo site_url('admin/chapters/manage'); ?>" class="btn btn-primary btn-sm add_new_item"><i class="fa fa-plus"></i> Add New Chapter </a>
-                        <?php } ?>
-                        <a href="<?php echo site_url('admin/chapters?download=report'); ?>" class="btn btn-default btn-sm"><i class="fa fa-download"></i> Export CSV</a>
+                        <?php } ?> 
                     </div>
                 </div>
             </div>     
@@ -19,25 +18,25 @@
                     <thead>
                         <tr>
                             <td>Sr.</td>
-                            <th>Chapter</th> 
+                            <th>Chapter</th>  
+                            <th>Subjects</th> 
+                            <th>Total Pages</th> 
                             <th>Created</th> 
                             <th>Status</th>
-                            <th width="10%">Action</th>
+                            <th width="12%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if ($result->num_rows() > 0) { ?>
-                            <?php foreach ($result->result() as $key => $row): ?>
-                                <tr id="row_<?php echo $row->id; ?>">
-                                    <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $row->name; ?></td> 
-                                    <td><?php echo date(DATE_FORMATE, strtotime($row->created)); ?></td>
-                                    <td>
-                                        <?php echo $this->layout->element('admin/element/_module_status', array('status' => $row->status, 'id' => $row->id, 'url' => "admin/chapters/changestatus", 'permissionKey' => "chapter-status"), true); ?>
-                                    </td>
-                                    <td>  
-                                        <?php echo $this->layout->element('admin/element/_module_action', array('id' => $row->id, 'editUrl' => "admin/chapters/manage", 'deleteUrl' => 'admin/chapters/delete', 'editPermissionKey' => 'chapter-edit', 'deletePermissionKey' => 'chapter-delete'), true); ?>
-                                    </td>  
+                        <?php if (isset($result) && $result != "") { ?>
+                            <?php foreach ($result as $key => $row): ?>
+                                <tr>
+                                    <td><?php echo $row[0]; ?></td>
+                                    <td><?php echo $row[1]; ?></td>
+                                    <td><?php echo $row[2]; ?></td> 
+                                    <td><?php echo $row[3]; ?></td>
+                                    <td><?php echo $row[4]; ?></td>  
+                                    <td><?php echo $row[5]; ?></td>  
+                                    <td><?php echo $row[6]; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php } ?> 
@@ -52,12 +51,12 @@
 </div>  
 
 <script>
+    var current_url = '<?php echo current_url(); ?>';
     /*
      params 
      1 sorting remove from colomns
      2 default sort order of colomn set default []
-     3 default paging
-     4 show sr. number or not
+     3 default paging 
      */
-    var datatbl = datatable_init([0, 4], [[1, 'asc']], DEFAULT_PAGING, 1);
+    var datatbl = dynamic_datatable_init(current_url, [0, 2, 3, 6], [], DEFAULT_PAGING);
 </script>

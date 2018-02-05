@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/xampp/htdocs/kitabijhund/asset/admin/plugin/ckfinder/config.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/controllers/admin/Chapters.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/views/admin/chapter/manage_pages.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/controllers/admin/Pages.php</file>
             <file>file:/E:/xampp/htdocs/kitabijhund/application/views/admin/news/manage.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/config/form_validation.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/models/Page_model.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/models/Chapter_model.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/views/admin/chapter/pages.php</file>
         </group>
     </open-files>
 </project-private>

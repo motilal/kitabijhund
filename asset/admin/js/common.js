@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $(document).ajaxStart(function () {
         Pace.restart();
-    });  
+    });
     $("#notification_pop").show();
     $("#notification_pop").click(function () {
         hideAllMessages();
@@ -137,13 +137,15 @@ function hideAllMessages() {
     }
 }
 function showMessage(type, params) {
-    if (typeof params.title != "undefined") {
-        $('#notification_pop > .' + type + "  h4 span").html(params.title);
+    var toasterOptions = {preventDuplicates:true};
+    if (type == 'success') {
+        toastr.success(params.message,'',toasterOptions);
+    } else if (type == 'error') {
+        toastr.error(params.message);
+    } else if (type == 'warning') {
+        toastr.warning(params.message);
+    } else if (type == 'info') {
+        toastr.info(params.message);
     }
-    if (typeof params.message != "undefined") {
-        $('#notification_pop > .' + type + " > p").html(params.message);
-    }
-    Time_Interval = setInterval(hideAllMessages, 5000);
-    $('#notification_pop > .' + type).animate({top: "0"}, 500);
 }
  

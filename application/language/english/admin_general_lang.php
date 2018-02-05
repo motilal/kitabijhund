@@ -30,6 +30,8 @@ $lang['SubjectAddSuccess'] = "Subject added successfully.";
 
 $lang['ChapterUpdateSuccess'] = "Chapter updted successfully.";
 $lang['ChapterAddSuccess'] = "Chapter added successfully.";
+$lang['ChapterPageUpdateSuccess'] = "Chapter Page updted successfully.";
+$lang['ChapterPageAddSuccess'] = "Chapter Page added successfully.";
 
 $lang['SettingUpdateSuccess'] = "Setting updted successfully.";
 

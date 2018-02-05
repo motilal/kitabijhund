@@ -116,7 +116,7 @@
                     });
                 } else if (res.success && res.msg && res.data) {
                     if (res.mode == 'add') {
-                        datatbl.row.add([0, res.data.name, res.data.statusButtons, res.data.actionButtons]).draw();
+                        datatbl.row.add([0, res.data.name, res.data.created, res.data.statusButtons, res.data.actionButtons]).draw();
                         $('.changestatus[data-id="' + res.data.id + '"]').closest('tr').attr('id', 'row_' + res.data.id);
                     } else if (res.mode == 'edit') {
                         $('#row_' + res.data.id).find('td:nth-child(2)').text(res.data.name);

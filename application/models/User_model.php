@@ -66,19 +66,19 @@ class User_model extends CI_Model {
     public function get_userpermission_keys($condition = array()) {
         $result = $this->db->select("p.key,p.group")
                         ->join('permissions p', 'p.id=up.permission_id')
-                        ->where(!empty($condition) ? $condition : 1, TRUE)->get("user_permissions as up");
+                        ->where(!empty($condition) ? $condition : 1, TRUE)->get("users_permissions as up");
         return $result->num_rows() > 0 ? $result->result() : null;
     }
 
     public function get_userpermissions($condition = array()) {
-        $result = $this->db->select("permission_id")->where(!empty($condition) ? $condition : 1, TRUE)->get("user_permissions");
+        $result = $this->db->select("permission_id")->where(!empty($condition) ? $condition : 1, TRUE)->get("users_permissions");
         return $result->num_rows() > 0 ? $result->result() : null;
     }
 
     public function check_user_permissions($key, $user_id) {
         $permission = $this->db->select('id')->get_where('permissions', array('key' => $key))->row();
         if (isset($permission->id)) {
-            $result = $this->db->select("permission_id")->where(array('permission_id' => $permission->id, 'user_id' => $user_id))->get("user_permissions");
+            $result = $this->db->select("permission_id")->where(array('permission_id' => $permission->id, 'user_id' => $user_id))->get("users_permissions");
             return $result->num_rows() > 0 ? true : false;
         }
     }

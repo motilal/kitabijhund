@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="<?php echo base_url('asset/admin/plugin/pace/pace.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('asset/admin/plugin/select2/css/select2.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('asset/admin/plugin/datatables/css/dataTables.bootstrap.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('asset/admin/plugin/toastr/toastr.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('asset/admin/css/admin.min.css'); ?>">  
         <link rel="stylesheet" href="<?php echo base_url('asset/admin/css/common.css'); ?>">       
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,6 +32,7 @@
         <script src="<?php echo base_url('asset/admin/js/fastclick.js'); ?>"></script>  
         <script src="<?php echo base_url('asset/admin/plugin/select2/js/select2.min.js'); ?>"></script>  
         <script src="<?php echo base_url('asset/admin/plugin/datetimepicker/moment-with-locales.js'); ?>"></script>  
+        <script src="<?php echo base_url('asset/admin/plugin/toastr/toastr.min.js'); ?>"></script>  
         <script src="<?php echo base_url('asset/admin/js/adminlte.min.js'); ?>"></script>    
 
         <?php if (isset($ckeditor_asset) && $ckeditor_asset) { ?>

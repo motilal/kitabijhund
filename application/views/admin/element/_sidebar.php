@@ -23,8 +23,8 @@ $settingProfile = ($segment_cntr == 'settings' && $segment_fun == 'profile') ? '
 
 $user_permissions = $this->session->userdata('_subadmin_module_permissions');
 
-$subjectIndex = ($segment_cntr == 'subjects' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
-$subjectAdd = ($segment_cntr == 'subjects' && $segment_fun == 'manage') ? 'active' : '';
+$subjectIndex = ($segment_cntr == 'subjects' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';  
+$chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : ''; 
 ?>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
@@ -65,7 +65,7 @@ $subjectAdd = ($segment_cntr == 'subjects' && $segment_fun == 'manage') ? 'activ
                 </li>
             <?php } ?>
 
-            <li class="treeview <?php echo in_array($segment_cntr, array('subjects')) ? 'active menu-open' : ''; ?>">
+            <li class="treeview <?php echo in_array($segment_cntr, array('subjects','chapters')) ? 'active menu-open' : ''; ?>">
                 <a href="#">
                     <i class="fa fa-book"></i> <span>Study Materials</span>
                     <span class="pull-right-container">
@@ -74,6 +74,7 @@ $subjectAdd = ($segment_cntr == 'subjects' && $segment_fun == 'manage') ? 'activ
                 </a>
                 <ul class="treeview-menu">
                     <li class="<?php echo $subjectIndex; ?>"><a href="<?php echo site_url('admin/subjects'); ?>"><i class="fa fa-circle-o"></i> Manage Subjects</a></li>
+                    <li class="<?php echo $chapterIndex; ?>"><a href="<?php echo site_url('admin/chapters'); ?>"><i class="fa fa-circle-o"></i> Manage Chapters</a></li>
                 </ul>
             </li>
 

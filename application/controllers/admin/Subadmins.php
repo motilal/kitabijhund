@@ -139,9 +139,9 @@ class Subadmins extends CI_Controller {
             $permission_array = $this->input->post('permission');
             if (!empty($permission_array)) {
                 $user_id = $id;
-                $this->db->where('user_id', $user_id)->where_not_in('permission_id', $permission_array)->delete('user_permissions');
+                $this->db->where('user_id', $user_id)->where_not_in('permission_id', $permission_array)->delete('users_permissions');
 
-                $exist_user_permissions = $this->db->select('permission_id')->where('user_id', $user_id)->where_in('permission_id', $permission_array)->get('user_permissions')->result_array();
+                $exist_user_permissions = $this->db->select('permission_id')->where('user_id', $user_id)->where_in('permission_id', $permission_array)->get('users_permissions')->result_array();
                 $exist_permission = array();
                 if (!empty($exist_user_permissions)) {
                     foreach ($exist_user_permissions as $value) {
@@ -156,12 +156,12 @@ class Subadmins extends CI_Controller {
                     );
                 }
                 if (!empty($data)) {
-                    $this->db->insert_batch('user_permissions', $data);
+                    $this->db->insert_batch('users_permissions', $data);
                 }
                 $this->session->set_flashdata("success", 'Permission Update Success.');
                 redirect("admin/subadmins");
             } else {
-                $this->db->where('user_id', $id)->delete('user_permissions');
+                $this->db->where('user_id', $id)->delete('users_permissions');
             }
         }
         $this->viewData['data'] = $data = $this->ion_auth->user($id)->row();

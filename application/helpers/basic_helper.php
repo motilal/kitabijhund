@@ -146,6 +146,44 @@ if (!function_exists('arrayGrouping')) {
 
 }
 
+/*
+Array
+(
+    [0] => stdClass Object
+        (
+            [name] => Hindi
+        )
+
+    [1] => stdClass Object
+        (
+            [name] => Physics
+        )
+
+)
+ To
+  
+ Array
+(
+    [0] => Hindi
+    [1] => Physics
+)
+ 
+  */
+if (!function_exists('filterAssocArray')) {
+
+    function filterAssocArray($array = array(), $field = "") {
+        if (empty($array)) {
+            return false;
+        }
+        $p_group = array();
+        foreach ($array as $row) {
+            $p_group[] = $row->$field;
+        }
+        return $p_group;
+    }
+
+}
+
 
 if (!function_exists('is_allow_admin')) {
 
@@ -190,7 +228,7 @@ if (!function_exists('is_allow_module')) {
         if ($CI->ion_auth->is_admin()) {
             return TRUE;
         }
-        $usermodule = $CI->session->userdata('_subadmin_allow_module'); 
+        $usermodule = $CI->session->userdata('_subadmin_allow_module');
         if (!empty($usermodule) && in_array($group, $usermodule)) {
             return TRUE;
         } else {

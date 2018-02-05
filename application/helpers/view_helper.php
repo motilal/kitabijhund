@@ -103,3 +103,37 @@ if (!function_exists('getPageSerial')) {
     }
 
 }
+
+if (!function_exists('getNewsImage')) {
+
+    function getNewsImage($img, $size, $master_dim = 'auto') {
+        $CI = & get_instance();
+        $folderPath = $master_dim . '_' . $size['width'] . 'x' . $size['height'];
+        $SourceImgPath = NEWS_IMG_PATH . $img;
+        if (!file_exists($SourceImgPath)) {
+            return FALSE;
+        }
+        $NewImgPath = NEWS_IMG_PATH . $folderPath;
+        if (!is_dir($NewImgPath)) {
+            mkdir($NewImgPath, TRUE);
+        }
+        $NewImgPath = NEWS_IMG_PATH . $folderPath . '/' . $img;
+        if (file_exists($NewImgPath)) {
+            return $NewImgPath;
+        } else {
+            $config = array();
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $SourceImgPath;
+            $config['new_image'] = $NewImgPath;
+            $config['create_thumb'] = TRUE;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = $size['width'];
+            $config['height'] = $size['height'];
+            $CI->load->library('image_lib', $config);
+            if ($CI->image_lib->resize()) {
+                return $NewImgPath;
+            }
+        }
+    }
+
+}

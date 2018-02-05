@@ -80,6 +80,7 @@ class Subjects extends CI_Controller {
             }
             if ($has_permission === TRUE) {
                 $detail = $this->subject->getById($resource_id);
+                $detail->created = date(DATE_FORMATE, strtotime($detail->created));
                 $detail->statusButtons = $this->layout->element('admin/element/_module_status', array('status' => $detail->status, 'id' => $detail->id, 'url' => "admin/subjects/changestatus", 'permissionKey' => "subject-status"), true);
                 $detail->actionButtons = $this->layout->element('admin/element/_module_action', array('id' => $detail->id, 'editUrl' => 'admin/subjects/manage', 'deleteUrl' => 'admin/subjects/delete', 'editPermissionKey' => 'subject-edit', 'deletePermissionKey' => 'subject-delete'), true);
                 $response['data'] = $detail;
