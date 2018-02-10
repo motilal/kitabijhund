@@ -61,7 +61,7 @@
                     <div class="col-lg-3"> 
                         <?php
                         if (isset($data->image) && $data->image != "") {
-                            echo img("uploads/news/$data->image", FALSE, array('width' => 100));
+                            echo img(getNewsImage($data->image, array('width' => 100, 'height' => 100)), FALSE, array('width' => 100));
                         }
                         ?>
                         <div class="form-group">

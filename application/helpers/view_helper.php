@@ -113,9 +113,9 @@ if (!function_exists('getNewsImage')) {
         if (!file_exists($SourceImgPath)) {
             return FALSE;
         }
-        $NewImgPath = NEWS_IMG_PATH . $folderPath;
+        $NewImgPath = NEWS_IMG_PATH . $folderPath; 
         if (!is_dir($NewImgPath)) {
-            mkdir($NewImgPath, TRUE);
+            mkdir($NewImgPath, 0777, TRUE);
         }
         $NewImgPath = NEWS_IMG_PATH . $folderPath . '/' . $img;
         if (file_exists($NewImgPath)) {
@@ -125,7 +125,41 @@ if (!function_exists('getNewsImage')) {
             $config['image_library'] = 'gd2';
             $config['source_image'] = $SourceImgPath;
             $config['new_image'] = $NewImgPath;
-            $config['create_thumb'] = TRUE;
+            $config['create_thumb'] = FALSE;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = $size['width'];
+            $config['height'] = $size['height'];
+            $CI->load->library('image_lib', $config);
+            if ($CI->image_lib->resize()) {
+                return $NewImgPath;
+            }
+        }
+    }
+
+}
+
+if (!function_exists('getFormAlertImage')) {
+
+    function getFormAlertImage($img, $size, $master_dim = 'auto') {
+        $CI = & get_instance();
+        $folderPath = $master_dim . '_' . $size['width'] . 'x' . $size['height'];
+        $SourceImgPath = FORM_ALERT_IMG_PATH . $img;
+        if (!file_exists($SourceImgPath)) {
+            return FALSE;
+        }
+        $NewImgPath = FORM_ALERT_IMG_PATH . $folderPath; 
+        if (!is_dir($NewImgPath)) {
+            mkdir($NewImgPath, 0777, TRUE);
+        }
+        $NewImgPath = FORM_ALERT_IMG_PATH . $folderPath . '/' . $img;
+        if (file_exists($NewImgPath)) {
+            return $NewImgPath;
+        } else {
+            $config = array();
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $SourceImgPath;
+            $config['new_image'] = $NewImgPath;
+            $config['create_thumb'] = FALSE;
             $config['maintain_ratio'] = TRUE;
             $config['width'] = $size['width'];
             $config['height'] = $size['height'];

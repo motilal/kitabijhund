@@ -20,6 +20,7 @@
                             <td>Sr.</td>
                             <th>Image</th>
                             <th>Title</th>
+                            <th>Category</th>
                             <th>Status</th>
                             <th width="10%">Action</th>
                         </tr>
@@ -33,6 +34,7 @@
                                     <td><?php echo $row[2]; ?></td>
                                     <td><?php echo $row[3]; ?></td>
                                     <td><?php echo $row[4]; ?></td> 
+                                    <td><?php echo $row[5]; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php } ?>
@@ -54,5 +56,5 @@
      2 default sort order of colomn set default []
      3 default paging 
      */
-    var datatbl = dynamic_datatable_init(current_url, [0, 4], [], DEFAULT_PAGING);
+    var datatbl = dynamic_datatable_init(current_url, [0, 5], [], DEFAULT_PAGING);
 </script>

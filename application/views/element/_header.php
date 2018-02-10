@@ -16,8 +16,8 @@
 
             <div class="col-md-4 header-right">
                 <ul class="small-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="<?php echo site_url('page/about-us'); ?>">About Us</a></li>
+                    <li><a href="<?php echo site_url('page/contact-us'); ?>">Contact</a></li>
                     <li><a href="#">Apply Now</a></li>
                 </ul>
                 <div class="search-form">
@@ -33,28 +33,23 @@
         <div class="container">
             <nav class="main-navigation clearfix visible-md visible-lg" role="navigation">
                 <ul class="main-menu sf-menu sf-js-enabled sf-arrows">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="<?php echo site_url(); ?>">Home</a></li>
+                    <li><a href="<?php echo site_url('news'); ?>">Current Affairs</a></li>
+                    <?php $subjects = get_all_subjects(); ?>
+                    <li class="sfHover">
+                        <a href="#" class="sf-with-ul">Subjects<i class="fa fa-angle-down"></i></a>
+                        <ul class="sub-menu animated fadeInRight" style="display: none;"> 
+                            <?php if (!empty($subjects)) { ?>
+                                <?php foreach ($subjects as $sub) { ?>
+                                    <li><a href="<?php echo site_url("subject/$sub->slug"); ?>"><?php echo $sub->name; ?></a></li>
+                                <?php } ?>
+                            <?php } ?>  
+                        </ul>
+                    </li>
 
-                    <li><a href="contact.html">Current Affairs</a></li>
+                    <li><a href="<?php echo site_url('form_alerts'); ?>">Form Alerts</a></li>
 
-                    <li class="sfHover"><a href="#" class="sf-with-ul">Subjects<i class="fa fa-angle-down"></i></a>
-                        <ul class="sub-menu animated fadeInRight" style="display: none;">
-                            <li><a href="events-grid.html">English</a></li>
-                            <li><a href="events-list.html">Quantitative Aptitude</a></li>
-                            <li><a href="event-single.html">Political Science</a>
-                            <li><a href="events-grid.html">Chemistry</a></li>
-                            <li><a href="events-grid.html">Geography</a></li>
-                            <li><a href="events-grid.html">Physics</a></li>
-                            <li><a href="events-grid.html">Reasoning</a></li>
-                            <li><a href="events-grid.html">Biology</a></li>
-                            <li><a href="events-grid.html">Economics</a></li>
-                            <li><a href="events-grid.html">Computer</a></li>
-                    </li></ul>
-                </li>
-
-                <li><a href="contact.html">Form Alerts</a></li>
-
-                <li><a href="contact.html">Discussions</a></li>
+                    <li><a href="contact.html">Discussions</a></li>
                 </ul> <!-- /.main-menu -->
 
                 <ul class="social-icons pull-right">

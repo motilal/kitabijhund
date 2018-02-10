@@ -12,6 +12,32 @@ if (!function_exists('pr')) {
 
 }
 
+if (!function_exists('load_more_pagination')) {
+
+    /**
+     *
+     * @param type $url
+     * @param type $total_rows
+     * @param type $per_page
+     * @param type $segment 
+     */
+    function load_more_pagination($url, $total_rows, $per_page, $segment, $nextLink = 'Load More') {
+        $CI = & get_instance();
+        $config['display_pages'] = $config['first_link'] = $config['last_link'] = $config['prev_link'] = $config['display_pages'] = FALSE;
+        $config['next_link'] = $nextLink;
+        $config['anchor_class'] = "class='view-more'";
+        $config['base_url'] = site_url($url);
+        $config['reuse_query_string'] = TRUE;
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = $per_page;
+        $config['uri_segment'] = $segment;
+        $CI->load->library("pagination");
+        $CI->pagination->initialize($config);
+        return $CI->pagination->create_links();
+    }
+
+}
+
 if (!function_exists('create_pagination')) {
 
     /**
@@ -147,28 +173,28 @@ if (!function_exists('arrayGrouping')) {
 }
 
 /*
-Array
-(
-    [0] => stdClass Object
-        (
-            [name] => Hindi
-        )
+  Array
+  (
+  [0] => stdClass Object
+  (
+  [name] => Hindi
+  )
 
-    [1] => stdClass Object
-        (
-            [name] => Physics
-        )
+  [1] => stdClass Object
+  (
+  [name] => Physics
+  )
 
-)
- To
-  
- Array
-(
-    [0] => Hindi
-    [1] => Physics
-)
- 
-  */
+  )
+  To
+
+  Array
+  (
+  [0] => Hindi
+  [1] => Physics
+  )
+
+ */
 if (!function_exists('filterAssocArray')) {
 
     function filterAssocArray($array = array(), $field = "") {
@@ -250,3 +276,30 @@ if (!function_exists('gravatar_url')) {
 
 }
 
+if (!function_exists('get_site_setting')) {
+
+    function get_site_setting($field_name = "") {
+        $CI = & get_instance();
+        $sql = $CI->db->select('value')->get_where('settings', array('field_name' => $field_name, 'status' => '1'));
+        if ($sql->num_rows() > 0) {
+            return $sql->row()->value;
+        } else {
+            return '';
+        }
+    }
+
+}
+
+if (!function_exists('get_all_subjects')) {
+
+    function get_all_subjects() {
+        $CI = & get_instance();
+        $sql = $CI->db->select('id,name,slug')->get_where('subjects', array('status' => 1));
+        if ($sql->num_rows() > 0) {
+            return $sql->result();
+        } else {
+            return '';
+        }
+    }
+
+}

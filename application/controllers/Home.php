@@ -13,9 +13,9 @@ class Home extends CI_Controller {
 
     public function index() {
         $this->load->model(array("form_alert_model" => 'form_alert', "news_model" => 'news'));
-        $this->viewData['title'] = "Tyari Jeet Ki"; 
+        $this->viewData['title'] = "Tyari Jeet Ki";
 
-        $form_alerts = $this->form_alert->get_list(array('status' => '1'), array('start' => 0, 'limit' => 3), '', FALSE);
+        $form_alerts = $this->form_alert->get_list(array('fa.status' => '1'), array('start' => 0, 'limit' => 3), '', FALSE);
         $this->viewData['latest_form_alerts'] = $form_alerts;
 
         $news = $this->news->get_list(array('status' => '1'), array('start' => 0, 'limit' => 3), '', FALSE);

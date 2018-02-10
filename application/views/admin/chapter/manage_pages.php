@@ -33,7 +33,7 @@
                     <div class="col-lg-7"> 
                         <?php echo form_hidden('id', set_value('id', isset($data->id) ? $data->id : "")); ?>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo site_url("admin/chapters/pages/5"); ?>'">Cancel</button>
+                        <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo site_url("admin/chapters/pages/" . $chapter_id); ?>'">Cancel</button>
                     </div>
                     <?php echo form_close(); ?>
                 </div>

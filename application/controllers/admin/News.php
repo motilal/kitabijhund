@@ -94,7 +94,7 @@ class News extends CI_Controller {
                 $data['slug'] = create_unique_slug($this->input->post('title'), 'news', 'slug');
             }
             if ($this->input->post('id') > 0) {
-                $data['update'] = date("Y-m-d H:i:s");
+                $data['updated'] = date("Y-m-d H:i:s");
                 $this->db->update("news", $data, array("id" => $this->input->post('id')));
                 $this->session->set_flashdata("success", getLangText('NewsUpdateSuccess'));
             } else {
@@ -163,7 +163,7 @@ class News extends CI_Controller {
             foreach ($data as $key => $row) {
                 $img_path = "asset/admin/images/no_image_100.jpg";
                 if ($row->image != "") {
-                    $img_path = "uploads/news/$row->image";
+                    $img_path = getNewsImage($row->image, array('width' => 100, 'height' => 100));
                 }
                 $rowData = array();
                 $rowData[0] = getPageSerial($this->input->get('length'), $this->input->get('start'), $key);

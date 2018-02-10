@@ -137,9 +137,9 @@ function hideAllMessages() {
     }
 }
 function showMessage(type, params) {
-    var toasterOptions = {preventDuplicates:true};
+    toastr.remove()
     if (type == 'success') {
-        toastr.success(params.message,'',toasterOptions);
+        toastr.success(params.message);
     } else if (type == 'error') {
         toastr.error(params.message);
     } else if (type == 'warning') {

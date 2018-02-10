@@ -14,6 +14,15 @@
                         </div>
                     </div> 
 
+
+                    <div class="col-lg-7">
+                        <div class="form-group <?php echo form_error('category') != "" ? 'has-error' : ''; ?>">
+                            <label class="control-label" for="category">Category <em>*</em></label> 
+                            <?php echo form_dropdown('category', $categories_options, set_value("category", isset($data->category) ? $data->category : "", false), 'class="form-control" id="category" style="width:100%;"'); ?> 
+                            <?php echo form_error('category'); ?>
+                        </div>
+                    </div> 
+
                     <div class="col-lg-7">
                         <div class="form-group <?php echo form_error('short_description') != "" ? 'has-error' : ''; ?>">
                             <label class="control-label" for="short_description">Short Description <em>*</em></label>
@@ -43,7 +52,7 @@
                     <div class="col-lg-3">
                         <?php
                         if (isset($data->image) && $data->image != "") {
-                            echo img("uploads/form_alert/$data->image", FALSE, array('width' => 100));
+                            echo img(getFormAlertImage($data->image, array('width' => 100, 'height' => 100)), FALSE, array('width' => 100));
                         }
                         ?>
                         <div class="form-group">
@@ -68,3 +77,6 @@
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->  
+<script type="text/javascript">
+    $("#category").select2();
+</script>

@@ -60,7 +60,7 @@ class Pages extends CI_Controller {
                 $data['slug'] = create_unique_slug($this->input->post('title'), 'pages', 'slug');
             }
             if ($this->input->post('id') > 0) {
-                $data['update'] = date("Y-m-d H:i:s");
+                $data['updated'] = date("Y-m-d H:i:s");
                 $this->db->update("pages", $data, array("id" => $this->input->post('id')));
                 $this->session->set_flashdata("success", getLangText('PageUpdateSuccess'));
             } else {

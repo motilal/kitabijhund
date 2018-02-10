@@ -16,6 +16,7 @@ $newsIndex = ($segment_cntr == 'news' && ($segment_fun == 'index' || $segment_fu
 $newsAdd = ($segment_cntr == 'news' && $segment_fun == 'manage') ? 'active' : '';
 
 $formalertIndex = ($segment_cntr == 'form_alerts' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
+$formalertCategoryIndex = ($segment_cntr == 'form_alerts' && $segment_fun == 'categories') ? 'active' : '';
 $formalertAdd = ($segment_cntr == 'form_alerts' && $segment_fun == 'manage') ? 'active' : '';
 
 $settingIndex = ($segment_cntr == 'settings' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
@@ -23,8 +24,8 @@ $settingProfile = ($segment_cntr == 'settings' && $segment_fun == 'profile') ? '
 
 $user_permissions = $this->session->userdata('_subadmin_module_permissions');
 
-$subjectIndex = ($segment_cntr == 'subjects' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';  
-$chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : ''; 
+$subjectIndex = ($segment_cntr == 'subjects' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
+$chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 ?>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
@@ -65,7 +66,7 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
                 </li>
             <?php } ?>
 
-            <li class="treeview <?php echo in_array($segment_cntr, array('subjects','chapters')) ? 'active menu-open' : ''; ?>">
+            <li class="treeview <?php echo in_array($segment_cntr, array('subjects', 'chapters')) ? 'active menu-open' : ''; ?>">
                 <a href="#">
                     <i class="fa fa-book"></i> <span>Study Materials</span>
                     <span class="pull-right-container">
@@ -130,6 +131,9 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
                     <ul class="treeview-menu" style="display:<?php echo $segment_cntr == 'form_alerts' ? 'block' : 'none'; ?>;">
                         <?php if (is_allow_action('form_alert-index')) { ?>
                             <li class="<?php echo $formalertIndex; ?>"><a href="<?php echo site_url('admin/form_alerts'); ?>"><i class="fa fa-th-list"></i> Manage From Alert</a></li>
+                        <?php } ?>
+                        <?php if (is_allow_action('form_alert-category-index')) { ?>
+                            <li class="<?php echo $formalertCategoryIndex; ?>"><a href="<?php echo site_url('admin/form_alerts/categories'); ?>"><i class="glyphicon glyphicon-tags"></i> Manage Categories</a></li>
                         <?php } ?>
                         <?php if (is_allow_action('form_alert-add')) { ?>
                             <li class="<?php echo $formalertAdd; ?>"><a href="<?php echo site_url('admin/form_alerts/manage'); ?>"><i class="fa fa-plus"></i> Add Form Alert</a></li> 

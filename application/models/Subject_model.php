@@ -33,6 +33,15 @@ class Subject_model extends CI_Model {
         return false;
     }
 
+    public function getBySlag($type = "") {
+        if ($type != "") {
+            $result = $this->db->select("subjects.*")
+                    ->get_where("subjects", array("slug" => $type, "status" => 1));
+            return $result->num_rows() > 0 ? $result->row() : null;
+        }
+        return false;
+    }
+
 }
 
 ?>

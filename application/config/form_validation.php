@@ -64,6 +64,11 @@ $config = array(
             'rules' => "trim|required|max_length[255]"
         ),
         array(
+            'field' => 'category',
+            'label' => 'Category',
+            'rules' => "trim|required"
+        ),
+        array(
             'field' => 'short_description',
             'label' => 'Short Description',
             'rules' => 'trim|required|max_length[2000]'
@@ -82,6 +87,13 @@ $config = array(
             'field' => 'meta_description',
             'label' => 'Meta description',
             'rules' => "trim|max_length[1024]"
+        )
+    ),
+    'manage_category' => array(
+        array(
+            'field' => 'name',
+            'label' => 'Category Name',
+            'rules' => "trim|required|max_length[200]"
         )
     ),
     'email_templates/manage' => array(
