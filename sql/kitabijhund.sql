@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2018 at 04:09 AM
+-- Generation Time: Feb 10, 2018 at 11:00 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -32,9 +32,43 @@ CREATE TABLE `chapters` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chapters`
+--
+
+INSERT INTO `chapters` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
+(6, 'Number System', 'number-system', 1, '2018-02-03 22:41:10', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chapters_pages`
+--
+
+CREATE TABLE `chapters_pages` (
+  `id` int(11) NOT NULL,
+  `chapter_id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `slug` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `content` text CHARACTER SET utf8 NOT NULL,
+  `question_answer` text CHARACTER SET utf8
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chapters_subjects`
+--
+
+CREATE TABLE `chapters_subjects` (
+  `id` int(11) NOT NULL,
+  `chapter_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -158,24 +192,49 @@ INSERT INTO `email_templates` (`id`, `title`, `subject`, `slug`, `body`, `variab
 
 CREATE TABLE `form_alerts` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `slug` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `short_description` text CHARACTER SET utf8,
-  `image` varchar(255) DEFAULT NULL,
-  `description` text CHARACTER SET utf8,
-  `meta_keywords` text CHARACTER SET utf8,
-  `meta_description` text CHARACTER SET utf8,
+  `title` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `short_description` text,
+  `image` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `description` text,
+  `category` int(11) DEFAULT NULL,
+  `meta_keywords` text,
+  `meta_description` text,
   `created` datetime DEFAULT NULL,
-  `update` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `form_alerts`
 --
 
-INSERT INTO `form_alerts` (`id`, `title`, `slug`, `short_description`, `image`, `description`, `meta_keywords`, `meta_description`, `created`, `update`, `status`) VALUES
-(2, 'The HTML Helper file contains functions that assist in working with HTML.', 'the-html-helper-file-contains-functions-that-assist-in-working-with-html', 'sdfsf', 'prize1.png', '<p>sdfs</p>', 'sdfs', 'sdfs', '2018-01-27 08:42:15', '2018-01-27 11:49:30', 1);
+INSERT INTO `form_alerts` (`id`, `title`, `slug`, `short_description`, `image`, `description`, `category`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
+(5, '20 May 2017 - Current Affairs', '20-may-2017-current-affairs', '1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.\r\n\r\n2. May 21stÂ is observed asÂ Anti-Terrorism DayÂ in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in theÂ year 1991,Â former Indiaâ€™sÂ PM Rajiv GandhiÂ was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.Â He was 46 years of age.Â Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,Â LTTE (Liberation Tigers of Tamil Elam).', NULL, '<p>1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.<br />\r\n<br />\r\n2. May 21st&Acirc;&nbsp;is observed as&Acirc;&nbsp;Anti-Terrorism Day&Acirc;&nbsp;in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in the&Acirc;&nbsp;year 1991,&Acirc;&nbsp;former India&acirc;&euro;&trade;s&Acirc;&nbsp;PM Rajiv Gandhi&Acirc;&nbsp;was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.&Acirc;&nbsp;He was 46 years of age.&Acirc;&nbsp;Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,&Acirc;&nbsp;LTTE (Liberation Tigers of Tamil Elam).</p>', 1, 'ss', 'ss', '2018-02-04 09:11:46', NULL, 1),
+(7, 'The HTML Helper file contains functions that assist in working with HTML.', 'the-html-helper-file-contains-functions-that-assist-in-working-with-html', 'sf', NULL, '<p>sdf</p>', 2, 'sdf', 'sdfs', '2018-02-10 08:56:12', NULL, 1),
+(8, 'REET ecaa ff', 'reet-ecaa-ff', 'dfd', NULL, '<p>dfg</p>', 5, 'dfg', 'dfgdgd', '2018-02-10 09:01:00', NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form_alerts_categories`
+--
+
+CREATE TABLE `form_alerts_categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `form_alerts_categories`
+--
+
+INSERT INTO `form_alerts_categories` (`id`, `name`, `slug`, `status`) VALUES
+(1, 'MCST', 'mcst', 1),
+(2, 'SSC', 'ssc-1', 1),
+(5, 'REET 2018', 'reet-2018', 1);
 
 -- --------------------------------------------------------
 
@@ -211,6 +270,13 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(1, '127.0.0.1', 'pawanbamboli@gmail.com', 1518250185);
+
 -- --------------------------------------------------------
 
 --
@@ -228,7 +294,7 @@ CREATE TABLE `news` (
   `meta_keywords` text CHARACTER SET utf8,
   `meta_description` text CHARACTER SET utf8,
   `created` datetime DEFAULT NULL,
-  `update` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -236,10 +302,11 @@ CREATE TABLE `news` (
 -- Dumping data for table `news`
 --
 
-INSERT INTO `news` (`id`, `title`, `slug`, `short_description`, `start_date`, `image`, `description`, `meta_keywords`, `meta_description`, `created`, `update`, `status`) VALUES
+INSERT INTO `news` (`id`, `title`, `slug`, `short_description`, `start_date`, `image`, `description`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
 (2, 'About us this is about us oage this is about us oage', 'about-us-this-is-about-us-oage-this-is-about-us-oage', 'sdssd', '2017-11-21 00:00:00', 'under_construction.jpg', '<p>sdfsfs</p>', 'sdf', 'fdsf', '2018-01-26 13:23:51', '2018-01-27 11:38:01', 1),
 (3, 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', 'हम-आपक-बचच-और-ककष-1-2-3-4-5-6-7-8-9-10-11', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 और 12 के विद्यार्थियों के लिए विभिन्न प्रकार के निबंध उपलब्ध करा रहे हैं| इस प्रकार के निबंध आपके बच्चों और विद्यार्थियों की अतिरिक्त पाठ्यक्रम गतिविधियों जैसे: निबंध लेखन, बहस और विचार-विमर्श में बहुत सहायक हो सकती है|', '2018-01-27 00:00:00', '1388406166mid-right-add.png', '<p>हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 और 12 के विद्यार्थियों के लिए विभिन्न प्रकार के निबंध उपलब्ध करा रहे हैं| इस प्रकार के निबंध आपके बच्चों और विद्यार्थियों की अतिरिक्त पाठ्यक्रम गतिविधियों जैसे: निबंध लेखन, बहस और विचार-विमर्श में बहुत सहायक हो सकती है|</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/education-essay-in-hindi/\"><strong>शिक्षा पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/education-essay-in-hindi/\">शिक्षा पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-school-essay-in-hindi/\">मेरा स्कूल पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/importance-of-education-essay-in-hindi/\">शिक्षा का महत्व पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/newspaper-essay-in-hindi/\">समाचार पत्र पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-my-dream-in-hindi/\">मेरा सपना पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-brain-drain-in-hindi/\">प्रतिभा पलायन पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-ideal-student-in-hindi/\">आदर्श विद्यार्थी पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-career-in-hindi/\">करियर पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><strong><a href=\"http://www.hindikiduniya.com/essay/animals/\">जानवर पर निबंध</a></strong></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cow-essay-in-hindi/\">गाय पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/elephant-essay-in-hindi/\">हाथी पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/tiger-essay-in-hindi/\">बाघ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/dog-essay-in-hindi/\">कुत्ते पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-my-pet-animal-in-hindi/\">मेरा पालतू जानवर पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-my-pet-cat-in-hindi/\">मेरी पालतू बिल्ली पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-my-pet-dog-in-hindi/\">मेरा पालतू कुत्ता पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sports-essay-in-hindi/\"><strong>खेल पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sports-essay-in-hindi/\">खेल पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/importance-of-sports-essay-in-hindi/\">खेल के महत्व पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cricket-essay-in-hindi/\">क्रिकेट पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/hockey-essay-in-hindi/\">हॉकी पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/football-essay-in-hindi/\">फुटबॉल पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/adventure-essay-in-hindi/\">रोमांच पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/science-technology-essay-in-hindi/\"><strong>विज्ञान और तकनीकी पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/science-technology-essay-in-hindi/\">विज्ञान और तकनीकी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/computer-essay-in-hindi/\">कंप्यूटर पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/internet-essay-in-hindi/\">इंटरनेट पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/globalization-essay-in-hindi/\">ग्लोबलाइजेशन पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-uses-of-internet-in-hindi/\">इंटरनेट का उपयोग पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-disadvantages-of-internet-in-hindi/\">इंटरनेट के नुकसान पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-wonder-of-science-in-hindi/\">विज्ञान के चमत्कार पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/india-essay-in-hindi/\"><strong>भारत पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/india-essay-in-hindi/\">भारत पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/digital-india-essay-in-hindi/\">डिजिटल इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/indian-culture-essay-in-hindi/\">भारतीय संस्कृति पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/unity-in-diversity-essay-in-hindi/\">विविधता में एकता पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/national-flag-essay-in-hindi/\">राष्ट्रीय ध्वज़ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/ek-bharat-shreshtha-bharat-essay-in-hindi/\">एक भारत श्रेष्ठ भारत पर निबन्ध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/jan-dhan-yojana-essay-in-hindi/\">जन धन योजना पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/start-up-india-stand-up-india-essay-in-hindi/\">स्टार्ट अप इंडिया स्टैंड अप इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/nationalism-essay-hindi/\">राष्ट्रवाद पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/make-in-india-essay-in-hindi/\">मेक इन इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/city-life-vs-village-life-essay-in-hindi/\">शहरी जीवन बनाम ग्रामीण जीवन पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/democracy-in-india-essay-in-hindi/\">लोकतंत्र पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/india-of-my-dreams-essay-in-hindi/\">मेरे सपनों का भारत पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-fundamental-rights-in-hindi/\">मौलिक अधिकारों पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/social-issues-awareness-essay-in-hindi/\"><strong>सामाजिक मुद्दे और सामाजिक जागरूकता पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/child-labour-essay-in-hindi/\">बाल मजदूरी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/corruption-essay-in-hindi/\">भ्रष्टाचार पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/women-empowerment-essay-in-hindi/\">महिला सशक्तिकरण पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/beti-bachao-beti-padhao-essay-in-hindi/\">बेटी बचाओ बेटी पढ़ाओ पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/female-foeticide-essay-in-hindi/\">भ्रूण हत्या पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/poverty-essay-in-hindi/\">गरीबी पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/swachh-bharat-abhiyan-essay-in-hindi/\">स्वच्छ भारत अभियान पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cleanliness-essay-in-hindi/\">स्वच्छता पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/bal-swachhta-abhiyan-essay-in-hindi/\">बाल स्वच्छता अभियान पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/national-integration-essay-in-hindi/\">राष्ट्रीय एकीकरण पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/terrorism-essay-in-hindi/\">आतंकवाद पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/road-safety-essay-in-hindi/\">सड़क सुरक्षा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/intolerance-essay-in-hindi/\">असहिष्णुता पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/save-water-essay-in-hindi/\">जल बचाओ पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/rain-water-harvesting-essay-in-hindi/\">वर्षा जल संचयन पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sugamya-bharat-abhiyan-essay-in-hindi/\">सुगम्य भारत अभियान पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/save-girl-child-essay-in-hindi/\">बेटी बचाओ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cashless-india-essay-hindi/\">&nbsp;कैशलेस इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/caste-system-essay-hindi/\">जाति व्यवस्था पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/adult-education-essay-hindi/\">प्रौढ़ शिक्षा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/women-safety-in-india-essay-in-hindi/\">महिलाओं की सुरक्षा पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/women-education-in-india-essay-in-hindi/\">महिला शिक्षा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/status-of-women-in-india-essay-in-hindi/\">महिलाओं की स्थिति पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/violence-against-women-in-india-essay/\">महिलाओं के विरुद्ध हिंसा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/role-of-women-in-society-essay-in-hindi/\">महिलाओं की समाज में भूमिका पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/peace-and-harmony-essay-in-hindi/\">शांति और सदभाव पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/human-rights-essay-hindi/\">मानव अधिकारों पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/farmer-suicides-essay-hindi/\">किसानों की आत्महत्या पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/unemployment-essay/\">बेरोजगारी पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/organ-donation-essay-hindi/\">अंगदान पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/black-money-essay-hindi/\">काले धन पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-dowry-system-in-hindi/\">दहेज़ प्रथा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-girl-education-in-hindi/\">लड़कियों की शिक्षा पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/festivals-essay-in-hindi/\"><strong>त्योहारों पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/holi-essay-in-hindi/\">होली पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/christmas-essay-in-hindi/\">क्रिसमस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/dussehra-essay-in-hindi/\">दशहरा पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/diwali-essay-in-hindi/\">दिपावली पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/ganesh-chaturthi-essay-in-hindi/\">गणेश चतुर्थी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/durga-puja-essay-in-hindi/\">दुर्गा पूजा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-vaisakhi-in-hindi/\">बैसाखी पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/events-essay-in-hindi/\"><strong>विभिन्न उत्सवों पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/republic-day-essay-in-hindi/\">गणतंत्र दिवस पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/independence-day-essay-in-hindi/\">स्वतंत्रता दिवस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mothers-day-essay-in-hindi/\">मातृ दिवस पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/childrens-day-essay-in-hindi/\">बाल दिवस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/gandhi-jayanti-essay-in-hindi/\">गाँधी जयंती पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/teachers-day-essay-in-hindi/\">शिक्षक दिवस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/world-environment-day-essay-in-hindi/\">विश्व पर्यावरण दिवस पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-hindi-diwas-in-hindi/\">हिंदी दिवस पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/people-essay-in-hindi/\"><strong>महान व्यक्तियों पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mahatma-gandhi-essay-in-hindi/\">महात्मा गांधी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/subhas-chandra-bose-essay-in-hindi/\">सुभाष चन्द्र बोस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/jawaharlal-nehru-essay-in-hindi/\">जवाहर लाल नेहरु पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sarvepalli-radhakrishnan-essay-in-hindi/\">डॉ सर्वपल्ली राधाकृष्णन पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/rabindranath-tagore-essay-in-hindi/\">रबिन्द्रनाथ टैगोर पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/apj-abdul-kalam-essay-in-hindi/\">ए.पी.जे. अब्दुल कलाम पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mother-teresa-essay-in-hindi/\">मदर टेरेसा पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sri-aurobindo-essay-in-hindi/\">अरविन्द घोष पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/swami-vivekananda-essay-in-hindi/\">स्वामी विवेकानंद पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-bhagat-singh-in-hindi/\">भगत सिंह पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/relationships-essay-in-hindi/\"><strong>रिश्तो पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mother-essay-in-hindi/\">माँ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-father-essay-in-hindi/\">पिता पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-family-essay-in-hindi/\">मेरा परिवार पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/friendship-essay-in-hindi/\">दोस्ती पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/myself-essay-in-hindi/\">स्वयं पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/teacher-essay-in-hindi/\">शिक्षक पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-best-friend-essay-in-hindi/\">मेरा अच्छा दोस्त पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-favourite-teacher-essay-in-hindi/\">मेरे प्रिय अध्यापक पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/grandparents-essay-in-hindi/\">दादा-दादी पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', '2018-01-26 13:31:49', '2018-01-27 11:37:06', 1),
-(4, 'Additionally, in order to add attributes to the heading tag such as HTML classes, ids or inline styles', 'additionally-in-order-to-add-attributes-to-the-heading-tag-such-as-html-classes-ids-or-inline-styles', 'trrty', '2018-01-31 00:00:00', 'client-image.jpg', '<p>rtyr</p>', 'rty', 'rtyr', '2018-01-26 16:29:27', '2018-01-27 11:54:20', 1);
+(4, 'Additionally, in order to add attributes to the heading tag such as HTML classes, ids or inline styles', 'additionally-in-order-to-add-attributes-to-the-heading-tag-such-as-html-classes-ids-or-inline-styles', 'trrty', '2018-01-31 00:00:00', 'client-image.jpg', '<p>rtyr</p>', 'rty', 'rtyr', '2018-01-26 16:29:27', '2018-02-03 23:15:49', 1),
+(6, '20 May 2017 - Current Affairs', '20-may-2017-current-affairs', '1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.\r\n\r\n2. May 21stÂ is observed asÂ Anti-Terrorism DayÂ in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in theÂ year 1991,Â former Indiaâ€™sÂ PM Rajiv GandhiÂ was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.Â He was 46 years of age.Â Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,Â LTTE (Liberation Tigers of Tamil Elam).', '2018-02-04 00:00:00', NULL, '<p>1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.</p>\r\n\r\n<p>2. May 21st&Acirc; is observed as&Acirc; Anti-Terrorism Day&Acirc; in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in the&Acirc; year 1991,&Acirc; former India&acirc;&euro;&trade;s&Acirc; PM Rajiv Gandhi&Acirc; was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.&Acirc; He was 46 years of age.&Acirc; Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,&Acirc; LTTE (Liberation Tigers of Tamil Elam).</p>', '', '', '2018-02-04 09:14:13', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -255,7 +322,7 @@ CREATE TABLE `pages` (
   `meta_keywords` text CHARACTER SET utf8,
   `meta_description` text CHARACTER SET utf8,
   `created` datetime DEFAULT NULL,
-  `update` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -263,7 +330,7 @@ CREATE TABLE `pages` (
 -- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`id`, `title`, `slug`, `description`, `meta_keywords`, `meta_description`, `created`, `update`, `status`) VALUES
+INSERT INTO `pages` (`id`, `title`, `slug`, `description`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
 (59, 'About us this is about us oage this is about us oage', 'about-us-this-is-about-us-oage-this-is-about-us-oage', '<p>this is about us owwwage</p>', '', '', '2017-12-03 13:16:40', '2018-01-26 04:46:54', 1),
 (60, 'Home', 'home', '<p>home pagessss</p>', '', '', '2017-12-03 13:18:36', '2017-12-23 05:31:53', 0),
 (61, 'Term And Conditions', 'term-and-conditions', '<p>lorem ipsum is simpl resr here</p>', '', '', '2017-12-09 09:29:12', NULL, 1),
@@ -313,7 +380,17 @@ INSERT INTO `permissions` (`id`, `key`, `name`, `group`, `order`) VALUES
 (40, 'subject-edit', 'Subject Edit', 'Subject', 3),
 (41, 'subject-delete', 'Subject Delete', 'Subject', 4),
 (42, 'subject-status', 'Subject Status', 'Subject', 5),
-(44, 'settings-index', 'Site Setting', 'Settings', 1);
+(44, 'settings-index', 'Site Setting', 'Settings', 1),
+(45, 'chapter-index', 'Chapter Listing', 'Chapter', 1),
+(46, 'chapter-add', 'Chapter Add', 'Chapter', 2),
+(47, 'chapter-edit', 'Chapter Edit', 'Chapter', 3),
+(48, 'chapter-delete', 'Chapter Delete', 'Chapter', 4),
+(49, 'chapter-status', 'Chapter Status', 'Chapter', 5),
+(50, 'form_articles-category-index', 'Form Alert Category Listing', 'Form Alerts', 6),
+(51, 'form_articles-category-add', 'Form Alert Category Add', 'Form Alerts', 7),
+(52, 'form_articles-category-edit', 'Form Alert Category Edit', 'Form Alerts', 8),
+(53, 'form_articles-category-delete', 'Form Alert Category Delete', 'Form Alerts', 9),
+(54, 'form_articles-category-status', 'Form Alert Category Status', 'Form Alerts', 10);
 
 -- --------------------------------------------------------
 
@@ -342,7 +419,7 @@ INSERT INTO `settings` (`id`, `title`, `field_name`, `type`, `select_items`, `va
 (1, 'Site Title', 'site_title', 'text', '', 'Kitabi Jhund', 1, 'trim|required', '2013-04-07 23:23:25', 1),
 (2, 'Site Email', 'site_email', 'text', '', 'motilalsoni@gmail.com', 1, 'trim|required|valid_email', '2013-04-07 23:24:28', 1),
 (7, 'Default Meta Description', 'default_meta_description', 'textarea', NULL, 'All users cards ss dd', 0, 'trim|required|min_length[70]|max_length[160]', '2014-05-02 08:45:18', 1),
-(8, 'Default meta keyworkds (comma seperated)', 'default_meta_keyworkds', 'textarea', NULL, 'Buy, Sell, Trade,mtgo, magic online, magic the gathering online, cards, collection, tickets, ix, store, shop, auctions', 0, 'trim|required', '2014-05-02 08:46:07', 1),
+(8, 'Default meta keyworkds (comma seperated)', 'default_meta_keywords', 'textarea', NULL, 'Buy, Sell, Trade,mtgo, magic online, magic the gathering online, cards, collection, tickets, ix, store, shop, auctions', 0, 'trim|required', '2014-05-02 08:46:07', 1),
 (9, 'Default Meta Author', 'default_meta_author', 'text', NULL, 'Amit Yadav', 0, 'trim', '2014-05-02 08:50:39', 1);
 
 -- --------------------------------------------------------
@@ -365,9 +442,9 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
-(1, 'Mathematics', '', 1, '2018-01-27 18:07:28', NULL),
-(6, 'Hindi', 'hindi', 1, '2018-01-27 18:07:28', '2018-01-27 19:11:20'),
-(7, 'Physics', 'physics', 1, '2018-01-27 13:38:59', NULL);
+(10, 'Quantitative Aptitude', 'quantitative-aptitude', 1, '2018-02-03 22:33:32', NULL),
+(11, 'Political Science', 'political-science', 1, '2018-02-03 22:33:55', NULL),
+(12, 'Chemistry', 'chemistry', 1, '2018-02-03 22:36:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -400,10 +477,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'admin', '$2y$08$Us/7E3b8iNdoAE1wDywqx.clLOtUOonK9MlOvC2c5rCX/Nqq0cm5m', NULL, 'admin@admin.com', '', '41OxdsvwogkRPa7YoTUUku1b6c8113ad4e2f5ac2', 1508057752, NULL, 1268889823, 1517154006, 1, 'Amit', 'Yadav', 'ADMIN', '0'),
+(1, '127.0.0.1', 'admin', '$2y$08$X.wo1a1ctWWqF/tiLCx.wubIZsXlKjpxjZNsHwi0ooBkuxL1Muple', NULL, 'admin@admin.com', '', '41OxdsvwogkRPa7YoTUUku1b6c8113ad4e2f5ac2', 1508057752, NULL, 1268889823, 1518250191, 1, 'Amit', 'Yadav', 'ADMIN', '0'),
 (2, '127.0.0.1', NULL, '$2y$08$wQclqGSuDs6ha.ImfqjcDOp8H8M8HEKbTPDjv2CG1WRTOjGd9BCui', NULL, 'motilalsoni@gmail.com', NULL, NULL, NULL, NULL, 1514189309, NULL, 1, 'motilal', 'soni', NULL, '9024978491'),
-(3, '127.0.0.1', NULL, '$2y$08$X.wo1a1ctWWqF/tiLCx.wubIZsXlKjpxjZNsHwi0ooBkuxL1Muple', NULL, 'mohit@gmail.com', NULL, NULL, NULL, NULL, 1514189657, 1517075180, 1, 'Mohit', 'Soni', NULL, '123654789'),
-(5, '127.0.0.1', NULL, '$2y$08$RkW9FzddQUrtbpMzO6Z2gOqJyeT3EEEeaW8zf4fljnK6UaVShNKNu', NULL, 'pawanbamboli@gmail.com', NULL, NULL, NULL, NULL, 1514191227, NULL, 0, 'Pawan', 'Soni', NULL, '123654789');
+(3, '127.0.0.1', NULL, '$2y$08$X.wo1a1ctWWqF/tiLCx.wubIZsXlKjpxjZNsHwi0ooBkuxL1Muple', NULL, 'mohit@gmail.com', NULL, NULL, NULL, NULL, 1514189657, 1517714511, 1, 'Mohit', 'Soni', NULL, '123654789'),
+(5, '127.0.0.1', NULL, '$2y$08$RkW9FzddQUrtbpMzO6Z2gOqJyeT3EEEeaW8zf4fljnK6UaVShNKNu', NULL, 'pawanbamboli@gmail.com', NULL, NULL, NULL, NULL, 1514191227, NULL, 1, 'Pawan', 'Soni', NULL, '123654789');
 
 -- --------------------------------------------------------
 
@@ -431,10 +508,10 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_permissions`
+-- Table structure for table `users_permissions`
 --
 
-CREATE TABLE `user_permissions` (
+CREATE TABLE `users_permissions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) UNSIGNED NOT NULL,
   `permission_id` int(11) NOT NULL,
@@ -442,54 +519,34 @@ CREATE TABLE `user_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_permissions`
+-- Dumping data for table `users_permissions`
 --
 
-INSERT INTO `user_permissions` (`id`, `user_id`, `permission_id`, `created`) VALUES
-(34, 5, 1, '2018-01-20 05:28:10'),
-(36, 5, 3, '2018-01-20 05:28:10'),
-(37, 5, 4, '2018-01-20 05:28:10'),
-(38, 5, 24, '2018-01-20 05:28:10'),
-(39, 5, 7, '2018-01-20 05:29:25'),
-(40, 5, 5, '2018-01-20 05:29:25'),
-(41, 5, 9, '2018-01-20 05:29:25'),
-(45, 2, 1, '2018-01-20 05:35:58'),
-(46, 2, 2, '2018-01-20 05:35:58'),
-(47, 2, 3, '2018-01-20 05:35:58'),
-(48, 2, 4, '2018-01-20 05:35:58'),
-(49, 2, 24, '2018-01-20 05:35:58'),
-(54, 5, 21, '2018-01-20 05:36:07'),
-(55, 5, 22, '2018-01-20 05:36:07'),
-(56, 5, 23, '2018-01-20 05:36:07'),
-(80, 3, 1, '2018-01-26 08:00:50'),
-(89, 2, 28, '2018-01-26 11:45:05'),
-(90, 2, 29, '2018-01-26 11:45:05'),
-(91, 2, 30, '2018-01-26 11:45:05'),
-(92, 2, 31, '2018-01-26 11:45:05'),
-(93, 2, 32, '2018-01-26 11:45:05'),
-(94, 3, 28, '2018-01-26 11:45:14'),
-(99, 3, 38, '2018-01-27 17:11:21'),
-(100, 3, 21, '2018-01-27 17:27:09'),
-(101, 3, 33, '2018-01-27 17:27:09'),
-(102, 3, 44, '2018-01-27 17:27:09'),
-(103, 3, 2, '2018-01-27 17:46:04'),
-(104, 3, 3, '2018-01-27 17:46:04'),
-(105, 3, 4, '2018-01-27 17:46:04'),
-(106, 3, 24, '2018-01-27 17:46:04'),
-(107, 3, 22, '2018-01-27 17:46:04'),
-(108, 3, 23, '2018-01-27 17:46:04'),
-(109, 3, 29, '2018-01-27 17:46:04'),
-(110, 3, 30, '2018-01-27 17:46:04'),
-(111, 3, 31, '2018-01-27 17:46:04'),
-(112, 3, 32, '2018-01-27 17:46:04'),
-(113, 3, 34, '2018-01-27 17:46:04'),
-(114, 3, 35, '2018-01-27 17:46:04'),
-(115, 3, 36, '2018-01-27 17:46:04'),
-(116, 3, 37, '2018-01-27 17:46:04'),
-(117, 3, 39, '2018-01-27 17:46:04'),
-(118, 3, 40, '2018-01-27 17:46:04'),
-(119, 3, 41, '2018-01-27 17:46:04'),
-(120, 3, 42, '2018-01-27 17:46:04');
+INSERT INTO `users_permissions` (`id`, `user_id`, `permission_id`, `created`) VALUES
+(1, 3, 2, '2018-02-02 18:15:11'),
+(2, 3, 1, '2018-02-04 03:20:13'),
+(3, 3, 3, '2018-02-04 03:20:13'),
+(4, 3, 4, '2018-02-04 03:20:13'),
+(5, 3, 24, '2018-02-04 03:20:13'),
+(6, 3, 21, '2018-02-04 03:20:13'),
+(7, 3, 22, '2018-02-04 03:20:13'),
+(8, 3, 23, '2018-02-04 03:20:13'),
+(9, 3, 28, '2018-02-04 03:20:13'),
+(10, 3, 29, '2018-02-04 03:20:13'),
+(11, 3, 30, '2018-02-04 03:20:13'),
+(12, 3, 31, '2018-02-04 03:20:13'),
+(13, 3, 32, '2018-02-04 03:20:13'),
+(18, 3, 45, '2018-02-04 03:21:21'),
+(19, 5, 33, '2018-02-10 08:08:58'),
+(20, 5, 34, '2018-02-10 08:08:58'),
+(21, 5, 35, '2018-02-10 08:08:58'),
+(22, 5, 36, '2018-02-10 08:08:58'),
+(23, 5, 37, '2018-02-10 08:08:58'),
+(24, 5, 50, '2018-02-10 08:08:58'),
+(25, 5, 51, '2018-02-10 08:08:58'),
+(26, 5, 52, '2018-02-10 08:08:58'),
+(27, 5, 53, '2018-02-10 08:08:58'),
+(28, 5, 54, '2018-02-10 08:08:58');
 
 --
 -- Indexes for dumped tables
@@ -500,6 +557,21 @@ INSERT INTO `user_permissions` (`id`, `user_id`, `permission_id`, `created`) VAL
 --
 ALTER TABLE `chapters`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chapters_pages`
+--
+ALTER TABLE `chapters_pages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `chapter_id` (`chapter_id`);
+
+--
+-- Indexes for table `chapters_subjects`
+--
+ALTER TABLE `chapters_subjects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subject_id` (`subject_id`),
+  ADD KEY `topic_id` (`chapter_id`);
 
 --
 -- Indexes for table `ci_sessions`
@@ -519,6 +591,13 @@ ALTER TABLE `email_templates`
 -- Indexes for table `form_alerts`
 --
 ALTER TABLE `form_alerts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category` (`category`);
+
+--
+-- Indexes for table `form_alerts_categories`
+--
+ALTER TABLE `form_alerts_categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -579,11 +658,12 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
--- Indexes for table `user_permissions`
+-- Indexes for table `users_permissions`
 --
-ALTER TABLE `user_permissions`
+ALTER TABLE `users_permissions`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `permission_id` (`permission_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -593,6 +673,16 @@ ALTER TABLE `user_permissions`
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `chapters_pages`
+--
+ALTER TABLE `chapters_pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `chapters_subjects`
+--
+ALTER TABLE `chapters_subjects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `email_templates`
@@ -603,7 +693,12 @@ ALTER TABLE `email_templates`
 -- AUTO_INCREMENT for table `form_alerts`
 --
 ALTER TABLE `form_alerts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `form_alerts_categories`
+--
+ALTER TABLE `form_alerts_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `groups`
 --
@@ -613,12 +708,12 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -628,7 +723,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `settings`
 --
@@ -638,7 +733,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -650,13 +745,32 @@ ALTER TABLE `users`
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `user_permissions`
+-- AUTO_INCREMENT for table `users_permissions`
 --
-ALTER TABLE `user_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+ALTER TABLE `users_permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `chapters_pages`
+--
+ALTER TABLE `chapters_pages`
+  ADD CONSTRAINT `chapters_pages_ibfk_1` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `chapters_subjects`
+--
+ALTER TABLE `chapters_subjects`
+  ADD CONSTRAINT `chapters_subjects_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `chapters_subjects_ibfk_2` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `form_alerts`
+--
+ALTER TABLE `form_alerts`
+  ADD CONSTRAINT `form_alerts_ibfk_1` FOREIGN KEY (`category`) REFERENCES `form_alerts_categories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `users_groups`
@@ -666,10 +780,11 @@ ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_permissions`
+-- Constraints for table `users_permissions`
 --
-ALTER TABLE `user_permissions`
-  ADD CONSTRAINT `user_permissions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `users_permissions`
+  ADD CONSTRAINT `users_permissions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `users_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
