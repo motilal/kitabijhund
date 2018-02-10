@@ -18,6 +18,9 @@
                             <div class="detail-content">
                                 <?php echo $form_alert_detail->description; ?>
                             </div>  
+                            <div class="comments-div" style="width: 100%;float: left;">
+                                <div class="fb-comments" data-href="<?php echo current_url(); ?>" data-numposts="5"></div>
+                            </div>
                         </div> <!-- /.right-event-content -->
                     </div> <!-- /.event-container -->
                 </div>

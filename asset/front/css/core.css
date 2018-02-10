@@ -684,3 +684,6 @@ ul.dishes_list li a {
     height: 170px;
     overflow: hidden;
 }
+img{
+    max-width: 100%;
+}
