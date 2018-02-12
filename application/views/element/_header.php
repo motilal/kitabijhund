@@ -2,13 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 header-left">
-                <p><i class="fa fa-phone"></i> +01 2334 853</p>
-                <p><i class="fa fa-envelope"></i> <a href="mailto:email@universe.com">email@universe.com</a></p>
+                <p><i class="fa fa-phone"></i> <?php echo get_site_setting('contact_phone'); ?></p>
+                <?php $contact_email = get_site_setting('contact_email'); ?>
+                <p><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a></p>
             </div> <!-- /.header-left -->
 
             <div class="col-md-4">
                 <div class="logo">
-                    <a href="index.html" title="Universe" rel="home">
+                     <a href="<?php echo site_url(); ?>" title="Kitabi Jhund" rel="home">
                         <img src="http://demo.esmeth.com/universe/Blue/images/logo.png" alt="Kitabijhund">
                     </a>
                 </div> <!-- /.logo -->

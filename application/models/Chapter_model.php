@@ -33,8 +33,8 @@ class Chapter_model extends CI_Model {
         return $data;
     }
 
-    public function get_chapters_pages($condition = array()) {
-        $this->db->select("chapters_pages.*");
+    public function get_chapters_pages($condition = array(), $select = 'chapters_pages.*') {
+        $this->db->select($select);
         if (!empty($condition) || $condition != "") {
             $this->db->where($condition);
         }
@@ -66,6 +66,14 @@ class Chapter_model extends CI_Model {
                 ->where(!empty($condition) ? $condition : 1, TRUE)
                 ->get("chapters_subjects");
         return $result->num_rows() > 0 ? $result->result() : null;
+    }
+
+    public function get_subjects_chapters($condition) {
+        $result = $this->db->select("chapters.id,chapters.name,chapters.slug")
+                ->join('chapters', 'chapters.id=chapters_subjects.chapter_id', 'INNER')
+                ->where(!empty($condition) ? $condition : 1, TRUE)
+                ->get("chapters_subjects");
+        return $result->num_rows() > 0 ? $result->result_array() : null;
     }
 
     public function get_total_pages($condition) {
