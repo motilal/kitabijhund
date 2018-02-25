@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 11:00 AM
+-- Generation Time: Feb 25, 2018 at 07:15 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -42,7 +42,7 @@ CREATE TABLE `chapters` (
 --
 
 INSERT INTO `chapters` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
-(6, 'Number System', 'number-system', 1, '2018-02-03 22:41:10', NULL);
+(8, 'Basic', 'basic', 1, '2018-02-14 21:38:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,13 @@ CREATE TABLE `chapters_pages` (
   `question_answer` text CHARACTER SET utf8
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `chapters_pages`
+--
+
+INSERT INTO `chapters_pages` (`id`, `chapter_id`, `title`, `slug`, `content`, `question_answer`) VALUES
+(5, 8, 'Basic', 'basic', '<h2>Defination</h2>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Biology is the science of life forms and living process. Aristotle is known as the father of biology.</p>\r\n\r\n<p>Parts of Biology:</p>\r\n\r\n<ol>\r\n	<li>Botany</li>\r\n	<li>Zoology</li>\r\n</ol>\r\n\r\n<h2>Botany</h2>\r\n\r\n<p>The branch of biology which deals with the study of&nbsp;<strong>plants</strong>&nbsp;is known as botany. &nbsp;Theophrastus is known as the father of botany</p>\r\n\r\n<h2>Zoology</h2>\r\n\r\n<p>The branch of biology which deals with the study of&nbsp;<strong>animals</strong>&nbsp;is known as zoology.</p>\r\n\r\n<h2>Some Common Terms</h2>\r\n\r\n<ol>\r\n	<li>Anatomy: This branch of biology deals with the internal structure and organisation of animals.</li>\r\n	<li>Biodiversity: &nbsp;Biodiversity&nbsp;refers to the variety of life. It studies the number of species in an ecosystem or on earth.</li>\r\n	<li>Biotechnology: This deals with the use of living systems and organisms to develop or make biological products. Biotechnology&nbsp;related to cellular and biomolecular processes to develop technologies and products that help improve our lives and the health of our planet.</li>\r\n	<li>Cell Biology: Also known as cytology. This deals with the study of cell</li>\r\n	<li>DNA (Deoxyribo Nucleic Acid): It is the carrier of genetic information. &nbsp;DNA is a molecule that contains the instructions an organism needs to develop, live and reproduce. These instructions are found inside every cell, and are passed down from parents to their children.</li>\r\n	<li>Ecology: The study of environment and its intersection with organisms is known as ecology.</li>\r\n	<li>Gene: The Functional and structural unit of inheritance is known as gene</li>\r\n	<li>Histology: This is the study of anatomy of cells and tissues of plants and animals.</li>\r\n	<li>Physiology: &nbsp;This deals with the function and activities of living organisms</li>\r\n	<li>Virology: This deals with the study of viruses.</li>\r\n</ol>', '');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +77,13 @@ CREATE TABLE `chapters_subjects` (
   `chapter_id` int(11) NOT NULL,
   `subject_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chapters_subjects`
+--
+
+INSERT INTO `chapters_subjects` (`id`, `chapter_id`, `subject_id`) VALUES
+(3, 8, 16);
 
 -- --------------------------------------------------------
 
@@ -89,70 +103,60 @@ CREATE TABLE `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('bkfobqvnjs6k49vamudlg6eds6a2u16v', '::1', 1509176948, '__ci_last_regenerate|i:1509176916;error|s:22:\"<p>Incorrect Login</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
-('gqpu3eemcnrt9h4e6itfnmdqnav0fid1', '::1', 1509176914, '__ci_last_regenerate|i:1509176914;'),
-('dgt2r12ur9cmcgtdi3cs98jr6vk39om8', '127.0.0.1', 1508066541, '__ci_last_regenerate|i:1508066356;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('53jne9rv26un2lkrfjvfktnc3l87rahk', '127.0.0.1', 1508065881, '__ci_last_regenerate|i:1508065841;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('id7dgu4jalu2rji3v1vr41g3f821nthb', '127.0.0.1', 1508065333, '__ci_last_regenerate|i:1508065272;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('6dru4hc4vrdsmk27q215ijp42mproif5', '127.0.0.1', 1508064972, '__ci_last_regenerate|i:1508064911;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('ln4fvc912trieopjg00oqesm0drud199', '127.0.0.1', 1508064906, '__ci_last_regenerate|i:1508064608;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('njgvfbepd470agcpa4uhilkh4456j40g', '127.0.0.1', 1508064487, '__ci_last_regenerate|i:1508064287;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('hjaop7f65gp7p8g4re2b6f8uai5rejqn', '127.0.0.1', 1508064255, '__ci_last_regenerate|i:1508063972;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('v1vpvb3p5fgei35ln6k31bifjb2qkdhn', '127.0.0.1', 1508063928, '__ci_last_regenerate|i:1508063639;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('jg8f06agqo7j32prc1e4dc7f3o2tkgvg', '127.0.0.1', 1508063398, '__ci_last_regenerate|i:1508063236;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('399meerd0qteub9mfpfh46oclej5pvgc', '127.0.0.1', 1508063221, '__ci_last_regenerate|i:1508062922;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('6s7j8l432470hdtvfni9dhc8pnpcukaq', '127.0.0.1', 1508062751, '__ci_last_regenerate|i:1508062577;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('qv3t5ht2u9cq6v0p3i1i0eaf55pddln4', '127.0.0.1', 1508062564, '__ci_last_regenerate|i:1508062265;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('dq7tv0is7gci719tv01se9efjfjnc6a5', '127.0.0.1', 1508062201, '__ci_last_regenerate|i:1508061912;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('ltggpptsqqgfnkbo1aaiqf9ji6tb6521', '127.0.0.1', 1508061619, '__ci_last_regenerate|i:1508061602;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('rpll7f5ro9mqi915tvvns1citbbup7im', '127.0.0.1', 1508061252, '__ci_last_regenerate|i:1508061244;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('ndb82agc4dfc8fheefnei9tefl2sf4kk', '127.0.0.1', 1508061205, '__ci_last_regenerate|i:1508060907;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('gok54fauu3m63n2o3929tl9st2k076fj', '127.0.0.1', 1508060791, '__ci_last_regenerate|i:1508060520;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('rgdt7ol87i0mj1cdtail65872n0gugcj', '127.0.0.1', 1508060431, '__ci_last_regenerate|i:1508060174;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('6j4cfqr1dvdf4pq14bvq24bccaabipe5', '127.0.0.1', 1508059960, '__ci_last_regenerate|i:1508059781;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('bfn7iji7urcdn73hr0n1m06n0hsig2ok', '127.0.0.1', 1508059242, '__ci_last_regenerate|i:1508059063;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('hdirtgikdgm3cuffshda7b0n6seu7ggu', '127.0.0.1', 1508059022, '__ci_last_regenerate|i:1508058750;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('dshvd4fncafms25909ojmr7petq36r45', '127.0.0.1', 1508058475, '__ci_last_regenerate|i:1508058366;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('4lq9kqtubnbet8rlfm6bce9tr5obtp2t', '127.0.0.1', 1508045893, '__ci_last_regenerate|i:1508045864;identity|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508045577\";last_check|i:1508045710;username|s:5:\"admin\";'),
-('1eg8fr3anmtm2mglk1b2uq81ug16vn7n', '127.0.0.1', 1508045814, '__ci_last_regenerate|i:1508045559;identity|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508045577\";last_check|i:1508045710;username|s:5:\"admin\";'),
-('ahsql4n0oevjd2t3ncaamd5n2b3d3ot1', '127.0.0.1', 1508044652, '__ci_last_regenerate|i:1508044486;error|s:22:\"<p>Incorrect Login</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
-('gjs68nlbf5oe692gt1vovljutk2ttihm', '127.0.0.1', 1508045553, '__ci_last_regenerate|i:1508045258;'),
-('713nfi0aqrg7nco0moe1qr3rkvbu67vq', '127.0.0.1', 1508044256, '__ci_last_regenerate|i:1508043976;'),
-('8smi6bb0blk5ui61q1scrlohh2i9evjo', '127.0.0.1', 1508043557, '__ci_last_regenerate|i:1508043260;'),
-('5u4jjupmb3l9rn592letladtkjd4c62o', '127.0.0.1', 1508043975, '__ci_last_regenerate|i:1508043783;'),
-('ejbb4moiup7d3ahvkckb2q0gc12vl4h3', '127.0.0.1', 1508042750, '__ci_last_regenerate|i:1508042478;'),
-('mb3cr8bl3phpk1n28vennttvvhtam1uj', '127.0.0.1', 1508042965, '__ci_last_regenerate|i:1508042928;'),
-('cdl84qq9nf0bcoe92pco7jjnnad353o3', '127.0.0.1', 1508041234, '__ci_last_regenerate|i:1508041197;'),
-('u8ju7on1i0igfv1u18c4f02ijj01njic', '127.0.0.1', 1508041939, '__ci_last_regenerate|i:1508041752;'),
-('o9fqdus88g51srkoc4eial1g198rkjlj', '127.0.0.1', 1508042372, '__ci_last_regenerate|i:1508042077;'),
-('pu65emojmkppbao3pbafkq0nnb3hsci3', '127.0.0.1', 1508058341, '__ci_last_regenerate|i:1508058054;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;success|s:35:\"Email Template updted successfully.\";__ci_vars|a:1:{s:7:\"success\";s:3:\"old\";}'),
-('6004e5b3607ab28de9db1105430022db563f38ee', '127.0.0.1', 1508040824, '__ci_last_regenerate|i:1508040659;'),
-('goghvhk8a5q50f0hjfpmp8tke4n6grui', '127.0.0.1', 1508057622, '__ci_last_regenerate|i:1508057423;'),
-('95767pb1np0nu5r2mlc6nj53dt65h6gf', '127.0.0.1', 1508058047, '__ci_last_regenerate|i:1508057752;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508051059\";last_check|i:1508057838;'),
-('nu2efcg62c9oerq9g5s1sobks7pgo2oc', '127.0.0.1', 1508056962, '__ci_last_regenerate|i:1508056741;'),
-('6j68fcfl6pa80jfmdilufhg4c3sfbsr3', '127.0.0.1', 1508057196, '__ci_last_regenerate|i:1508057056;'),
-('icq9i4lnrdlvgd9glo4gg00c9dqtiub4', '127.0.0.1', 1508054700, '__ci_last_regenerate|i:1508054493;'),
-('637jnu5v9kl04itckcbi49nti4tlflrs', '127.0.0.1', 1508054465, '__ci_last_regenerate|i:1508054183;success|s:32:\"<p>Password Reset Email Sent</p>\";__ci_vars|a:1:{s:7:\"success\";s:3:\"old\";}'),
-('oj42450mjgvfajsgiqs134i8l396k0bf', '127.0.0.1', 1508054119, '__ci_last_regenerate|i:1508053834;message|s:32:\"<p>Password Reset Email Sent</p>\";__ci_vars|a:1:{s:7:\"message\";s:3:\"old\";}'),
-('jsv626ihul0452nqb5rbf8m1mspfo7gj', '127.0.0.1', 1508053789, '__ci_last_regenerate|i:1508053513;message|s:32:\"<p>Password Reset Email Sent</p>\";__ci_vars|a:1:{s:7:\"message\";s:3:\"old\";}'),
-('q4b7vd4u9je4i1n8bcv4839qcvpl0n6e', '127.0.0.1', 1508053050, '__ci_last_regenerate|i:1508052787;error|s:45:\"<p>##forgot_password_identity_not_found##</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
-('vahlcna67fscpibekol4ge5deoqjc3ub', '127.0.0.1', 1508051077, '__ci_last_regenerate|i:1508051072;'),
-('535t9ugfh5vij40nm56qsdde21rqut02', '127.0.0.1', 1508051808, '__ci_last_regenerate|i:1508051527;'),
-('64knkcbl9pd2eh1n71tn12cg0ovj07du', '127.0.0.1', 1508052137, '__ci_last_regenerate|i:1508051840;'),
-('8rlgk91is3bb2kmglt87u9u420lcv93a', '127.0.0.1', 1508050236, '__ci_last_regenerate|i:1508050192;message|s:22:\"<p>Incorrect Login</p>\";__ci_vars|a:1:{s:7:\"message\";s:3:\"old\";}'),
-('jpb06jeseh4hp39adku7rh5s2mv5a99r', '127.0.0.1', 1508049804, '__ci_last_regenerate|i:1508049784;error|s:22:\"<p>Incorrect Login</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
-('chmmfrn7sipeifbl564i7g11opc6hcv9', '127.0.0.1', 1508052416, '__ci_last_regenerate|i:1508052143;message|s:45:\"<p>##forgot_password_identity_not_found##</p>\";__ci_vars|a:1:{s:7:\"message\";s:3:\"old\";}'),
-('2uda9keah8efp6ddl8dgenv1lohpfuq2', '127.0.0.1', 1508050642, '__ci_last_regenerate|i:1508050642;'),
-('gon9ak60t21n3g08jkm88qnleqd8i823', '127.0.0.1', 1508048776, '__ci_last_regenerate|i:1508048518;'),
-('2577matp9lfbddnkmufmlo7i866q4mqj', '127.0.0.1', 1508049118, '__ci_last_regenerate|i:1508048821;'),
-('e03dspdo0l40qp69d1fvihnk2b13rg2p', '127.0.0.1', 1508049433, '__ci_last_regenerate|i:1508049138;identity|s:5:\"admin\";username|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508048445\";last_check|i:1508049426;'),
-('csdjagul5ofngjk2hvdioptihojser7l', '127.0.0.1', 1508048302, '__ci_last_regenerate|i:1508048031;identity|s:5:\"admin\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1508045577\";last_check|i:1508045710;username|s:5:\"admin\";'),
-('87ef658a171c5d63d353e788b89fb05bae0fb331', '::1', 1510393241, '__ci_last_regenerate|i:1510393147;'),
-('5aea7dac3995c17e2aab7b0f20c1844cb76e5615', '::1', 1510394060, '__ci_last_regenerate|i:1510394049;'),
-('c0522d5612bfe9390c87bae6f3b99ef4ec5e8199', '::1', 1510399960, '__ci_last_regenerate|i:1510399960;'),
-('lmgn6kln6f3rhal5hbheci0l87ahkfk9', '::1', 1510400637, '__ci_last_regenerate|i:1510400637;'),
-('8be4b8fe69adb3eab125a64f1a947768cd002bb5', '::1', 1510415604, '__ci_last_regenerate|i:1510415355;'),
-('288c7667299c8e84c55cd88b60d7f6a3c49917c4', '127.0.0.1', 1512207219, '__ci_last_regenerate|i:1512207219;');
+('vhf62l4l0eml4up4n3604hat8d127lt7', '127.0.0.1', 1519563438, '__ci_last_regenerate|i:1519563318;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519562542\";last_check|i:1519562589;'),
+('irdpehm0fij2v713ku50mej87onlqecs', '127.0.0.1', 1519562883, '__ci_last_regenerate|i:1519562584;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519562542\";last_check|i:1519562589;'),
+('21fjadqvj6mmt7v4qaqnenu1tcop6c8m', '127.0.0.1', 1519563149, '__ci_last_regenerate|i:1519562894;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519562542\";last_check|i:1519562589;'),
+('3bnm9efq75v40qfampudnjis6d9ipfcg', '127.0.0.1', 1519563807, '__ci_last_regenerate|i:1519563696;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519562542\";last_check|i:1519562589;'),
+('bs32umtfas3v34kqgcf6i2ke893st6g9', '127.0.0.1', 1519567139, '__ci_last_regenerate|i:1519566847;identity|s:15:\"mohit@gmail.com\";email|s:15:\"mohit@gmail.com\";user_id|s:1:\"3\";old_last_login|s:10:\"1519562557\";last_check|i:1519566850;_subadmin_allow_actions|a:14:{i:0;s:8:\"page-add\";i:1;s:10:\"page-index\";i:2;s:9:\"page-edit\";i:3;s:11:\"page-delete\";i:4;s:11:\"page-status\";i:5;s:21:\"email_templates-index\";i:6;s:20:\"email_templates-edit\";i:7;s:22:\"email_templates-status\";i:8;s:10:\"news-index\";i:9;s:8:\"news-add\";i:10;s:9:\"news-edit\";i:11;s:11:\"news-delete\";i:12;s:11:\"news-status\";i:13;s:13:\"chapter-index\";}_subadmin_allow_module|a:4:{i:0;s:4:\"page\";i:5;s:15:\"email templates\";i:8;s:4:\"news\";i:13;s:7:\"chapter\";}'),
+('ojr4qjcuabkdmblj40ulcfnin2bup4ep', '127.0.0.1', 1519569171, '__ci_last_regenerate|i:1519568952;error|s:41:\"Temporarily Locked Out.  Try again later.\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
+('1mj6fnh043nhh7uno09u1iuv5gf0kf47', '127.0.0.1', 1519567706, '__ci_last_regenerate|i:1519567407;error|s:22:\"<p>Incorrect Login</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
+('qg4objtfv28p5n575ivj51p0880h929n', '127.0.0.1', 1519568030, '__ci_last_regenerate|i:1519567759;error|s:48:\"<p>Temporarily Locked Out.  Try again later.</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
+('pl589398ja68o7jqaf4nvmq3luqjr2rt', '127.0.0.1', 1519568215, '__ci_last_regenerate|i:1519568103;error|s:41:\"Temporarily Locked Out.  Try again later.\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
+('s14jb2g05gurvq5aujgou2nus07jscvl', '127.0.0.1', 1519568801, '__ci_last_regenerate|i:1519568627;error|s:41:\"Temporarily Locked Out.  Try again later.\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}'),
+('b0conl8k8crni8vdvk2dr0084r2803sn', '127.0.0.1', 1519572207, '__ci_last_regenerate|i:1519572167;identity|s:15:\"mohit@gmail.com\";email|s:15:\"mohit@gmail.com\";user_id|s:1:\"3\";old_last_login|s:10:\"1519566850\";last_check|i:1519572206;_subadmin_allow_actions|a:14:{i:0;s:8:\"page-add\";i:1;s:10:\"page-index\";i:2;s:9:\"page-edit\";i:3;s:11:\"page-delete\";i:4;s:11:\"page-status\";i:5;s:21:\"email_templates-index\";i:6;s:20:\"email_templates-edit\";i:7;s:22:\"email_templates-status\";i:8;s:10:\"news-index\";i:9;s:8:\"news-add\";i:10;s:9:\"news-edit\";i:11;s:11:\"news-delete\";i:12;s:11:\"news-status\";i:13;s:13:\"chapter-index\";}_subadmin_allow_module|a:4:{i:0;s:4:\"page\";i:5;s:15:\"email templates\";i:8;s:4:\"news\";i:13;s:7:\"chapter\";}'),
+('5u6v74g7thq49eotln4836gol5u4t58v', '127.0.0.1', 1519572984, '__ci_last_regenerate|i:1519572685;'),
+('61870ia07jjg66qtu88d11ldpnbdikjc', '127.0.0.1', 1519573031, '__ci_last_regenerate|i:1519573031;'),
+('ti1vn8cb0esvb6l5ar8c6pdh2tnqhovi', '127.0.0.1', 1519573729, '__ci_last_regenerate|i:1519573586;success|s:25:\"Password Reset Email Sent\";__ci_vars|a:1:{s:7:\"success\";s:3:\"old\";}'),
+('qv533vhkt1t4ko7rt9mgiu519h6rkppb', '127.0.0.1', 1519574148, '__ci_last_regenerate|i:1519573913;success|s:29:\"Password Successfully Changed\";__ci_vars|a:1:{s:7:\"success\";s:3:\"old\";}'),
+('aapg6e93hbq0aieumonb78appk2uq9kd', '127.0.0.1', 1519574521, '__ci_last_regenerate|i:1519574374;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('fq22f2246g92qua00847ngtiahnnh547', '127.0.0.1', 1519575242, '__ci_last_regenerate|i:1519575145;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('u276nvv68qt1pb4n5id0rpgfvusa81u9', '127.0.0.1', 1519575956, '__ci_last_regenerate|i:1519575682;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('tsi8n41kk4nu2r84jgesev38j0qo9vpe', '127.0.0.1', 1519576233, '__ci_last_regenerate|i:1519576053;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('9trc47hkvq6690rnoudlf8kp5uou0i2d', '127.0.0.1', 1519577085, '__ci_last_regenerate|i:1519576812;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('al63b3336n9nvqlkm21jheoi6nni1k98', '127.0.0.1', 1519577432, '__ci_last_regenerate|i:1519577147;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('uq9r96922q3cm74luu9jfgbq81gsge9b', '127.0.0.1', 1519577557, '__ci_last_regenerate|i:1519577487;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('5kme8r6150mqn2quadm33n5pq1bq250t', '127.0.0.1', 1519578437, '__ci_last_regenerate|i:1519578182;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('5igq62e0e85pdl49tafre7ta7tc6n2eg', '127.0.0.1', 1519578842, '__ci_last_regenerate|i:1519578544;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;success|s:34:\"Site settings updated successfully\";__ci_vars|a:1:{s:7:\"success\";s:3:\"old\";}'),
+('cq636sad3oj73l33gqdfgpvv1g40vcm0', '127.0.0.1', 1519579130, '__ci_last_regenerate|i:1519578845;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('2arveefja1dih6bvhl80nmqb88tci0d6', '127.0.0.1', 1519579472, '__ci_last_regenerate|i:1519579176;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('q1m1fnsqbrcc4vmp5s0foe0anlem42pg', '127.0.0.1', 1519579625, '__ci_last_regenerate|i:1519579478;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
+('imrgg3c570aknkkeri77h58kvmhufg0u', '127.0.0.1', 1519582356, '__ci_last_regenerate|i:1519582134;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
+('b1ao9ooi8jpi60amr6c3un64eoqvucf0', '127.0.0.1', 1519582086, '__ci_last_regenerate|i:1519581791;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
+('js01uuo2im2gaupn6v5p7ogr6295svf5', '127.0.0.1', 1519582498, '__ci_last_regenerate|i:1519582443;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
+(3, 'SSC', 'ssc', 1, '2018-02-14 21:27:33', NULL),
+(4, 'Bank', 'bank', 1, '2018-02-14 21:27:47', '2018-02-25 12:20:47'),
+(5, 'RBSC', 'rbsc', 1, '2018-02-25 04:18:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,12 +181,90 @@ CREATE TABLE `email_templates` (
 --
 
 INSERT INTO `email_templates` (`id`, `title`, `subject`, `slug`, `body`, `variable`, `created`, `updated`, `status`) VALUES
-(1, 'about us', 'test wert', 'about-us', '<p>New Advertise Message on Footig .</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>-:Post Message information:-<br />\r\n<br />\r\n<strong>First Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>{{firstname}}<br />\r\n<strong>Email&nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; </strong>{{email}}<br />\r\n<strong>Phone&nbsp; &nbsp; :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{contactno}}<br />\r\n<strong>Address:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{address}}<br />\r\n<strong>message &nbsp;&nbsp; :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{message}}</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Thank you for using Footing,<br />\r\n<strong>The Footing Team</strong><br />\r\n<br />\r\nif you need any type of support or have comments . feel free to <a href=\"http://footig.com\">contact our Customer Service Team</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>', '{{asdas}},{{asdsad}}', '2015-09-17 14:12:32', '2017-12-25 04:20:36', 1),
-(2, 'User Signup', 'Signup mail', 'signup', '<p>Hi ~name~,</p>\r\n\r\n<p>You have successfully registered on dagamechanger.com.</p>\r\n\r\n<p>Please <a href=\"~site_url~\">click here</a> to activate your dagamechanger.com account</p>\r\n\r\n<p>Thank you</p>', NULL, '2015-09-28 11:55:53', NULL, 1),
-(3, 'Resend activation mail', 'account activation', 'resend-activation-mail', '<p>Hi ~name~,</p>\r\n\r\n<p>You have successfully registered on MTGOStock.</p>\r\n\r\n<p>Please <a href=\"~site_url~\">click here</a> to activate your mtgo account</p>\r\n\r\n<p>Thank you</p>', NULL, '2015-09-28 12:48:39', '2016-03-02 18:09:21', 1),
-(4, 'Forgot Password', 'forgot password', 'admin-forgot-password', '<p>Hi ~name~,</p>\r\n\r\n<p>Your password is reset successfully, please click here to create new password.</p>\r\n\r\n<p>Please <a href=\"~site_url~\">click here</a> to create new password.</p>\r\n\r\n<p>Thank you</p>', '{{dsfsdfsf}},{{sdfsf}}', '2015-09-28 17:37:15', '2016-03-03 18:01:00', 1),
-(5, 'Order email', 'Order placed successfully', 'order-email', '<p>Hi ~name~,</p>\r\n\r\n<p>You have purchase ~gallery_title~</p>\r\n\r\n<p>You have been succefully placed your order your tanrsaction id is ~transaction_id~.</p>\r\n\r\n<p>Please click here to download <a href=\"~download_link~\">click here</a>Download.</p>\r\n\r\n<p>Thank you</p>', NULL, '2015-09-28 17:37:15', '2016-03-03 17:51:58', 1),
-(6, 'testn', 'sdfds', 'testn', '<p>sdfsddsasddas</p>', NULL, '2016-03-03 12:22:20', '2016-03-03 17:52:27', 1);
+(4, 'Forgot Password', 'forgot password', 'forgot-password', '<p>Dear User,</p>\r\n\r\n<p>Your password is reset successfully, please click here to create new password.</p>\r\n\r\n<p>Please <a href=\"{link}\">click here</a> to create new password.</p>\r\n\r\n<p>Thank you</p>\r\n\r\n<p><strong>Regards,</strong></p>\r\n\r\n<p><strong>Kitabi Jhund</strong></p>', '{link}', '2015-09-28 17:37:15', '2018-02-25 17:24:28', 1),
+(6, 'Reset Password', 'Password Reset', 'reset-password', '<p>Dear User</p>\r\n\r\n<p>As per your request , Your password has been reset</p>\r\n\r\n<p>Password : <strong>{password} </strong></p>\r\n\r\n<p>This is auto generated password. You are advised to change your password as per you convenience.</p>\r\n\r\n<p><strong>Regards,</strong></p>\r\n\r\n<p><strong>Kitabi Jhund</strong></p>\r\n\r\n<p>&nbsp;</p>', '{password}', '2016-03-03 12:22:20', '2018-02-25 17:21:55', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `flash_messages`
+--
+
+CREATE TABLE `flash_messages` (
+  `id` int(11) NOT NULL,
+  `key` varchar(255) NOT NULL,
+  `value` text NOT NULL,
+  `group` varchar(255) NOT NULL DEFAULT 'Unknown',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `flash_messages`
+--
+
+INSERT INTO `flash_messages` (`id`, `key`, `value`, `group`, `order`, `updated`) VALUES
+(1, 'LinkExpired', 'Sorry! This link has been expired.', 'General', 1, '2018-02-22 09:00:06'),
+(2, 'InvalidRequest', 'Invalid request.', 'General', 2, '2018-02-22 09:00:06'),
+(3, 'PageUpdateSuccess', 'Page updted successfully.', 'Page', 1, '2018-02-22 09:00:06'),
+(4, 'PageAddSuccess', 'Page added successfully.', 'Page', 2, '2018-02-22 09:00:06'),
+(5, 'PageDeleteSuccess', 'Page deleted successfully.', 'Page', 3, '2018-02-22 09:00:06'),
+(6, 'PageActiveSuccess', 'Page Active Successfully.', 'Page', 4, '2018-02-22 09:00:06'),
+(7, 'PageInactiveSuccess', 'Page Inactive Successfully.', 'Page', 5, '2018-02-22 09:00:06'),
+(8, 'SubadminUpdateSuccess', 'Subadmin updted successfully.', 'Subadmin', 1, '2018-02-22 09:00:06'),
+(9, 'SubadminAddSuccess', 'Subadmin added successfully.', 'Subadmin', 2, '2018-02-22 09:00:06'),
+(10, 'SubadminPermissionUpdateSuccess', 'Your Permission Update Success.', 'Subadmin', 3, '2018-02-22 09:00:06'),
+(11, 'SubadminDeleteSuccess', 'Subadmin deleted successfully.', 'Subadmin', 4, '2018-02-22 09:00:06'),
+(12, 'SubadminActiveSuccess', 'Subadmin Active Successfully.', 'Subadmin', 5, '2018-02-22 09:00:06'),
+(13, 'SubadminInactiveSuccess', 'Subadmin Inactive Successfully.', 'Subadmin', 6, '2018-02-22 09:00:06'),
+(14, 'NewsUpdateSuccess', 'News updted successfully.', 'News', 1, '2018-02-22 09:00:06'),
+(15, 'NewsAddSuccess', 'News added successfully.', 'News', 2, '2018-02-22 09:00:06'),
+(16, 'NewsDeleteSuccess', 'News deleted successfully.', 'News', 3, '2018-02-22 09:00:06'),
+(17, 'NewsActiveSuccess', 'News Active Successfully.', 'News', 4, '2018-02-22 09:00:06'),
+(18, 'NewsInactiveSuccess', 'News Inactive Successfully.', 'News', 5, '2018-02-22 09:00:06'),
+(19, 'FormAlertUpdateSuccess', 'Form Alert updted successfully.', 'Form Alert', 1, '2018-02-22 09:00:06'),
+(20, 'FormAlertAddSuccess', 'Form Alert added successfully.', 'Form Alert', 2, '2018-02-22 09:00:06'),
+(21, 'FormAlertDeleteSuccess', 'Form Alert deleted successfully.', 'Form Alert', 3, '2018-02-22 09:00:06'),
+(22, 'FormAlertActiveSuccess', 'Form Alert Active Successfully.', 'Form Alert', 4, '2018-02-22 09:00:06'),
+(23, 'FormAlertInactiveSuccess', 'Form Alert Inactive Successfully.', 'Form Alert', 5, '2018-02-22 09:00:06'),
+(24, 'SubjectUpdateSuccess', 'Subject updted successfully.', 'Subject', 1, '2018-02-22 09:00:06'),
+(25, 'SubjectAddSuccess', 'Subject added successfully.', 'Subject', 2, '2018-02-22 09:00:06'),
+(26, 'SubjectDeleteSuccess', 'Subject deleted successfully.', 'Subject', 3, '2018-02-22 09:00:06'),
+(27, 'SubjectActiveSuccess', 'Subject Active Successfully.', 'Subject', 4, '2018-02-22 09:00:06'),
+(28, 'SubjectInactiveSuccess', 'Subject Inactive Successfully.', 'Subject', 5, '2018-02-22 09:00:06'),
+(29, 'ChapterUpdateSuccess', 'Chapter updted successfully.', 'Chapter', 1, '2018-02-25 02:02:04'),
+(30, 'ChapterAddSuccess', 'Chapter added successfully.', 'Chapter', 2, '2018-02-22 09:00:06'),
+(31, 'ChapterDeleteSuccess', 'Chapter deleted successfully.', 'Chapter', 3, '2018-02-22 09:00:06'),
+(32, 'ChapterActiveSuccess', 'Chapter Active Successfully.', 'Chapter', 4, '2018-02-22 09:00:06'),
+(33, 'ChapterInactiveSuccess', 'Chapter Inactive Successfully.', 'Chapter', 5, '2018-02-22 09:00:06'),
+(34, 'ChapterPageUpdateSuccess', 'Chapter Page updted successfully.', 'Chapter', 6, '2018-02-22 09:00:06'),
+(35, 'ChapterPageAddSuccess', 'Chapter Page added successfully.', 'Chapter', 7, '2018-02-22 09:00:06'),
+(36, 'ChapterPageDeleteSuccess', 'Chapter Page deleted successfully.', 'Chapter', 8, '2018-02-22 09:00:06'),
+(37, 'ChapterPageActiveSuccess', 'Chapter Page Active Successfully.', 'Chapter', 9, '2018-02-22 09:00:06'),
+(38, 'ChapterPageInactiveSuccess', 'Chapter Page Inactive Successfully.', 'Chapter', 10, '2018-02-22 09:00:06'),
+(39, 'SettingUpdateSuccess', 'Setting updted successfully.', 'Setting', 1, '2018-02-22 09:00:06'),
+(40, 'PasswordChangeSuccess', 'Password changed successfully.', 'Setting', 2, '2018-02-22 09:00:06'),
+(41, 'EmailTemplateUpdateSuccess', 'Email Template updted successfully.', 'Email Template', 1, '2018-02-22 09:00:06'),
+(42, 'EmailTemplateAddSuccess', 'Email Template added successfully.', 'Email Template', 2, '2018-02-22 09:00:06'),
+(43, 'EmailTemplateDeleteSuccess', 'Email Template deleted successfully.', 'Email Template', 3, '2018-02-22 09:00:06'),
+(44, 'EmailTemplateActiveSuccess', 'Email Template Active Successfully.', 'Email Template', 4, '2018-02-22 09:00:06'),
+(45, 'EmailTemplateInactiveSuccess', 'Email Template Inactive Successfully.', 'Email Template', 5, '2018-02-22 09:00:06'),
+(46, 'PermissionUpdateSuccess', 'Permission updted successfully.', 'Permission', 1, '2018-02-22 09:00:06'),
+(47, 'PermissionAddSuccess', 'Permission added successfully.', 'Permission', 2, '2018-02-22 09:00:06'),
+(48, 'PermissionKeyExist', 'Permission key already exist.', 'Permission', 3, '2018-02-22 09:00:06'),
+(49, 'PermissionDeleteSuccess', 'Permission deleted successfully.', 'Permission', 4, '2018-02-22 09:00:06'),
+(50, 'CourseUpdateSuccess', 'Course updted successfully.', 'Course', 1, '2018-02-22 09:00:06'),
+(51, 'CourseAddSuccess', 'Course added successfully.', 'Course', 2, '2018-02-22 09:00:06'),
+(52, 'CourseDeleteSuccess', 'Course deleted successfully.', 'Course', 3, '2018-02-22 09:00:06'),
+(53, 'CourseActiveSuccess', 'Course Active Successfully.', 'Course', 4, '2018-02-22 09:00:06'),
+(54, 'CourseInactiveSuccess', 'Course Inactive Successfully.', 'Course', 5, '2018-02-22 09:00:06'),
+(55, 'SubCourseUpdateSuccess', 'Sub Course updted successfully.', 'Sub Course', 1, '2018-02-22 09:00:06'),
+(56, 'SubCourseAddSuccess', 'Sub Course added successfully.', 'Sub Course', 2, '2018-02-22 09:00:06'),
+(57, 'SubCourseDeleteSuccess', 'Sub Course deleted successfully.', 'Sub Course', 3, '2018-02-22 09:00:06'),
+(58, 'SubCourseActiveSuccess', 'Sub Course Active Successfully.', 'Sub Course', 4, '2018-02-22 09:00:06'),
+(59, 'SubCourseInactiveSuccess', 'Sub Course Inactive Successfully.', 'Sub Course', 5, '2018-02-22 09:00:06'),
+(60, 'FileNotExist', 'File Does not exist', 'General', 3, '2018-02-25 04:17:48'),
+(62, 'ProfileUpdatedSuccess', 'Profile updated successfully.', 'Setting', 3, '2018-02-25 08:32:57');
 
 -- --------------------------------------------------------
 
@@ -197,7 +279,7 @@ CREATE TABLE `form_alerts` (
   `short_description` text,
   `image` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `description` text,
-  `category` int(11) DEFAULT NULL,
+  `category` int(11) NOT NULL,
   `meta_keywords` text,
   `meta_description` text,
   `created` datetime DEFAULT NULL,
@@ -210,9 +292,7 @@ CREATE TABLE `form_alerts` (
 --
 
 INSERT INTO `form_alerts` (`id`, `title`, `slug`, `short_description`, `image`, `description`, `category`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
-(5, '20 May 2017 - Current Affairs', '20-may-2017-current-affairs', '1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.\r\n\r\n2. May 21stÂ is observed asÂ Anti-Terrorism DayÂ in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in theÂ year 1991,Â former Indiaâ€™sÂ PM Rajiv GandhiÂ was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.Â He was 46 years of age.Â Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,Â LTTE (Liberation Tigers of Tamil Elam).', NULL, '<p>1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.<br />\r\n<br />\r\n2. May 21st&Acirc;&nbsp;is observed as&Acirc;&nbsp;Anti-Terrorism Day&Acirc;&nbsp;in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in the&Acirc;&nbsp;year 1991,&Acirc;&nbsp;former India&acirc;&euro;&trade;s&Acirc;&nbsp;PM Rajiv Gandhi&Acirc;&nbsp;was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.&Acirc;&nbsp;He was 46 years of age.&Acirc;&nbsp;Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,&Acirc;&nbsp;LTTE (Liberation Tigers of Tamil Elam).</p>', 1, 'ss', 'ss', '2018-02-04 09:11:46', NULL, 1),
-(7, 'The HTML Helper file contains functions that assist in working with HTML.', 'the-html-helper-file-contains-functions-that-assist-in-working-with-html', 'sf', NULL, '<p>sdf</p>', 2, 'sdf', 'sdfs', '2018-02-10 08:56:12', NULL, 1),
-(8, 'REET ecaa ff', 'reet-ecaa-ff', 'dfd', NULL, '<p>dfg</p>', 5, 'dfg', 'dfgdgd', '2018-02-10 09:01:00', NULL, 1);
+(8, 'RPSC 2nd Grade Teacher Recruitment 2018', 'rpsc-2nd-grade-teacher-recruitment-2018', 'Here is good news that the candidates, who have been waiting for too long for the results of their notification for RPSC 2nd Grade Teacher recruitment 2018, can finally now take a long and deep breath as the notification regarding the release of the notice has been out now. The expected exam date for RPSC 2nd grade Recruitment 2018. The latest news by RPSC for Syllabus, Eligibility, Result, cut off, No.of Posts, Qualification, Age Limit in this official PDF.', NULL, '<p><strong>RPSC 2nd Grade Teacher Recruitment 2018:</strong> Here is good news that the candidates, who have been waiting for too long for the results of their notification for RPSC 2nd Grade Teacher recruitment 2018, can finally now take a long and deep breath as the notification regarding the release of the notice has been out now.&nbsp;The expected exam date for RPSC&nbsp;2nd grade Recruitment 2018. The latest news by RPSC for Syllabus, Eligibility, Result, cut off, No.of Posts, Qualification, Age Limit in this official PDF.<img alt=\"\" src=\"http://www.kitabijhund.com/kitabijhund/asset/admin/plugin/ckfinder/userfiles/images/2nd-Grade-Recruitment-2018.jpg\" /></p>\r\n\r\n<p>Latest News in July 2018:&amp;nbsp;The real information by the Rajasthan Patrika and Dainik Bhaskar newspaper for the B.E.D Students on the RPSC Online Web Portal. Now you can apply for the application form at the following link. Interested candidates open the link and apply for the post and book the nearest center because after some time the main exam centers are filled after 2-3 days of starting of Apply Online for RPSC Second Grade.</p>', 4, 'RPSC 2nd Grade Teacher Recruitment 2018', 'RPSC 2nd Grade Teacher Recruitment 2018', '2018-02-10 09:51:57', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -222,19 +302,20 @@ INSERT INTO `form_alerts` (`id`, `title`, `slug`, `short_description`, `image`, 
 
 CREATE TABLE `form_alerts_categories` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `slug` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `form_alerts_categories`
 --
 
 INSERT INTO `form_alerts_categories` (`id`, `name`, `slug`, `status`) VALUES
-(1, 'MCST', 'mcst', 1),
-(2, 'SSC', 'ssc-1', 1),
-(5, 'REET 2018', 'reet-2018', 1);
+(1, 'REET 2018', 'reet-2018', 1),
+(2, 'SSC', 'ssc', 1),
+(3, 'Banking', 'banking', 1),
+(4, 'RPSC', 'rpsc', 1);
 
 -- --------------------------------------------------------
 
@@ -275,7 +356,12 @@ CREATE TABLE `login_attempts` (
 --
 
 INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(1, '127.0.0.1', 'pawanbamboli@gmail.com', 1518250185);
+(1, '127.0.0.1', 'admin', 1519558010),
+(8, '127.0.0.1', 'amit', 1519567928),
+(9, '127.0.0.1', 'amit', 1519568208),
+(13, '127.0.0.1', 'amit@ddd.com', 1519568794),
+(14, '127.0.0.1', 'amit', 1519569155),
+(15, '127.0.0.1', 'amit', 1519572172);
 
 -- --------------------------------------------------------
 
@@ -303,10 +389,20 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `slug`, `short_description`, `start_date`, `image`, `description`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
-(2, 'About us this is about us oage this is about us oage', 'about-us-this-is-about-us-oage-this-is-about-us-oage', 'sdssd', '2017-11-21 00:00:00', 'under_construction.jpg', '<p>sdfsfs</p>', 'sdf', 'fdsf', '2018-01-26 13:23:51', '2018-01-27 11:38:01', 1),
-(3, 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', 'हम-आपक-बचच-और-ककष-1-2-3-4-5-6-7-8-9-10-11', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 और 12 के विद्यार्थियों के लिए विभिन्न प्रकार के निबंध उपलब्ध करा रहे हैं| इस प्रकार के निबंध आपके बच्चों और विद्यार्थियों की अतिरिक्त पाठ्यक्रम गतिविधियों जैसे: निबंध लेखन, बहस और विचार-विमर्श में बहुत सहायक हो सकती है|', '2018-01-27 00:00:00', '1388406166mid-right-add.png', '<p>हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 और 12 के विद्यार्थियों के लिए विभिन्न प्रकार के निबंध उपलब्ध करा रहे हैं| इस प्रकार के निबंध आपके बच्चों और विद्यार्थियों की अतिरिक्त पाठ्यक्रम गतिविधियों जैसे: निबंध लेखन, बहस और विचार-विमर्श में बहुत सहायक हो सकती है|</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/education-essay-in-hindi/\"><strong>शिक्षा पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/education-essay-in-hindi/\">शिक्षा पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-school-essay-in-hindi/\">मेरा स्कूल पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/importance-of-education-essay-in-hindi/\">शिक्षा का महत्व पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/newspaper-essay-in-hindi/\">समाचार पत्र पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-my-dream-in-hindi/\">मेरा सपना पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-brain-drain-in-hindi/\">प्रतिभा पलायन पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-ideal-student-in-hindi/\">आदर्श विद्यार्थी पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-career-in-hindi/\">करियर पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><strong><a href=\"http://www.hindikiduniya.com/essay/animals/\">जानवर पर निबंध</a></strong></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cow-essay-in-hindi/\">गाय पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/elephant-essay-in-hindi/\">हाथी पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/tiger-essay-in-hindi/\">बाघ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/dog-essay-in-hindi/\">कुत्ते पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-my-pet-animal-in-hindi/\">मेरा पालतू जानवर पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-my-pet-cat-in-hindi/\">मेरी पालतू बिल्ली पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-my-pet-dog-in-hindi/\">मेरा पालतू कुत्ता पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sports-essay-in-hindi/\"><strong>खेल पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sports-essay-in-hindi/\">खेल पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/importance-of-sports-essay-in-hindi/\">खेल के महत्व पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cricket-essay-in-hindi/\">क्रिकेट पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/hockey-essay-in-hindi/\">हॉकी पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/football-essay-in-hindi/\">फुटबॉल पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/adventure-essay-in-hindi/\">रोमांच पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/science-technology-essay-in-hindi/\"><strong>विज्ञान और तकनीकी पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/science-technology-essay-in-hindi/\">विज्ञान और तकनीकी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/computer-essay-in-hindi/\">कंप्यूटर पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/internet-essay-in-hindi/\">इंटरनेट पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/globalization-essay-in-hindi/\">ग्लोबलाइजेशन पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-uses-of-internet-in-hindi/\">इंटरनेट का उपयोग पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-disadvantages-of-internet-in-hindi/\">इंटरनेट के नुकसान पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-wonder-of-science-in-hindi/\">विज्ञान के चमत्कार पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/india-essay-in-hindi/\"><strong>भारत पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/india-essay-in-hindi/\">भारत पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/digital-india-essay-in-hindi/\">डिजिटल इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/indian-culture-essay-in-hindi/\">भारतीय संस्कृति पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/unity-in-diversity-essay-in-hindi/\">विविधता में एकता पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/national-flag-essay-in-hindi/\">राष्ट्रीय ध्वज़ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/ek-bharat-shreshtha-bharat-essay-in-hindi/\">एक भारत श्रेष्ठ भारत पर निबन्ध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/jan-dhan-yojana-essay-in-hindi/\">जन धन योजना पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/start-up-india-stand-up-india-essay-in-hindi/\">स्टार्ट अप इंडिया स्टैंड अप इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/nationalism-essay-hindi/\">राष्ट्रवाद पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/make-in-india-essay-in-hindi/\">मेक इन इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/city-life-vs-village-life-essay-in-hindi/\">शहरी जीवन बनाम ग्रामीण जीवन पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/democracy-in-india-essay-in-hindi/\">लोकतंत्र पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/india-of-my-dreams-essay-in-hindi/\">मेरे सपनों का भारत पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-fundamental-rights-in-hindi/\">मौलिक अधिकारों पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/social-issues-awareness-essay-in-hindi/\"><strong>सामाजिक मुद्दे और सामाजिक जागरूकता पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/child-labour-essay-in-hindi/\">बाल मजदूरी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/corruption-essay-in-hindi/\">भ्रष्टाचार पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/women-empowerment-essay-in-hindi/\">महिला सशक्तिकरण पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/beti-bachao-beti-padhao-essay-in-hindi/\">बेटी बचाओ बेटी पढ़ाओ पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/female-foeticide-essay-in-hindi/\">भ्रूण हत्या पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/poverty-essay-in-hindi/\">गरीबी पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/swachh-bharat-abhiyan-essay-in-hindi/\">स्वच्छ भारत अभियान पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cleanliness-essay-in-hindi/\">स्वच्छता पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/bal-swachhta-abhiyan-essay-in-hindi/\">बाल स्वच्छता अभियान पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/national-integration-essay-in-hindi/\">राष्ट्रीय एकीकरण पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/terrorism-essay-in-hindi/\">आतंकवाद पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/road-safety-essay-in-hindi/\">सड़क सुरक्षा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/intolerance-essay-in-hindi/\">असहिष्णुता पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/save-water-essay-in-hindi/\">जल बचाओ पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/rain-water-harvesting-essay-in-hindi/\">वर्षा जल संचयन पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sugamya-bharat-abhiyan-essay-in-hindi/\">सुगम्य भारत अभियान पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/save-girl-child-essay-in-hindi/\">बेटी बचाओ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/cashless-india-essay-hindi/\">&nbsp;कैशलेस इंडिया पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/caste-system-essay-hindi/\">जाति व्यवस्था पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/adult-education-essay-hindi/\">प्रौढ़ शिक्षा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/women-safety-in-india-essay-in-hindi/\">महिलाओं की सुरक्षा पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/women-education-in-india-essay-in-hindi/\">महिला शिक्षा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/status-of-women-in-india-essay-in-hindi/\">महिलाओं की स्थिति पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/violence-against-women-in-india-essay/\">महिलाओं के विरुद्ध हिंसा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/role-of-women-in-society-essay-in-hindi/\">महिलाओं की समाज में भूमिका पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/peace-and-harmony-essay-in-hindi/\">शांति और सदभाव पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/human-rights-essay-hindi/\">मानव अधिकारों पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/farmer-suicides-essay-hindi/\">किसानों की आत्महत्या पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/unemployment-essay/\">बेरोजगारी पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/organ-donation-essay-hindi/\">अंगदान पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/black-money-essay-hindi/\">काले धन पर निबंध</a></td>\r\n			<td>&nbsp;<a href=\"http://www.hindikiduniya.com/essay/essay-on-dowry-system-in-hindi/\">दहेज़ प्रथा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-girl-education-in-hindi/\">लड़कियों की शिक्षा पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/festivals-essay-in-hindi/\"><strong>त्योहारों पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/holi-essay-in-hindi/\">होली पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/christmas-essay-in-hindi/\">क्रिसमस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/dussehra-essay-in-hindi/\">दशहरा पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/diwali-essay-in-hindi/\">दिपावली पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/ganesh-chaturthi-essay-in-hindi/\">गणेश चतुर्थी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/durga-puja-essay-in-hindi/\">दुर्गा पूजा पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-vaisakhi-in-hindi/\">बैसाखी पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/events-essay-in-hindi/\"><strong>विभिन्न उत्सवों पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/republic-day-essay-in-hindi/\">गणतंत्र दिवस पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/independence-day-essay-in-hindi/\">स्वतंत्रता दिवस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mothers-day-essay-in-hindi/\">मातृ दिवस पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/childrens-day-essay-in-hindi/\">बाल दिवस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/gandhi-jayanti-essay-in-hindi/\">गाँधी जयंती पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/teachers-day-essay-in-hindi/\">शिक्षक दिवस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/world-environment-day-essay-in-hindi/\">विश्व पर्यावरण दिवस पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-hindi-diwas-in-hindi/\">हिंदी दिवस पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/people-essay-in-hindi/\"><strong>महान व्यक्तियों पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mahatma-gandhi-essay-in-hindi/\">महात्मा गांधी पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/subhas-chandra-bose-essay-in-hindi/\">सुभाष चन्द्र बोस पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/jawaharlal-nehru-essay-in-hindi/\">जवाहर लाल नेहरु पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sarvepalli-radhakrishnan-essay-in-hindi/\">डॉ सर्वपल्ली राधाकृष्णन पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/rabindranath-tagore-essay-in-hindi/\">रबिन्द्रनाथ टैगोर पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/apj-abdul-kalam-essay-in-hindi/\">ए.पी.जे. अब्दुल कलाम पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mother-teresa-essay-in-hindi/\">मदर टेरेसा पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/sri-aurobindo-essay-in-hindi/\">अरविन्द घोष पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/swami-vivekananda-essay-in-hindi/\">स्वामी विवेकानंद पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/essay-on-bhagat-singh-in-hindi/\">भगत सिंह पर निबंध</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" style=\"width:90%\">\r\n	<tbody>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/relationships-essay-in-hindi/\"><strong>रिश्तो पर निबंध</strong></a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/mother-essay-in-hindi/\">माँ पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-father-essay-in-hindi/\">पिता पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-family-essay-in-hindi/\">मेरा परिवार पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/friendship-essay-in-hindi/\">दोस्ती पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/myself-essay-in-hindi/\">स्वयं पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/teacher-essay-in-hindi/\">शिक्षक पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-best-friend-essay-in-hindi/\">मेरा अच्छा दोस्त पर निबंध</a></td>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/my-favourite-teacher-essay-in-hindi/\">मेरे प्रिय अध्यापक पर निबंध</a></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"http://www.hindikiduniya.com/essay/grandparents-essay-in-hindi/\">दादा-दादी पर निबंध</a></td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', '2018-01-26 13:31:49', '2018-01-27 11:37:06', 1),
-(4, 'Additionally, in order to add attributes to the heading tag such as HTML classes, ids or inline styles', 'additionally-in-order-to-add-attributes-to-the-heading-tag-such-as-html-classes-ids-or-inline-styles', 'trrty', '2018-01-31 00:00:00', 'client-image.jpg', '<p>rtyr</p>', 'rty', 'rtyr', '2018-01-26 16:29:27', '2018-02-03 23:15:49', 1),
-(6, '20 May 2017 - Current Affairs', '20-may-2017-current-affairs', '1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.\r\n\r\n2. May 21stÂ is observed asÂ Anti-Terrorism DayÂ in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in theÂ year 1991,Â former Indiaâ€™sÂ PM Rajiv GandhiÂ was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.Â He was 46 years of age.Â Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,Â LTTE (Liberation Tigers of Tamil Elam).', '2018-02-04 00:00:00', NULL, '<p>1. Mumbai Indians created history by becoming the first team to win the IPL for a record three times, when they beat Rising Pune Supergiant, the team they had lost to thrice earlier in the tournament, by one run in the final in Hyderabad on Sunday night. MI defended a modest 130-run target on the back of a magnificent bowling effort from Mitchell Johnson who, playing his fifth game of the season, successfully defended 11 off the last over and finished with 3/26 to outshine an equally impressive knock from Steve Smith (51). This is also the first time since 2008 that a team finishing first in the Points Table has lifted the trophy.</p>\r\n\r\n<p>2. May 21st&Acirc; is observed as&Acirc; Anti-Terrorism Day&Acirc; in the memory of former Indian PM Mr Rajiv Gandhi who passed away on this day. On this day in the&Acirc; year 1991,&Acirc; former India&acirc;&euro;&trade;s&Acirc; PM Rajiv Gandhi&Acirc; was killed brutally by terrorist attacks. Rajiv Gandhi, the former Prime Minister of India, while conducting an election campaign in Sriperumbudur (located near Chennai) in Tamil Nadu was assassinated by a suicide bomber on 21 May 1991.&Acirc; He was 46 years of age.&Acirc; Along with him, the bombing also took the lives of 18 other citizens and seriously injured 43. This tragedy was blamed on the members of the Sri Lankan militant organisation,&Acirc; LTTE (Liberation Tigers of Tamil Elam).</p>', '', '', '2018-02-04 09:14:13', NULL, 1);
+(7, 'Current affairs 30/01/2018', 'current-affairs-30012018', '1. India and Cambodia signed four agreements in the field of cultural exchange, an exchange line of credit of $26.9 million, memorandum of understanding to cooperate in legal matter and an agreement on prevention of human trafficking.', '2018-01-30 00:00:00', 'images.jpg', '<p>1. India&nbsp;and Cambodia signed four agreements in the field of cultural exchange, an exchange line of credit of $26.9 million, memorandum of understanding to cooperate in legal matter and an agreement on prevention of human trafficking.</p>\r\n\r\n<p>CambodianCambodian Capital- Phnom Penh, Currency- Cambodian riel.</p>\r\n\r\n<p>2. Union Home Ministry is planning to set up Indian Cyber Crime Coordination Centre (I4C), an apex centre to deal with cyber crimes such as financial frauds, circulation of pornographic and communal contents.</p>\r\n\r\n<p>3. The first Khadi Haat of India was launched by Khadi and Village Industries Commission (KVIC) and New Delhi Municipal Council (NDMC), in Connaught Place, New Delhi.</p>\r\n\r\n<p>4. The Chief Minister of Himachal Pradesh, Jai Ram Thakur launched the &lsquo;Shakti&rsquo; app for women&rsquo;s safety in the state. The app was developed by the National Informatics Centre (NIC) of the Himachal Pradesh government.</p>\r\n\r\n<p>Himachal Pradesh Governor- Acharya Dev Vrat.</p>\r\n\r\n<p>5. Trade ministers from various countries including Australia, Japan and Switzerland met for an informal WTO ministerial gathering in Davos, Switzerland. India was represented by Deepak Jagdish Saksena, ambassador and permanent representative to the WTO.</p>\r\n\r\n<p>6. The 60th Annual Grammy Awards, honouring the best achievements from October 2016 to September 2017 were held at Madison Square Garden in New York City, the USA</p>\r\n\r\n<p>&nbsp;It was Bruno Mars&#39; night at the Grammy Awards held in New York, with the three biggest wins - Album Of The Year and Record Of The Year for 24K Magic and Song Of The Year for &#39;That&#39;s What I Like&#39;.</p>\r\n\r\n<p>7. International bird festival is to be held for 3 days starting from 9th February 2018, at Dudhwa National Park, in Lakhimpur Kheri, UP.&nbsp;</p>\r\n\r\n<p>8. Maharashtra State&rsquo;s tableau has been adjudged as the &lsquo;Best Tableau&rsquo; at the 69th Republic Day parade held at Rajghat, Delhi on January 25, 2018.</p>\r\n\r\n<p>9. Sandeep Lamichhane became the first Nepal cricketer to get IPL contract after he was bought by Delhi Daredevils at the 2018 Indian Premier League (IPL) Auction.</p>\r\n\r\n<p>10. Australian open: &nbsp;Roger Federer defeated Marin Cilic in the final. It was Federer&#39;s 20th Grand Slam title. In women&#39;s&#39; single, Caroline Wozniacki became the first Danish player to win a Grand Slam singles title, defeating Simona Halep in the final.</p>\r\n\r\n<p>11. The world no.1 Tai Tzu Ying of Taiwan has defeated Saina Nehwal in the finals of the Indonesia Masters in Jakarta.&nbsp;</p>', 'Current affairs, daily current affairs, today current affairs', '60th Annual Grammy Awards, Shakti app, first Khadi Haat, India and Cambodia signed four agreements, international birds festival, Australian open final results', '2018-01-30 07:59:31', '2018-01-31 18:26:45', 1),
+(8, 'Current affairs 31-01-2018', 'current-affairs-31-01-2018', '1.	Armies of India and Vietnam have begun a six-day-long military exercise in Jabalpur in Madhya Pradesh. The exercise named ‘VINBAX’ is the first military exercise between the two countries. Vietnam’s  Minister Nguyen Xuan Phuc was in New Delhi to participate in the India-ASEAN Commemorative summit and attend the Republic Day celebrations.', '2018-01-31 00:00:00', 'images(1).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Armies of India and Vietnam have begun a six-day-long military exercise in Jabalpur in Madhya Pradesh. The exercise named &lsquo;VINBAX&rsquo; is the first military exercise between the two countries. Vietnam&rsquo;s &nbsp;Minister Nguyen Xuan Phuc was in New Delhi to participate in the India-ASEAN Commemorative summit and attend the Republic Day celebrations.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Rating agency CRISIL has revised its outlook on 18 public sector banks (PSBs) from &ldquo;negative&rdquo; to &ldquo;stable&rdquo; after the government announced bank-wise capital infusion and reform plans. Ashu Suyash is the MD and CEO of CRISIL. GurpreetGurpreet Chhatwal President of CRISIL. Its Headquarters in Mumbai. CRISIL- Credit Rating Information Services of India Limited.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Mobile payments company Paytm and Alibaba Group-owned AGTech Holdings Ltd have formed a joint venture to launch &#39;Gamepind&#39; a gaming platform aimed at mobile users in India.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian-American Adobe CEO Shantanu Narayen has been elected as the Vice Chairman of the US-India Strategic and Partnership Forum. It is a new organisation set up to enhance business relations between India and the US.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>President Ram Nath Kovind launched the Pulse Polio programme for 2018 from Rashtrapati Bhavan, New Delhi, by administering polio drops to children below five years.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Assam Assembly is to introduce digital budget in its upcoming session, instead of the conventional printed booklet.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Assam Governor Prof. Jagdish Mukhi released a postage stamp in memory of eminent football player Dr. Talimeren Ao at Sports Authority of India (SAI) complex playground in Paltan Bazar, Guwahati, Assam.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Information technology minister Ravi Shankar Prasad launched &lsquo;Stree Swabhiman&rsquo;, an initiative by CSC (Common Services Centres) on women&rsquo;s health and hygiene, in New Delhi.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Union Finance Minister, Arun Jaitley tabled the Economic Survey 2017-18 in Parliament. Economic Survey is a flagship annual document of the Ministry of Finance, Government of India. Indian economy is expected to grow between 7 per cent and 7.5 per cent in the next fiscal year i.e. April 1, 2018 &ndash; March 31, 2019. Economic Survey has revealed that average consumer price inflation based headline inflation declined to a six-year low of 3.3 per cent in 2017-18.</p>\r\n\r\n<p>10.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Thedo-Tibetan Border Police (ITBP) was named the best marching contingent in the paramilitary and auxiliary forces category at the Republic Day celebrations, in New Delhi.</p>\r\n\r\n<p>11.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Finland&rsquo;s incumbent President, Sauli Niinistowon &nbsp;has won second six-year term with an overwhelming 62.7% of the vote.</p>\r\n\r\n<p>12.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Daya Nath Singh, senior journalist, passed away following a short-term illness, at a hospital in Assam.</p>\r\n\r\n<p>13.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Dinesh Nandan Sahay, Chhattisgarh&rsquo;s first Governor passed away in Madhepura, Bihar.</p>', 'Current affairs, daily current affairs, current gk, current affairs today', 'vinbax, India and Vietnam, CRISIL rating, Adobe CEO Shantanu Narayen has been elected as the Vice Chairman, Pulse Polio programme', '2018-01-31 11:25:50', NULL, 1),
+(9, 'Current affairs 01/02/2018', 'current-affairs-01022018', '1.	On January 30, 2018, Uttar Pradesh State Cabinet launched ‘Mukhya Mantri Awas Yojna Grameen’, a new scheme to construct houses in rural areas. Mukhyamantri Awas Yojana Gramin is for those who have not been covered under Pradhan Mantri Awas Yojna and those who are not beneficiaries of any other government housing schemes. UnderUnder this scheme, Rs 1.30 lakh financial aid', '2018-02-01 00:00:00', 'images(3).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>On January 30, 2018, Uttar Pradesh State Cabinet launched &lsquo;Mukhya Mantri Awas Yojna Grameen&rsquo;, a new scheme to construct houses in rural areas. Mukhyamantri Awas Yojana Gramin is for those who have not been covered under Pradhan Mantri Awas Yojna and those who are not beneficiaries of any other government housing schemes. UnderUnder this scheme, Rs 1.30 lakh financial aid (for constructing houses) will be given to people residing in Naxal-affected areas of Uttar Pradesh and Rs 1.20 lakh to selected beneficiaries.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>On 30th January 2018, the Maharashtra state cabinet approved the introduction of Asmita (dignity), a scheme to provide sanitary pads to 7 lakh girls in government schools for Rs 5 a pack.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India has ranked 42nd on the Economist Intelligence Unit&rsquo;s (EIU) Global Democracy Index 2017. This marks a drop by 10 spots as compared to 32nd rank last year. Topped by Norway.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Asian Development Bank (ADB) and Indian Government have signed USD 250 million loan agreement for construction of all-weather roads in five Indian states under Pradhan Mantri Gram Sadak Yojana. Funds procured through this loan will be used for construction of 6254 kilometres all-weather rural roads in West Bengal, Chhattisgarh, Assam, Madhya Pradesh and Odisha.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Prime Minister-appointed Group of Infrastructure, headed by Union Minister Nitin Gadkari constituted a high-level committee to look into procedures for sharing of infrastructure for utilities like water pipes and telecom cables.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian Government and World Bank signed a $100 million loan agreement to promote rural economy in across 26 districts of Tamil Nadu (TN).</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Rewa Ultra Mega Solar Limited (RUMSL) and the World Bank signed USD 30 million loan agreement to develop solar power &nbsp;plants in Rewa and Mandsaur in Madhya Pradesh.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Lt. Gen Anil Chauhan assumed charge as the new Director General of Military Operations (DGMO) of the Indian Army. Lt. Gen Anil Chauhan replaces Lt General A K Bhatt. Lt General A K &nbsp;will take charge of Srinagar-based 15 Corps.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Shailendra Kumar Joshi was named the Chief Secretary of Telangana.</p>\r\n\r\n<p>10.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian Navy chief Admiral Sunil Lanba&rsquo;s wife Reena Lanba launched the third Scorpene class submarine Karanj at Mazagon Dock Shipbuilders Limited (MDL) in Mumbai, Maharashtra.</p>\r\n\r\n<div>&nbsp;</div>', 'Daily current affairs, current affairs today, today current affairs, gk today, today gk', '', '2018-02-01 11:16:03', NULL, 1),
+(10, 'Budget 2018', 'budget-2018', 'Budget review\r\n\r\nAs per the FM in the Union Budget, India is expected to become the fifth largest economy very soon.', '2018-02-02 00:00:00', 'images(4).jpg', '<p>Budget review</p>\r\n\r\n<p>As per the FM in the Union Budget, India is expected to become the fifth largest economy very soon.&nbsp;</p>\r\n\r\n<p>The Growth rate is expected between 7.2-7.5% in the second half of 2017-18.</p>\r\n\r\n<p>Exports are expected to grow 15% in 2018.</p>\r\n\r\n<p>As per the FM, India is a Rs2.5 trillion economy.</p>\r\n\r\n<p>MSP to increase at least 1.5 times that of production cost.</p>\r\n\r\n<p>Minimum Support Price (MSP) of all crops shall increase to at least 1.5 times that of the production cost.&nbsp;</p>\r\n\r\n<p>The government will set up a fund of Rs 2,000 crore for developing agricultural markets.</p>\r\n\r\n<p>Our focus is on productive and gainful on-farm and non-farm employment for farmers and landless families, says Jaitley.</p>\r\n\r\n<p>MSP for Kharif cost will be 1.5 times the cost of production.</p>\r\n\r\n<p>As per the FM, APMCs will be linked with ENAM.&nbsp;</p>\r\n\r\n<p>The government will develop 22,000 Gramin agricultural markets.&nbsp;</p>\r\n\r\n<p>The cluster-model approach will be adopted for agricultural production.</p>\r\n\r\n<p>Allocation in food production sector doubled to Rs 1400 crore.</p>\r\n\r\n<p>Minimum Support Price shall be increased by 1.5 times. Operation Green will be launched for agriculture and the Minister allocates Rs500 crore for this.</p>\r\n\r\n<p>Agricultural corpus worth Rs 2000 crore will be set up. 470 APMCs have been connected to eNAM network, the rest to be connected by March 2018.</p>\r\n\r\n<p>A fund for the fishery, aquaculture development and animal husbandry will be set up with a total corpus to be Rs 10,000 crore. We will also allocate Rs 1290 crore for a bamboo mission, as it is green gold.&nbsp;</p>\r\n\r\n<p>In all, we are providing Rs 10 lakh crore to Rs 11 lakh crore as credit for agricultural activities.</p>\r\n\r\n<p>Jaitley proposes to increase the target of providing free LPG connections to 8 crore to poor women.</p>\r\n\r\n<p>Ujjwala Yojana, the free LPG connection scheme expanded to eight crore households.</p>\r\n\r\n<p>Six crore toilets have been built already, and in the next year, two crore additional toilets will be constructed.</p>\r\n\r\n<p>The government will provide 4 crore electricity connections to the poor under Saubhagya Yojana.</p>\r\n\r\n<p>Kisan credit card to be extended to fisheries,animal husbandry farmers.</p>\r\n\r\n<p>The government will establish a dedicated affordable housing fund.</p>\r\n\r\n<p>Loans to self-help groups will increase to Rs75,000 crore.</p>\r\n\r\n<p>Govt. allocated Rs5,750 crore to National Livelihood Mission and Rs2,600 crore to the groundwater irrigation scheme.</p>\r\n\r\n<p>Ayushman Bharat program discussed.</p>\r\n\r\n<p>Eklavya schools for tribal children.</p>\r\n\r\n<p>24 new government medical colleges.</p>\r\n\r\n<p>Government is implementing a comprehensive social security scheme.</p>\r\n\r\n<p>Govt. will initiate an integrated B-Ed programme for teachers.</p>\r\n\r\n<p>Government proposes to launch the Revitalising of Infrastructure and Systems of Education (RISE) by next year.&nbsp;</p>\r\n\r\n<p>Govt. proposed to set up two new full-fledged schools of planning and architecture.&nbsp;</p>\r\n\r\n<p>18 new schools of planning and architecture will be set up in the IITs and NITs.</p>\r\n\r\n<p>Rs. 1 lakh crore over 4 years for initiative for Infrastructure Devt. in education.</p>\r\n\r\n<p>2 major initiatives as part of Ayushman Bharat program.</p>\r\n\r\n<p>Eklavya schools to be open for tribal children.</p>\r\n\r\n<p>National health protection scheme to cover 10 cr poor families. Health cover of up to 5 lakh per family per year for poor &amp; vulnerable. National health protection scheme to benefit 50 crore people.</p>\r\n\r\n<p>24 new govt medical college &amp; hospitals.</p>\r\n\r\n<p>Rs. 600 crore for nutritional support to all TB patients.</p>\r\n\r\n<p>Rs. 1200 crore for health and wellness centres.</p>\r\n\r\n<p>Loans to women self-help groups of women to be increased to 75,000 cr by March 19.&nbsp;</p>\r\n\r\n<p>Govt. is launching a new national health protection scheme &ndash; Rashtriya Samaj Beema Yojana. This will have 50 crore beneficiaries and 10 crore families will get 5 lakh per year for their families to cover secondary and tertiary hospital expenses. This is the world&#39;s largest government-funded healthcare program.&nbsp;</p>\r\n\r\n<p>A Rs 600 crore corpus is being set up to help Tuberculosis patients. This will build a new India in 2022 and enhance productivity and will also generate lakhs of jobs for women.&nbsp;</p>\r\n\r\n<p>PM Jeevan Beema Yojana benefitted more than 2 crore families.&nbsp;</p>\r\n\r\n<p>Jan Dhan Yojana will be extended to all 60&nbsp;</p>', 'Budget 2018 review, budget', '', '2018-02-02 13:28:17', NULL, 1),
+(11, 'Current affairs 02/02/2018', 'current-affairs-02022018', '1.	The Central Statistics Office (CSO) revised the gross domestic product (GDP) growth rate for 2015-16 to 8.2% from the earlier estimates of 8% and kept the 2016-17 growth unchanged at 7.1%. The real GDP or GDP at constant (2011-12) prices for the years 2016-17 and 2015-16 stand at Rs121.96 trillion and Rs113.86 trillion respectively, according to the CSO statement. Inn terms of real gross value added (GVA), it stated that the GVA at constant (2011-12) basic prices grew 7.1% in 2016- 17, as against a growth of 8.1% in 2015-16.', '2018-02-02 00:00:00', NULL, '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Central Statistics Office (CSO) revised the gross domestic product (GDP) growth rate for 2015-16 to 8.2% from the earlier estimates of 8% and kept the 2016-17 growth unchanged at 7.1%. The real GDP or GDP at constant (2011-12) prices for the years 2016-17 and 2015-16 stand at Rs121.96 trillion and Rs113.86 trillion respectively, according to the CSO statement. Inn terms of real gross value added (GVA), it stated that the GVA at constant (2011-12) basic prices grew 7.1% in 2016- 17, as against a growth of 8.1% in 2015-16.&nbsp;</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>7th India Energy Congress focusing on the theme &lsquo;Energy 4.0: Energy Transition Towards 2030&rsquo; &nbsp;begun in New Delhi on February 1, 2018. Indiadia Energy Congress is the flagship event of World Energy Council India (WEC India), which functions under the Union Power Ministry. 7th India Energy Congress has been jointly organised by Union Ministries of Power, Coal, New &amp; Renewable Energy, Petroleum &amp; Natural Gas, External Affairs and Department of Atomic Energy.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Andhra Pradesh Chief Minister Chandrababu Naidu laid the foundation stone for the Universal Peace Retreat Center of &lsquo;Prajapita Brahmakumari Eswariya University&rsquo; &nbsp;in Amaravati.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Union Home Ministry has sanctioned nearly Rs. 370 crore to Border Security Force (BSF) and the Indo-Tibetan Border Police (ITBP) to strengthen border infrastructure along Indo-Pak and Indo-China border.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian Railways&rsquo; first high speed electric locomotive which can run at a maximum speed of 120 kmph will be launched in March 2018 during French President Emmanuel Macron&rsquo;s Indian visit.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Neelam Kapoor was appointed as Director General (DG) of Sports Authority of India (SAI).</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian Olympic Association (IOA) named Vikram Singh Sisodia as the Chef-de-Mission for Commonwealth Games (CWG) that will be held in Gold Coast, Australia from April 4 to 15, 2018.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>mCURA, a Health-tech startup, launched &lsquo;Smart OPD&rsquo;, India&rsquo;s first integrated mobility platform that reduces waiting time in counters and provides e-prescriptions.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>On 1st February 2018, the Indian Coast Guard celebrated its 41st Foundation Day.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs today, current affairs, today current affairs, gk today, daily current affairs', '', '2018-02-02 13:43:28', NULL, 1),
+(12, 'Current affairs 03/02/2018', 'current-affairs-03022018', 'India has defeated Australia to lift the Under 19 World cup for the fourth time. The Men in Blue defeated the three-time champions Australia at Bay Oval, New Zealand. TheThe Australian team had set the target of  217 runs and was chased down easily by India. Manjot Kalra was the Hero of the match with his brilliant century.', '2018-02-03 00:00:00', 'images(6).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The first two-day Global Investment Summit has been organized in Assam. The summit emphasises on promoting investments in the state and the North East. The conference was inaugurated by Prime Minister Narendra Modi. &nbsp;Businessmen like Ratan Tata and Mukesh Ambani are taking part in the Summit. Investor&#39;s from Bhutan, Bangladesh, Germany and Japan as well as ASEAN countries will attend the summit.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>External Affairs Minister (EAM) Sushma Swaraj has returned home after successful completion of the goodwill visit to Nepal. This was the first high-level visit from India after completion of historic three-tier elections in Nepal.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Union Minister for Finance and Corporate Affairs Mr Arun Jaitley launched CriSidEx, India&rsquo;s first sentiment index for micro and small enterprises ( MSEs) developed jointly by CRISIL &amp; SIDBI.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Alphabet has appointed John L. Hennessy as the new board chairman of the company. Hennessy has been on the board since 2004 and Lead Independent Director since 2007. He has replaced Eric Schmidt.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Shabnam Asthana was awarded the &#39;Times Power Women of the Year 2017&#39;- Pune for Global PR. The Times Group celebrated the invaluable contribution of women by introducing The Times Power Woman 2017 (Pune) awards.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India has defeated Australia to lift the Under 19 World cup for the fourth time. The Men in Blue defeated the three-time champions Australia at Bay Oval, New Zealand. TheThe Australian team had set the target of &nbsp;217 runs and was chased down easily by India. Manjot Kalra was the Hero of the match with his brilliant century.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India&rsquo;s leading squash player, Saurav Ghosal jumped five places to No. 14 to become the highest ranked Indian in the latest Professional Squash Association (PSA) rankings.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs, current affairs today, today current affairs, gk today, daily current affairs', '', '2018-02-06 09:54:16', NULL, 1),
+(14, 'Current affairs 04/02/2018', 'current-affairs-04022018', '1.	World cancer Day is being observed today. The day is observed on 4th February every year to raise awareness about cancer, its treatment and  methods of its prevention. The primary goal of the day is to reduce the illness and related deaths by 2020. ViceVice President Venkaiah Naidu inaugurated a medical camp at Swarna Bharat Trust, Atkur in Andhra Pradesh organised on the occasion of World Cancer Day.', '2018-02-04 00:00:00', '12_cancer_7.jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>World cancer&nbsp;Day is being observed today. The day is observed on 4th February every year to raise awareness about cancer, its treatment and &nbsp;methods of its prevention. The primary goal of the day is to reduce the illness and related deaths by 2020. ViceVice President Venkaiah Naidu inaugurated a medical camp at Swarna Bharat Trust, Atkur in Andhra Pradesh organised on the occasion of World Cancer Day.&nbsp;</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>According to Union Budget 2018-19, the government will develop two defence industrial production corridors. Defence minister Nirmala Sitharaman announced that the first corridor will link Chennai and Bengaluru and will pass through Coimbatore and several other industrial clusters.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Maharashtra government has decided to set up a Transgender Welfare Board to protect their Constitutional and human rights. This will make Maharashtra the first Indian state to have such a board. An amount of ₹5 crore has also been set aside to provide education, housing, and employment for the transgender community.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span> February 2 being observed as World Wetlands Day, the floating treatment wetland (FTW), a joint effort of Dhruvansh, the Hyderabad Metropolitan Development Authority and the Ranga Reddy district administration, supported by other organisations, was inaugurated in Hyderabad, Telangana. The India Book of Records recognised it as the largest FTW in the country.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Sri Lanka celebrated its 70th Independence Day today (4 February 2018). It was on this day in 1948 that Sri Lanka, then Ceylon, gained independence from 133 years of British colonial rule.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>According to the Economic Survey 2017-18, Maharashtra&rsquo;s has come out to be one of the largest states in terms of its economic size and prosperity gives it the largest share in India&rsquo;s exports and the goods and service tax (GST) base</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The change of name of apex indirect tax policy making body Central Board of Excise &amp; Customs (CBEC) to Central Board of Indirect Taxes and Customs (CBIC) is likely to happen by April after the budgetary exercise gets Parliament nod. In his budget speech for 2018-19, Finance Minister Arun Jaitley said with the roll out of GST the name of CBEC would be changed to CBIC.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Star Indian shuttler P. V. Sindhu fell to fifth seeded Beiwen Zhang from the US in the women&rsquo;s singles final of the $350,000 India Open BWF World Tour Super 500 held in New Delhi.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs, current affairs today, today current affairs, gk today, daily gk, daily current affairs', '', '2018-02-06 10:05:17', NULL, 1),
+(15, 'Current affairs 05/02/2018', 'current-affairs-05022018', '1. Cyprus President Nicos Anastasiades has won re-election for a second term. The official final result after a second-round run-off put the conservative incumbent on 55.99% of the vote, ahead of Communist-backed Stavros Malas on 44%', '2018-02-05 00:00:00', 'Nicos-Anastasiades-REUT.jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The First ever International Kala Mela was inaugurated by the Vice President of India, Shri M. Venkaiah Naidu in New Delhi.</p>\r\n\r\n<p>ii. The International Kala Mela has been organised by the Lalit Kala Akademi in partnership with IGNCA of the Ministry of Culture. More than 800 artists from across the world took part in the Festival.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Maharashtra government has approved Ghodazari in Chandrapur district as a new wildlife sanctuary in the state. The decision was taken at the 13th meeting of the Maharashtra State Board for Wildlife, chaired by Chief Minister Devendra Fadnavis.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Inland Waterways Authority of India (IWAI) has signed a project agreement with the World Bank for Jal Marg Vikas Project on river Ganga. The World Bank entered into a USD 375 million loan agreement with the Department of Economic Affairs, Union Ministry of Finance for Jal Marg Vikas Project (JMVP).</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Japan Aerospace Exploration Agency (JAXA) launched the world&rsquo;s smallest rocket with the ability to put a tiny satellite into orbit. The rocket lifted off from the Uchinoura Space Center. ItIt carried a microsatellite TRICOM-1R, a three-unit CubeSat weighing about 3 kilograms. This satellite launch was a re-flight of the TRICOM-1 mission, which was lost in SS-520&rsquo;s failure in 2017.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The President of Bangladesh, Abdul Hamid appointed Syed Mahmud Hossain as the new Chief Justice of the country. Justice Hossain is the 22nd chief justice of Bangladesh. President administered the oath of office to Justice Hossain.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Cyprus President Nicos Anastasiades has won re-election for a second term. The official final result after a second-round run-off put the conservative incumbent on 55.99% of the vote, ahead of Communist-backed Stavros Malas on 44%. Anastasiades has taken credit for steering the economy of Cyprus to recovery after it was plunged into crisis in 2013 by its exposure to debt-wracked Greece and fiscal slippage under a former left-wing administration.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian cricketers Jasprit Bumrah and Harmanpreet Kaur as well India women&rsquo;s hockey team goalkeeper Savita Punia and shooter Heena Sidhu are among Forbes India 30 Under 30 list.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs, current affairs today, today current affairs, daily gk, daily current affairs', '', '2018-02-06 10:12:05', NULL, 1),
+(16, 'Current affairs 06/02/2018', 'current-affairs-06022018', '1. External Affairs Minister Sushma Swaraj has left for her first official visit to Saudi Arabia. During the three-day visit, Mrs Swaraj will meet with the Saudi leadership to discuss bilateral, regional and global issues of mutual interest.', '2018-02-06 00:00:00', 'images1.jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>External Affairs Minister Sushma Swaraj has left for her first official visit to Saudi Arabia. During the three-day visit, Mrs Swaraj will meet with the Saudi leadership to discuss bilateral, regional and global issues of mutual interest.</p>\r\n\r\n<p>ii. She will also participate in the inauguration of the prestigious National Heritage and Culture Festival &lsquo;Janadriyah&rsquo;. India is the guest of honour country at the fest.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India successfully test-fired the indigenously developed short-range nuclear capable Agni-I ballistic missile. The missile was fired from the Abdul Kalam Island off Odisha coast.</p>\r\n\r\n<p>ii. The test was conducted by the Strategic Force Command of the Indian Army. The range of Missile is 700 km. It was 18th version of Agni-I.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Ola and the Government of Assam have signed an MoU to pilot an app-based river taxi service in Guwahati. The river taxis will be machine-operated boats and users will be able to book the rides through Ola&#39;s app.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Uttar Pradesh State government in association with UNICEF has launched massive door to door campaign DASTAK to eradicate deadly Acute Encephalitis</p>\r\n\r\n<p>Syndrome (AES) and Japanise Encephalitis (JE) disease in the state.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Commerce and Industries Minister Mr Suresh Prabhu set off a series of nation-wide consultations with the industry on the proposed new Industrial Policy. The first consultation was held at Guwahati in February 2018.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Maldives president, Abdulla Yameen, has declared a state of emergency in the country as heavily armed troops stormed the country&rsquo;s top court and a former president Chief Justice Abdulla Saeed was arrested in a deepening political crisis.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Jerome H Powell was sworn in as the 16th Chairman of the Federal Reserve for a four-year term. Mr Powell has succeeded Janet Yellen, the first woman to lead the US central bank in its 100-year history.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs today, today current affairs, daily current affairs, gk today', '', '2018-02-13 07:27:47', NULL, 1),
+(17, 'Current affairs 07/02/2018', 'current-affairs-07022018', '1. The US-based SpaceX has successfully launched the world\'s most powerful operational rocket Falcon Heavy towards Mars. The rocket, carrying a Tesla Roadster car, will revolve around the Sun in a way that will repeatedly bring it close to the Earth and Mars.', '2018-02-07 00:00:00', 'images_(1).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The President of India Ram Nath Kovind inaugurated the 88th Mahamastakabhisheka Utsav of Lord Gomateshwara in Hassan district of Karnataka. Mahamastakabhisheka of Gommateshwara, who is also known as Bahubali takes place once in 12 years.&nbsp;</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India successfully test-fired its indigenously developed nuclear capable Prithvi-II missile as part of a user trial by the Army from Integrated Test Range at Chandipur, in Odisha.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Andhra Pradesh government has decided to hold the first-of-its-kind, one-day Pelican Festival at the Atapaka Bird Sanctuary on Kolleru.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Google and National Council of Educational Research and Training (NCERT) signed a pact to integrate a course on &#39;Digital Citizenship and Safety&#39; in information and communication technology curriculum. It was signed on the occasion of Safer Internet Day (06th February).</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>External Affairs Minister Sushma Swaraj attended the opening ceremony of the 32nd Al Jana-driyah festival in Riyadh, Saudi Arabia. India has been invited as the Guest of Honour country for the festival.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The US-based SpaceX has successfully launched the world&#39;s most powerful operational rocket Falcon Heavy towards Mars. The rocket, carrying a Tesla Roadster car, will revolve around the Sun in a way that will repeatedly bring it close to the Earth and Mars.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Monetary Policy Committee (MPC) decided to keep the policy repo rate under the liquidity adjustment facility (LAF) unchanged at 6.0%.</p>\r\n\r\n<p>ii. Consequently, the Reverse Repo Rate (RRR) under the LAF remains at 5.75%, and the Marginal Standing Facility (MSF) rate and the Bank Rate at 6.25%.</p>\r\n\r\n<p>iii. GVA growth for 2017-18 is projected at 6.6%. GVA growth&nbsp;</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Kathakali maestro Madavoor Vasudevan Nair collapsed on stage and died while performing at Agasthyacodu Mahadeva Temple, Kerala. He was 89.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian women&#39;s cricket team pacer Jhulan Goswami has become the first woman in the world to take 200 wickets in ODI cricket.&nbsp;</p>\r\n\r\n<div>&nbsp;</div>', 'Daily current affairs, current affairs today, today current affairs, current affairs, gk today', '', '2018-02-13 07:34:34', NULL, 1),
+(18, 'Current affairs 08/02/2018', 'current-affairs-08022018', '1.	The Fifth edition of South Asia Region Public Procurement Conference was held in New Delhi. It was hosted by Public Procurement Division (PPD) of Ministry of Finance and All India Management Association (AIMA).', '2018-02-08 00:00:00', 'download.jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Fifth edition of South Asia Region Public Procurement Conference was held in New Delhi. It was hosted by Public Procurement Division (PPD) of Ministry of Finance and All India Management Association (AIMA).</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Arunachal Pradesh Chief Minister Prema Khandu laid the foundation stone for Rhododendron Park in Tawang. He also carried out plantation drive of different varieties of Rhodos. Tawang is home to 50+ different varieties of Rhodos.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The first ever of its kind in the country chat-based job search mobile app &#39;Empzilla&#39; is being launched that will do away with existing limitations of employers and job seekers making selection process quick and cost-effective.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Business magazine Forbes has released its first-ever Crypto Rich List, comprising 20 wealthiest people in the cryptocurrency space. The list was topped by Ripple Co-founder Chris Larsen, who is estimated to have a crypto net worth of $7.5-8 billion.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Reserve Bank of India will link the base rate with the MCLR from 1st of April 2018 to ensure expeditious transmission of its policy rate to borrowers. The RBI had introduced the Marginal Cost of Funds based Lending Rates (MCLR) system with effect from 1st April 2016, the Central bank observed that a large proportion of bank loans continue to be linked to Base Rate.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Reserve Bank of India announced setting up ombudsman for addressing customer grievances in the non-banking finance companies. The rules will be laid out by the end of February 2018.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Actor John Mahoney passed away after a brief illness in Chicago, the USA. He was 77 years old. He was well-known for playing the title character in the &ldquo;Frasier&rdquo; show.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs, current affairs today, today current affairs, daily current affairs, gk today', '', '2018-02-13 08:01:41', NULL, 1),
+(19, 'Current affairs 09/02/2018', 'current-affairs-09022018', '1.	Prime Minister Narendra Modi left for his three-nation visit to Palestine, the\r\n\r\nUnited Arab Emirates (UAE) and Oman.\r\n\r\nii. This is the first ever visit by an Indian Prime Minister to Palestine, and Prime Minister Modi\'s second visit to UAE and first to Oman.', '2018-02-09 00:00:00', 'download_(1).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Prime Minister Narendra Modi left for his three-nation visit to Palestine, the</p>\r\n\r\n<p>United Arab Emirates (UAE) and Oman.</p>\r\n\r\n<p>ii. This is the first ever visit by an Indian Prime Minister to Palestine, and Prime Minister Modi&#39;s second visit to UAE and first to Oman.</p>\r\n\r\n<p>iii. Prime Minister would be addressing the Sixth World Government Summit being held in Dubai, UAE at which India has been extended &#39;Guest of Honour&#39; status.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India has increased &ldquo;substantially&rdquo; its score in the International Intellectual Property (IP) Index, ranking 44th among 50 nations, according to the US Chambers of Commerce report. Last year, India ranked 43rd out of 45 countries in the Index.</p>\r\n\r\n<p>ii. The top 3 countries on the list are- The USA, The United Kingdom and Sweden.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Defence Minister Nirmala Sitharaman has constituted a 13-member advisory committee to monitor and expedite capital acquisition projects for the modernisation of the armed forces. The committee will be headed by Vinay Sheel Oberoi, former secretary in the government</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The South Central Railway (SCR) has become the first railway zone in the country to complete 100% LED lighting at all the stations under its jurisdiction.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The National Highways Authority of India (NHAI) will start a pilot project called &quot;pay as you use&quot; on the Delhi-Mumbai Highway to study and implement the ability of the system in the country.&nbsp;</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Union Minister of State (IC) for Power and New &amp; Renewable Energy, Shri R.K Singh, launched a Web-based monitoring System and a Fly Ash mobile application named ASH TRACK</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Competition Commission of India (CCI) has imposed a fine of around Rs. 136 crores on search engine major Google for unfair business practices in the Indian market for online search.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>IndusInd Bank launched its new Sonic Identity, which is essentially a musical logo called &#39;MOGO&#39;, as part of its branding initiatives.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>PepsiCo Chairman and CEO Indra Nooyi has been appointed as the International Cricket Council&#39;s (ICC) first-ever independent female director. Nooyi will join the cricket body in June 2018 for a 2-year term.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs today, today current affairs, daily current affairs, current affairs daily', '', '2018-02-13 08:16:55', NULL, 1),
+(20, 'Current affairs 10/02/2018', 'current-affairs-10022018', '1.	The first Khelo India School Games concluded in New Delhi with sports powerhouse Haryana topped the overall medal tally. The state won 102 medals which include 38 gold and 26 silver', '2018-02-10 00:00:00', 'images(7).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The first Khelo India School Games concluded in New Delhi with sports powerhouse Haryana topped the overall medal tally. The state won 102 medals which include 38 gold and 26 silver.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>SBI Card, the country&#39;s second-largest credit card issuer, has appointed Hardayal Prasad as new Managing Director (MD) &amp; Chief Executive Officer (CEO) of the</p>\r\n\r\n<p>company.&nbsp;</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>NITI Aayog has released the &lsquo;Healthy States, Progressive India Report&rsquo;. Kerala, Punjab and Tamil Nadu have ranked top among the larger states in terms of overall performance. The report was released by NITI Aayog CEO Amitabh Kant.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>National Informatics Centre (NIC) has organized a three-day National Meet on Grassroot Informatics- VIVID 2018 at the India Habitat Centre, New Delhi. The Theme for VIVID 2018 is &ldquo;Cyber Security and Innovation&rdquo;.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Prime Minister Narendra Modi was conferred the &#39;Grand Collar of the State of Palestine&#39; by President of Palestine Mahmoud Abbas, recognising his key contribution to promote relations between India and Palestine</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Dubai witnessed 15% growth in tourist arrivals from India in 2017, hosting 2.1 million visitors, retaining top spot as the source market.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>National Payments Corporation of India (NPCI) appointed Biswamohan Mahapatra as non-executive chairman for two years with immediate effect.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The 23rd Olympic Winter Games officially kicked off with a colourful ceremony at Pyeongchang in South Korea.&nbsp;</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Eminent litterateur Chandrasekhar Rath passed away at the age of 89. He died of old age ailments. He was recently nominated for Padma Shri by the Union government this year for his contribution towards Odia literature.</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs today, daily current affairs, current affairs, today current affairs, gk today', '', '2018-02-13 08:24:18', NULL, 1),
+(21, 'Current affairs 11/02/2018', 'current-affairs-11022018', '1.	 Direct tax collections grew by nearly 20 per cent between April and January this year with strong growth in both corporate and personal income tax receipts. According to official data released, net direct tax collections grew by 19.3 per cent up to January 2018 to Rs 6.95-lakh crore.', '2018-02-11 00:00:00', 'images(8).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span> Direct tax collections grew by nearly 20 per cent between April and January this year with strong growth in both corporate and personal income tax receipts. According to official data released, net direct tax collections grew by 19.3 per cent up to January 2018 to Rs 6.95-lakh crore.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Union Home Minister Rajnath Singh has launched the Centre for learning Sanskrit language in Gujarat University, Ahmedabad.&nbsp;</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span> Mr Nitin Gadkari released India&rsquo;s first ever Highway Capacity Manual (HCM) in New Delhi. The manual is also known as Indo-HCM and it has been developed by CSIR &ndash; CRRI on the basis of an extensive, country-wide study of the traffic characteristics on different categories of roads like a single lane, two-lane, multi-lane urban roads, and the associated intersections on these roads.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Mumbai, India&#39;s financial capital is the 12th richest city in the world with a total wealth of $950 billion, according to a report by New World Wealth. The list was topped by New York as the richest city in the world.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India and Palestine have signed six Memorandums of Understanding (MoU)s worth USD 40 million. &nbsp;This was welcomed by Palestinian President Mahmoud Abbas.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>ONGC (Oil and Natural Gas Corporation) Videsh Ltd and its partners have acquired a 10% in a large offshore oilfield Abu Dhabi National Oil Co.&rsquo;s (ADNOC) in Abu Dhabi for $600 million. It is the first time any Indian company has set foot in oil-rich Emirate.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The country&rsquo;s largest lender SBI wrote off bad loans worth Rs 20,339 crore in 2016-17, the highest among all the public sector banks, which had a collective write off of Rs 81,683 crore for the fiscal. The data pertains to the period when the associate banks of SBI were not merged with it.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Asma Jahangir, Pakistan&rsquo;s renowned human rights lawyer, social activist and an outspoken critic of the country&rsquo;s powerful military establishment, passed away of cardiac arrest. She was 66.&nbsp;</p>\r\n\r\n<div>&nbsp;</div>', 'Current affairs today, today current affairs, daily current affairs, current affairs daily, gk today', '', '2018-02-13 08:33:15', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -331,12 +427,7 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `title`, `slug`, `description`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
-(59, 'About us this is about us oage this is about us oage', 'about-us-this-is-about-us-oage-this-is-about-us-oage', '<p>this is about us owwwage</p>', '', '', '2017-12-03 13:16:40', '2018-01-26 04:46:54', 1),
-(60, 'Home', 'home', '<p>home pagessss</p>', '', '', '2017-12-03 13:18:36', '2017-12-23 05:31:53', 0),
-(61, 'Term And Conditions', 'term-and-conditions', '<p>lorem ipsum is simpl resr here</p>', '', '', '2017-12-09 09:29:12', NULL, 1),
-(62, 'Term $ # &', 'term', '<p>this is term ans conditions page &amp;</p>', 'mmas, &', '', '2017-12-23 14:31:59', '2017-12-23 09:24:25', 1),
-(63, 'yguhg hg &', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(65, 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', 'हम-आपक-बचच-और-ककष-1-2-3-4-5-6-7-8-9-10-11', '<p>हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11</p>', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', 'हम आपके बच्चों और कक्षा 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11', '2018-01-26 13:38:17', NULL, 1);
+(1, 'About Us', 'about-us', '<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n\r\n<p>&nbsp;</p>', 'about us', 'about us', '2018-02-08 11:55:55', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -386,11 +477,21 @@ INSERT INTO `permissions` (`id`, `key`, `name`, `group`, `order`) VALUES
 (47, 'chapter-edit', 'Chapter Edit', 'Chapter', 3),
 (48, 'chapter-delete', 'Chapter Delete', 'Chapter', 4),
 (49, 'chapter-status', 'Chapter Status', 'Chapter', 5),
-(50, 'form_articles-category-index', 'Form Alert Category Listing', 'Form Alerts', 6),
-(51, 'form_articles-category-add', 'Form Alert Category Add', 'Form Alerts', 7),
-(52, 'form_articles-category-edit', 'Form Alert Category Edit', 'Form Alerts', 8),
-(53, 'form_articles-category-delete', 'Form Alert Category Delete', 'Form Alerts', 9),
-(54, 'form_articles-category-status', 'Form Alert Category Status', 'Form Alerts', 10);
+(50, 'form_alert-category-index', 'Form Article Category Listing', 'Form Alerts', 6),
+(51, 'form_alert-category-add', 'Form Alert Category Add', 'Form Alerts', 7),
+(52, 'form_alert-category-edit', 'Form Alert Category Edit', 'Form Alerts', 8),
+(53, 'form_alert-category-delete', 'Form Alert Category Delete', 'Form Alerts', 9),
+(54, 'form_alert-category-status', 'Form Alert Category Status', 'Form Alerts', 10),
+(55, 'course-index', 'Course Listing', 'Course', 1),
+(56, 'course-add', 'Course Add', 'Course', 2),
+(57, 'course-edit', 'Course Edit', 'Course', 3),
+(58, 'course-delete', 'Course Delete', 'Course', 4),
+(59, 'course-status', 'Course Status', 'Course', 5),
+(60, 'sub_course-index', 'Sub Course Index', 'Sub Course', 1),
+(61, 'sub_course-add', 'Sub Course Add', 'Sub Course', 2),
+(62, 'sub_course-edit', 'Sub Course Edit', 'Sub Course', 3),
+(63, 'sub_course-delete', 'Sub Course Delete', 'Sub Course', 4),
+(64, 'sub_course-status', 'Sub Course Status', 'Sub Course', 5);
 
 -- --------------------------------------------------------
 
@@ -417,10 +518,13 @@ CREATE TABLE `settings` (
 
 INSERT INTO `settings` (`id`, `title`, `field_name`, `type`, `select_items`, `value`, `is_required`, `validation_rules`, `created`, `status`) VALUES
 (1, 'Site Title', 'site_title', 'text', '', 'Kitabi Jhund', 1, 'trim|required', '2013-04-07 23:23:25', 1),
-(2, 'Site Email', 'site_email', 'text', '', 'motilalsoni@gmail.com', 1, 'trim|required|valid_email', '2013-04-07 23:24:28', 1),
+(2, 'Site Email', 'site_email', 'text', '', 'motilalsoni@gmail.com1', 1, 'trim|required|valid_email', '2013-04-07 23:24:28', 1),
 (7, 'Default Meta Description', 'default_meta_description', 'textarea', NULL, 'All users cards ss dd', 0, 'trim|required|min_length[70]|max_length[160]', '2014-05-02 08:45:18', 1),
 (8, 'Default meta keyworkds (comma seperated)', 'default_meta_keywords', 'textarea', NULL, 'Buy, Sell, Trade,mtgo, magic online, magic the gathering online, cards, collection, tickets, ix, store, shop, auctions', 0, 'trim|required', '2014-05-02 08:46:07', 1),
-(9, 'Default Meta Author', 'default_meta_author', 'text', NULL, 'Amit Yadav', 0, 'trim', '2014-05-02 08:50:39', 1);
+(9, 'Default Meta Author', 'default_meta_author', 'text', NULL, 'Amit Yadav', 0, 'trim', '2014-05-02 08:50:39', 1),
+(11, 'Contact Email', 'contact_email', 'text', NULL, 'support@kitabijhund.com', 0, 'trim', NULL, 1),
+(12, 'Contact Phone', 'contact_phone', 'text', NULL, '+91 9024978491', 0, 'trim', NULL, 1),
+(13, 'Contact Address', 'contact_address', 'textarea', NULL, '877 Filbert Street\r\nRewari, Alwar 301001', 0, 'trim', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -442,9 +546,58 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
-(10, 'Quantitative Aptitude', 'quantitative-aptitude', 1, '2018-02-03 22:33:32', NULL),
-(11, 'Political Science', 'political-science', 1, '2018-02-03 22:33:55', NULL),
-(12, 'Chemistry', 'chemistry', 1, '2018-02-03 22:36:59', NULL);
+(16, 'Political Science', 'political-science', 0, '2018-02-14 21:37:03', '2018-02-25 10:17:51'),
+(18, 'RTyu', 'rtyu-1', 1, '2018-02-25 04:44:39', '2018-02-25 10:16:36'),
+(20, 'Jock', 'jock', 1, '2018-02-25 04:46:59', '2018-02-25 10:18:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject_subcourses`
+--
+
+CREATE TABLE `subject_subcourses` (
+  `id` int(11) NOT NULL,
+  `sub_course_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subject_subcourses`
+--
+
+INSERT INTO `subject_subcourses` (`id`, `sub_course_id`, `subject_id`) VALUES
+(2, 1, 18),
+(4, 2, 16),
+(5, 1, 16),
+(6, 2, 18),
+(8, 2, 20),
+(9, 3, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_courses`
+--
+
+CREATE TABLE `sub_courses` (
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sub_courses`
+--
+
+INSERT INTO `sub_courses` (`id`, `course_id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
+(1, 4, 'SSS', 'sss', 1, '2018-02-16 20:58:04', NULL),
+(2, 3, 'Bank PO', 'bank-po', 1, '2018-02-19 20:21:17', '2018-02-19 13:21:30'),
+(3, 5, '10th Class', '10th-class', 1, '2018-02-25 04:47:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -477,9 +630,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'admin', '$2y$08$X.wo1a1ctWWqF/tiLCx.wubIZsXlKjpxjZNsHwi0ooBkuxL1Muple', NULL, 'admin@admin.com', '', '41OxdsvwogkRPa7YoTUUku1b6c8113ad4e2f5ac2', 1508057752, NULL, 1268889823, 1518250191, 1, 'Amit', 'Yadav', 'ADMIN', '0'),
-(2, '127.0.0.1', NULL, '$2y$08$wQclqGSuDs6ha.ImfqjcDOp8H8M8HEKbTPDjv2CG1WRTOjGd9BCui', NULL, 'motilalsoni@gmail.com', NULL, NULL, NULL, NULL, 1514189309, NULL, 1, 'motilal', 'soni', NULL, '9024978491'),
-(3, '127.0.0.1', NULL, '$2y$08$X.wo1a1ctWWqF/tiLCx.wubIZsXlKjpxjZNsHwi0ooBkuxL1Muple', NULL, 'mohit@gmail.com', NULL, NULL, NULL, NULL, 1514189657, 1517714511, 1, 'Mohit', 'Soni', NULL, '123654789'),
+(1, '127.0.0.1', 'admin', '$2y$08$DtNn/97d3CQ5dg0hwjLqM.1C6YIpVNmIcUMlEAIe8TyNEut80nKPO', NULL, 'admin@admin.com', '', NULL, 1519574412, NULL, 1268889823, 1519581863, 1, 'Amit', 'Yadav', 'ADMIN', '9024978491'),
+(2, '127.0.0.1', NULL, '$2y$08$njHn5resw7whKT4Svv6m.uWL//62ZJJ2jsIWI.Je4iZ9/NN/J/k8W', NULL, 'motilalsoni@gmail.com', NULL, '3aeQ17Jzttv6WWInzXZY1e5d0656d92deea61c82', 1519581796, NULL, 1514189309, NULL, 1, 'motilal', 'soni', NULL, '9024978491'),
+(3, '127.0.0.1', NULL, '$2y$08$6zyvKfChLbr.IdtgiEoYSOsoCpit/ljoUstUhKrbWGh/JVFqEEjLG', NULL, 'mohit@gmail.com', NULL, NULL, 1519574083, NULL, 1514189657, 1519572206, 1, 'Mohit', 'Soni', NULL, '123654789'),
 (5, '127.0.0.1', NULL, '$2y$08$RkW9FzddQUrtbpMzO6Z2gOqJyeT3EEEeaW8zf4fljnK6UaVShNKNu', NULL, 'pawanbamboli@gmail.com', NULL, NULL, NULL, NULL, 1514191227, NULL, 1, 'Pawan', 'Soni', NULL, '123654789');
 
 -- --------------------------------------------------------
@@ -536,17 +689,7 @@ INSERT INTO `users_permissions` (`id`, `user_id`, `permission_id`, `created`) VA
 (11, 3, 30, '2018-02-04 03:20:13'),
 (12, 3, 31, '2018-02-04 03:20:13'),
 (13, 3, 32, '2018-02-04 03:20:13'),
-(18, 3, 45, '2018-02-04 03:21:21'),
-(19, 5, 33, '2018-02-10 08:08:58'),
-(20, 5, 34, '2018-02-10 08:08:58'),
-(21, 5, 35, '2018-02-10 08:08:58'),
-(22, 5, 36, '2018-02-10 08:08:58'),
-(23, 5, 37, '2018-02-10 08:08:58'),
-(24, 5, 50, '2018-02-10 08:08:58'),
-(25, 5, 51, '2018-02-10 08:08:58'),
-(26, 5, 52, '2018-02-10 08:08:58'),
-(27, 5, 53, '2018-02-10 08:08:58'),
-(28, 5, 54, '2018-02-10 08:08:58');
+(18, 3, 45, '2018-02-04 03:21:21');
 
 --
 -- Indexes for dumped tables
@@ -581,11 +724,23 @@ ALTER TABLE `ci_sessions`
   ADD KEY `last_activity_idx` (`timestamp`);
 
 --
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `email_templates`
 --
 ALTER TABLE `email_templates`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `udx_slug` (`slug`);
+
+--
+-- Indexes for table `flash_messages`
+--
+ALTER TABLE `flash_messages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `form_alerts`
@@ -643,6 +798,21 @@ ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subject_subcourses`
+--
+ALTER TABLE `subject_subcourses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subject_id` (`subject_id`),
+  ADD KEY `sub_course_id` (`sub_course_id`);
+
+--
+-- Indexes for table `sub_courses`
+--
+ALTER TABLE `sub_courses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -673,22 +843,32 @@ ALTER TABLE `users_permissions`
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `chapters_pages`
 --
 ALTER TABLE `chapters_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `chapters_subjects`
 --
 ALTER TABLE `chapters_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `flash_messages`
+--
+ALTER TABLE `flash_messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `form_alerts`
 --
@@ -698,7 +878,7 @@ ALTER TABLE `form_alerts`
 -- AUTO_INCREMENT for table `form_alerts_categories`
 --
 ALTER TABLE `form_alerts_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `groups`
 --
@@ -708,32 +888,42 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT for table `subject_subcourses`
+--
+ALTER TABLE `subject_subcourses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `sub_courses`
+--
+ALTER TABLE `sub_courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -748,7 +938,7 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT for table `users_permissions`
 --
 ALTER TABLE `users_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
@@ -771,6 +961,19 @@ ALTER TABLE `chapters_subjects`
 --
 ALTER TABLE `form_alerts`
   ADD CONSTRAINT `form_alerts_ibfk_1` FOREIGN KEY (`category`) REFERENCES `form_alerts_categories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `subject_subcourses`
+--
+ALTER TABLE `subject_subcourses`
+  ADD CONSTRAINT `subject_subcourses_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `subject_subcourses_ibfk_3` FOREIGN KEY (`sub_course_id`) REFERENCES `sub_courses` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `sub_courses`
+--
+ALTER TABLE `sub_courses`
+  ADD CONSTRAINT `sub_courses_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `users_groups`
