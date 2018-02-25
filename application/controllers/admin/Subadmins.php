@@ -15,7 +15,7 @@ class Subadmins extends CI_Controller {
         parent::__construct();
         $this->site_santry->redirect = "admin";
         $this->site_santry->allow(array());
-        is_allow_admin(); 
+        is_allow_admin();
         $this->layout->set_layout("admin/layout/layout_admin");
         $this->load->model(array('user_model' => 'user'));
         $this->viewData['pageModule'] = 'SubAdmin Manager';
@@ -125,9 +125,9 @@ class Subadmins extends CI_Controller {
         if ($this->input->is_ajax_request()) {
             $id = $this->input->post('id');
             if ($id > 0 && $this->ion_auth->delete_user($id)) {
-                $response['success'] = 'SubAdmin deleted successfully.';
+                $response['success'] = __('SubadminDeleteSuccess');
             } else {
-                $response['error'] = 'Invalid request';
+                $response['error'] = __('InvalidRequest');
             }
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
@@ -190,15 +190,13 @@ class Subadmins extends CI_Controller {
         if ($this->input->is_ajax_request()) {
             $id = $this->input->post('id');
             $status = $this->input->post('status');
-            $pageaction = '';
             if ($status == "1") {
                 $this->db->where("id", $id)->update("users", array("active" => 0));
-                $pageaction = 'Inactive';
+                $response['success'] = __('PageDeleteSuccess');
             } else if ($status == "0") {
                 $this->db->where("id", $id)->update("users", array("active" => 1));
-                $pageaction = 'Active';
+                $response['error'] = __('InvalidRequest');
             }
-            $response['success'] = "SubAdmin account $pageaction Successfully.";
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }

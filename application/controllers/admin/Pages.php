@@ -23,7 +23,7 @@ class Pages extends CI_Controller {
         $condition = array();
         $result = $this->page->get_list($condition);
         $this->viewData['result'] = $result;
-        $this->viewData['title'] = "Manage Page"; 
+        $this->viewData['title'] = "Manage Page";
         $this->viewData['pageModule'] = 'Page Manager';
         $this->viewData['pageHeading'] = 'Static Pages';
         $this->viewData['breadcrumb'] = array('Page Manager' => '');
@@ -84,9 +84,9 @@ class Pages extends CI_Controller {
             $has_permission = $this->acl->has_permission('page-delete', FALSE);
             if ($has_permission === TRUE) {
                 if ($id > 0 && $this->db->where("id", $id)->delete("pages")) {
-                    $response['success'] = 'Page deleted successfully.';
+                    $response['success'] = __('PageDeleteSuccess');
                 } else {
-                    $response['error'] = 'Invalid request';
+                    $response['error'] = __('InvalidRequest');
                 }
             } else {
                 $response['error'] = $has_permission;
@@ -102,15 +102,13 @@ class Pages extends CI_Controller {
             if ($has_permission === TRUE) {
                 $id = $this->input->post('id');
                 $status = $this->input->post('status');
-                $pageaction = '';
                 if ($status == "1") {
                     $this->db->where("id", $id)->update("pages", array("status" => 0));
-                    $pageaction = 'Inactive';
+                    $response['success'] = __('PageInactiveSuccess');
                 } else if ($status == "0") {
                     $this->db->where("id", $id)->update("pages", array("status" => 1));
-                    $pageaction = 'Active';
+                    $response['success'] = __('PageActiveSuccess');
                 }
-                $response['success'] = "Page $pageaction Successfully.";
             } else {
                 $response['error'] = $has_permission;
             }

@@ -91,9 +91,9 @@ class Email_templates extends CI_Controller {
             $has_permission = $this->acl->has_permission('email_templates-delete', FALSE);
             if ($has_permission === TRUE) {
                 if ($id > 0 && $this->db->where("id", $id)->delete("email_templates")) {
-                    $response['success'] = 'Email Template deleted successfully.';
+                    $response['success'] = __('EmailTemplateDeleteSuccess');
                 } else {
-                    $response['error'] = 'Invalid request';
+                    $response['error'] = __('InvalidRequest');
                 }
             } else {
                 $response['error'] = $has_permission;
@@ -109,15 +109,13 @@ class Email_templates extends CI_Controller {
             if ($has_permission === TRUE) {
                 $id = $this->input->post('id');
                 $status = $this->input->post('status');
-                $pageaction = '';
                 if ($status == "1") {
                     $this->db->where("id", $id)->update("email_templates", array("status" => 0));
-                    $pageaction = 'Inactive';
+                    $response['success'] = __('EmailTemplateInactiveSuccess');
                 } else if ($status == "0") {
                     $this->db->where("id", $id)->update("email_templates", array("status" => 1));
-                    $pageaction = 'Active';
+                    $response['success'] = __('EmailTemplateActiveSuccess');
                 }
-                $response['success'] = "Email Template $pageaction Successfully.";
             } else {
                 $response['error'] = $has_permission;
             }
