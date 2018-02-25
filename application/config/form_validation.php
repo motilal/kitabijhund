@@ -265,6 +265,23 @@ $config = array(
             'rules' => "trim|matches[password]"
         )
     ),
+    'update_profile' => array(
+        array(
+            'field' => 'first_name',
+            'label' => 'First Name',
+            'rules' => "trim|required|max_length[50]"
+        ),
+        array(
+            'field' => 'last_name',
+            'label' => 'Last Name',
+            'rules' => "trim|max_length[50]"
+        ),
+        array(
+            'field' => 'phone',
+            'label' => 'Phone',
+            'rules' => "trim|max_length[20]"
+        )
+    ),
     'subjects/manage' => array(
         array(
             'field' => 'name',

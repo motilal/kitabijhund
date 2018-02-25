@@ -10,3 +10,8 @@
 {"lavel":"ERROR","date":"2018-02-25 19:04:28","message":"Severity: Notice --> Undefined variable: action E:\\xampp\\htdocs\\kitabijhund\\application\\views\\admin\\setting\\profile.php 7"}
 {"lavel":"ERROR","date":"2018-02-25 19:04:28","message":"Severity: Notice --> Undefined variable: action E:\\xampp\\htdocs\\kitabijhund\\application\\views\\admin\\setting\\profile.php 7"}
 {"lavel":"ERROR","date":"2018-02-25 19:04:28","message":"Severity: Notice --> Undefined variable: action E:\\xampp\\htdocs\\kitabijhund\\application\\views\\admin\\setting\\profile.php 44"}
+{"lavel":"ERROR","date":"2018-02-25 19:12:36","message":"Severity: Notice --> Undefined variable: data E:\\xampp\\htdocs\\kitabijhund\\application\\controllers\\admin\\Settings.php 95"}
+{"lavel":"ERROR","date":"2018-02-25 19:14:03","message":"Could not find the language line \"ChangeProfileSuccess\""}
+{"lavel":"ERROR","date":"2018-02-25 19:14:06","message":"Could not find the language line \"ChangeProfileSuccess\""}
+{"lavel":"ERROR","date":"2018-02-25 19:14:09","message":"Could not find the language line \"ChangeProfileSuccess\""}
+{"lavel":"ERROR","date":"2018-02-25 19:14:12","message":"Could not find the language line \"ChangeProfileSuccess\""}
