@@ -2,10 +2,10 @@
     <div class="col-xs-12"> 
         <div class="box">
             <div class="box-header">
-                <i class="fa fa-exclamation-circle"></i> 
+                <i class="fa fa-bug"></i> 
                 <h3 class="box-title"><?php echo isset($pageHeading) ? $pageHeading : '&nbsp;'; ?></h3>
-                <div class="btn-group" data-toggle="btn-toggle">
-                    <a href="<?php echo site_url('admin/flash_messages/manage'); ?>" class="btn btn-primary btn-sm add_new_item"><i class="fa fa-plus"></i> <?php echo $filename;?> </a> 
+                <div class="pull-right text-danger">
+                    <i class="fa fa-file"></i> <?php echo $filename; ?> 
                 </div>
             </div>     
             <!-- /.box-header -->
@@ -48,5 +48,5 @@
      3 default paging
      4 show sr. number or not
      */
-    var datatbl = datatable_init([0], [[3, 'DESC']], 100, 1);
+    var datatbl = datatable_init([0], [[3, 'DESC']], 50, 1);
 </script>

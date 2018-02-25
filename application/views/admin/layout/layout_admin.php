@@ -67,10 +67,10 @@
             var DEFAULT_PAGING = <?php echo DEFAULT_PAGING; ?>;
             var SITE_URL = '<?php echo site_url(); ?>';
             var BASE_URL = '<?php echo base_url(); ?>';
-            var SUCCESS_NOTIFICATION = '<?php echo json_encode($this->session->flashdata("success")); ?>';
-            var ERROR_NOTIFICATION = '<?php echo json_encode($this->session->flashdata("error")); ?>';
-            var WARNING_NOTIFICATION = '<?php echo json_encode($this->session->flashdata("warning")); ?>';
-            var INFO_NOTIFICATION = '<?php echo json_encode($this->session->flashdata("notification")); ?>';
+            var SUCCESS_NOTIFICATION = <?php echo json_encode($this->session->flashdata("success")); ?>;
+            var ERROR_NOTIFICATION = <?php echo json_encode($this->session->flashdata("error")); ?>;
+            var WARNING_NOTIFICATION = <?php echo json_encode($this->session->flashdata("warning")); ?>;
+            var INFO_NOTIFICATION = <?php echo json_encode($this->session->flashdata("notification")); ?>;
         </script>
         <script src="<?php echo base_url('asset/admin/js/common.js'); ?>"></script>   
     </head>

@@ -72,11 +72,11 @@ class Email_templates extends CI_Controller {
             if ($this->input->post('id') > 0) {
                 $data['updated'] = date("Y-m-d H:i:s");
                 $this->db->update("email_templates", $data, array("id" => $this->input->post('id')));
-                $this->session->set_flashdata("success", getLangText('EmailUpdateSuccess'));
+                $this->session->set_flashdata("success", __('EmailTemplateUpdateSuccess'));
             } else {
                 $data['created'] = date("Y-m-d H:i:s");
                 $this->db->insert("email_templates", $data);
-                $this->session->set_flashdata("success", getLangText('EmailAddSuccess'));
+                $this->session->set_flashdata("success", __('EmailTemplateAddSuccess'));
             }
             redirect("admin/email_templates");
         }

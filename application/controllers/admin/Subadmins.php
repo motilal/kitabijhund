@@ -86,7 +86,7 @@ class Subadmins extends CI_Controller {
             );
             $group = array('3');
             $this->ion_auth->register($username, $password, $email, $additional_data, $group);
-            $this->session->set_flashdata("success", getLangText('SubadminAddSuccess'));
+            $this->session->set_flashdata("success", __('SubadminAddSuccess'));
             redirect("admin/subadmins");
         }
         $this->viewData['title'] = "Add SubAdmin";
@@ -107,7 +107,7 @@ class Subadmins extends CI_Controller {
                 $data['password'] = $this->input->post('password');
             }
             $this->ion_auth->update($id, $data);
-            $this->session->set_flashdata("success", getLangText('SubadminAddSuccess'));
+            $this->session->set_flashdata("success", __('SubadminAddSuccess'));
             redirect("admin/subadmins");
         }
         $this->viewData['data'] = $data = $this->ion_auth->user($id)->row();

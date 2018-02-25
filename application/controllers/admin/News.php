@@ -60,7 +60,7 @@ class News extends CI_Controller {
             $this->acl->has_permission('news-edit');
             $this->viewData['data'] = $detail = $this->news->getById($id);
             if (empty($detail)) {
-                $this->session->set_flashdata("error", getLangText('LinkExpired'));
+                $this->session->set_flashdata("error", __('LinkExpired'));
                 redirect('admin/news');
             }
             $this->viewData['title'] = "Edit News";
@@ -163,7 +163,10 @@ class News extends CI_Controller {
             foreach ($data as $key => $row) {
                 $img_path = "asset/admin/images/no_image_100.jpg";
                 if ($row->image != "") {
-                    $img_path = getNewsImage($row->image, array('width' => 100, 'height' => 100));
+                    $getNewsImg = getNewsImage($row->image, array('width' => 100, 'height' => 100));
+                    if ($getNewsImg) {
+                        $img_path = $getNewsImg;
+                    }
                 }
                 $rowData = array();
                 $rowData[0] = getPageSerial($this->input->get('length'), $this->input->get('start'), $key);

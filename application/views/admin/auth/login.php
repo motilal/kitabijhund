@@ -1,8 +1,7 @@
-<p class="login-box-msg">Sign in to start your session</p>
-<div class="text-danger"><?php echo $this->session->flashdata('login_error'); ?></div>
+<p class="login-box-msg">Sign in to start your session</p> 
 <?php echo form_open(NULL, array("id" => "login-form", "method" => "post")); ?>
 <div class="form-group has-feedback <?php echo form_error('identity') != "" ? "has-error" : ""; ?>"> 
-    <?php echo form_input("identity", set_value("identity"), "id='identity' class='form-control' required autofocus='true' placeholder='Email / Username'"); ?> 
+    <?php echo form_input("identity", set_value("identity"), "id='identity' class='form-control' required autofocus='true' placeholder='Email'"); ?> 
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
     <?php echo form_error('identity'); ?>
 </div>
@@ -23,4 +22,4 @@
     <!-- /.col -->
 </div>
 <?php echo form_close(); ?>
-<a href="#">I forgot my password</a><br>  
+<a href="<?php echo site_url('admin/auth/forgot_password'); ?>">I forgot my password</a><br>  

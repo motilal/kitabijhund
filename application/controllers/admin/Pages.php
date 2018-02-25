@@ -39,7 +39,7 @@ class Pages extends CI_Controller {
             $this->acl->has_permission('page-edit');
             $this->viewData['data'] = $data = $this->page->getById($id);
             if (empty($data)) {
-                $this->session->set_flashdata("error", getLangText('LinkExpired'));
+                $this->session->set_flashdata("error", __('LinkExpired'));
                 redirect('admin/pages');
             }
             $this->viewData['title'] = "Edit Static Page";

@@ -50,6 +50,27 @@ class Sub_course_model extends CI_Model {
         return false;
     }
 
+    public function sub_course_options() {
+        $sql = $this->db->select('name,id')->order_by('name', 'ASC')->get('sub_courses');
+        if ($sql->num_rows() > 0) {
+            $array = array('' => 'Select Sub Course');
+            foreach ($sql->result() as $row) {
+                $array[$row->id] = $row->name;
+            }
+            return $array;
+        } else {
+            return false;
+        }
+    }
+
+    public function get_subject_subcourses($condition) {
+        $result = $this->db->select("sub_courses.name,sub_courses.id")
+                ->join('sub_courses', 'sub_courses.id=subject_subcourses.sub_course_id', 'INNER')
+                ->where(!empty($condition) ? $condition : 1, TRUE)
+                ->get("subject_subcourses");
+        return $result->num_rows() > 0 ? $result->result() : null;
+    }
+
 }
 
 ?>

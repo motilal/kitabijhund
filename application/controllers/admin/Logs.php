@@ -28,11 +28,12 @@ class Logs extends CI_Controller {
                 $logFiles[] = $val;
             }
         }
-        foreach ($logFiles as $file) {
-            $encfile = base64_encode($file);
-            echo "<a href='" . site_url('admin/logs/detail/?file=' . $encfile) . "'>" . $file . "</a>";
-        }
-        die;
+        arsort($logFiles);
+        $this->viewData['title'] = $this->viewData['pageHeading'] = "System Logs Files";
+        $this->viewData['pageModule'] = "System Logs Manager";
+        $this->viewData['logFiles'] = $logFiles;
+        $this->viewData['breadcrumb'] = array('System Logs' => 'admin/logs');
+        $this->layout->view("admin/log/index", $this->viewData);
     }
 
     function detail() {
@@ -61,10 +62,42 @@ class Logs extends CI_Controller {
         }
         $this->viewData['filename'] = $fileName;
         $this->viewData['result'] = $errorArray;
-        $this->viewData['title'] = $this->viewData['pageModule'] = $this->viewData['pageHeading'] = "System Error Logs";
+        $this->viewData['title'] = $this->viewData['pageHeading'] = "System Error Logs";
+        $this->viewData['pageModule'] = "System Logs Manager";
         $this->viewData['datatable_asset'] = true;
-        $this->viewData['breadcrumb'] = array('Error Logs' => '');
+        $this->viewData['breadcrumb'] = array('System Logs' => 'admin/logs', $fileName => '');
         $this->layout->view("admin/log/detail", $this->viewData);
+    }
+
+    public function delete() {
+        $response = array();
+        if ($this->input->is_ajax_request()) {
+            $fileName = $this->input->post('file');
+            $file = APPPATH . 'logs/' . $fileName;
+            if ($fileName != "" && file_exists($file)) {
+                @unlink($file);
+                $response['success'] = __('LogDeleteSuccess');
+            } else {
+                $response['error'] = __('InvalidRequest');
+            }
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($response));
+    }
+
+    public function test() {
+        $this->load->library('email');
+        $mail_smtp = $this->config->item("mail_smtp"); 
+        $this->email->initialize($mail_smtp);
+        $this->email->clear();
+
+        $this->email->from('motilalsoni@gmail.com', 'Kitabi Jhund');
+        $this->email->to('motilalsoni@mailinator.com');
+        $this->email->subject('hiii');
+        $this->email->message('this is yest dhffi');
+        $this->email->send();
+
+        echo $this->email->print_debugger();
+        die;
     }
 
 }

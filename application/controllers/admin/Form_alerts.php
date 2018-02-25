@@ -60,7 +60,7 @@ class Form_alerts extends CI_Controller {
             $this->acl->has_permission('form_alert-edit');
             $this->viewData['data'] = $detail = $this->form_alert->getById($id);
             if (empty($detail)) {
-                $this->session->set_flashdata("error", getLangText('LinkExpired'));
+                $this->session->set_flashdata("error", __('LinkExpired'));
                 redirect('admin/form_alerts');
             }
             $this->viewData['title'] = "Edit Form Alert";
@@ -178,7 +178,10 @@ class Form_alerts extends CI_Controller {
             foreach ($data as $key => $row) {
                 $img_path = "asset/admin/images/no_image_100.jpg";
                 if ($row->image != "") {
-                    $img_path = getFormAlertImage($row->image, array('width' => 100, 'height' => 100));
+                    $getImg = getFormAlertImage($row->image, array('width' => 100, 'height' => 100));
+                    if ($getImg) {
+                        $img_path = $getImg;
+                    }
                 }
                 $rowData = array();
                 $rowData[0] = getPageSerial($this->input->get('length'), $this->input->get('start'), $key);

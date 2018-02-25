@@ -52,8 +52,11 @@ class Settings extends CI_Controller {
             $post = $this->input->post();
             if ($post['action'] == 'change-password') {
                 $this->_changePassword();
+            } else if ($post['action'] == 'change-profile') {
+                $this->_changeProfile();
             }
         }
+        $this->viewData['data'] = $data = $this->ion_auth->user()->row(); 
         $this->viewData['title'] = "Profile Setting";
         $this->viewData['pageModule'] = 'Profile Manager';
         $this->viewData['pageHeading'] = 'Manage Profile';
@@ -68,7 +71,22 @@ class Settings extends CI_Controller {
                 'password' => $this->input->post("new_password")
             );
             if ($this->ion_auth->update($this->ion_auth->get_user_id(), $data)) {
-                $this->session->set_flashdata("success", "Password changed successfully");
+                $this->session->set_flashdata("success", __('PasswordChangeSuccess'));
+                redirect("admin/settings/profile");
+            }
+        }
+    }
+
+    protected function _changeProfile() {
+        $this->load->library('form_validation');
+        if ($this->form_validation->run('change_admin_profile') == TRUE) {
+            $data = array(
+                'first_name' => $this->input->post('first_name'),
+                'last_name' => $this->input->post('last_name'),
+                'phone' => $this->input->post('phone')
+            );
+            if ($this->ion_auth->update($this->ion_auth->get_user_id(), $data)) {
+                $this->session->set_flashdata("success", __('PasswordUpdatedSuccess'));
                 redirect("admin/settings/profile");
             }
         }
