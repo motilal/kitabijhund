@@ -21,9 +21,12 @@ $formalertAdd = ($segment_cntr == 'form_alerts' && $segment_fun == 'manage') ? '
 
 $settingIndex = ($segment_cntr == 'settings' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 $settingProfile = ($segment_cntr == 'settings' && $segment_fun == 'profile') ? 'active' : '';
+$flashMessageIndex = ($segment_cntr == 'flash_messages' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 
 $user_permissions = $this->session->userdata('_subadmin_module_permissions');
 
+$courseIndex = ($segment_cntr == 'courses' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
+//$subcourseIndex = ($segment_cntr == 'sub_courses' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 $subjectIndex = ($segment_cntr == 'subjects' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 ?>
@@ -66,7 +69,7 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
                 </li>
             <?php } ?>
 
-            <li class="treeview <?php echo in_array($segment_cntr, array('subjects', 'chapters')) ? 'active menu-open' : ''; ?>">
+            <li class="treeview <?php echo in_array($segment_cntr, array('courses', 'subjects', 'chapters', 'sub_courses')) ? 'active menu-open' : ''; ?>">
                 <a href="#">
                     <i class="fa fa-book"></i> <span>Study Materials</span>
                     <span class="pull-right-container">
@@ -74,8 +77,18 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    <?php if (is_allow_action('course-index')) { ?>
+                    <li class="<?php echo $courseIndex; ?>"><a href="<?php echo site_url('admin/courses'); ?>"><i class="fa fa-circle-o"></i> Manage Courses</a></li>
+                    <?php } ?>
+                    <?php /*if (is_allow_action('sub_course-index')) { ?>
+                        <li class="<?php echo $subcourseIndex; ?>"><a href="<?php echo site_url('admin/sub_courses'); ?>"><i class="fa fa-circle-o"></i> Manage Sub Courses</a></li>
+                    <?php } */?>
+                    <?php if (is_allow_action('subject-index')) { ?>
                     <li class="<?php echo $subjectIndex; ?>"><a href="<?php echo site_url('admin/subjects'); ?>"><i class="fa fa-circle-o"></i> Manage Subjects</a></li>
+                    <?php } ?>
+                    <?php if (is_allow_action('chapter-index')) { ?>
                     <li class="<?php echo $chapterIndex; ?>"><a href="<?php echo site_url('admin/chapters'); ?>"><i class="fa fa-circle-o"></i> Manage Chapters</a></li>
+                    <?php } ?>
                 </ul>
             </li>
 
@@ -182,6 +195,12 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
                         <li class="<?php echo $settingIndex; ?>">
                             <a href="<?php echo site_url('admin/settings/index'); ?>"><i class="fa fa-gear"></i> Site Settings</a>
                         </li> 
+                    <?php } ?>
+
+                    <?php if (is_allow_admin(FALSE)) { ?>
+                        <li class="<?php echo $flashMessageIndex; ?>">
+                            <a href="<?php echo site_url('admin/flash_messages'); ?>"><i class="fa fa-message"></i> Manage Flash Messages</a>
+                        </li>    
                     <?php } ?>
                 </ul>
             </li>

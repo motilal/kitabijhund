@@ -139,6 +139,22 @@ if (!function_exists('getLangText')) {
     }
 
 }
+
+/**
+ * 
+ * @param type $string
+ * @return string
+ */
+if (!function_exists("__")) {
+
+    function __($key) {
+        $CI = & get_instance();
+        $content = $CI->lang->line($key);
+        return $content === FALSE ? $key : $content;
+    }
+
+}
+
 if (!function_exists('validateDate')) {
 
     function validateDate($date, $format = 'Y-m-d H:i:s') {

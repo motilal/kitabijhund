@@ -9,7 +9,7 @@
 
             <div class="col-md-4">
                 <div class="logo">
-                     <a href="<?php echo site_url(); ?>" title="Kitabi Jhund" rel="home">
+                    <a href="<?php echo site_url(); ?>" title="Kitabi Jhund" rel="home">
                         <img src="http://demo.esmeth.com/universe/Blue/images/logo.png" alt="Kitabijhund">
                     </a>
                 </div> <!-- /.logo -->

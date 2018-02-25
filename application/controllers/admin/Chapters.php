@@ -90,7 +90,7 @@ class Chapters extends CI_Controller {
             $subjects = filterAssocArray($subjects, 'id');
             $this->viewData['subjects'] = $subjects;
             if (empty($data)) {
-                $this->session->set_flashdata("error", getLangText('LinkExpired'));
+                $this->session->set_flashdata("error", __('LinkExpired'));
                 redirect('admin/chapters');
             }
             $this->viewData['title'] = "Edit Chapter";
@@ -130,7 +130,7 @@ class Chapters extends CI_Controller {
                         $this->db->insert_batch('chapters_subjects', $cs_data);
                     }
                 }
-                $this->session->set_flashdata("success", getLangText('ChapterUpdateSuccess'));
+                $this->session->set_flashdata("success", __('ChapterUpdateSuccess'));
             } else {
                 $data['slug'] = create_unique_slug($this->input->post('name'), 'chapters', 'slug');
                 $data['created'] = date("Y-m-d H:i:s");
@@ -147,7 +147,7 @@ class Chapters extends CI_Controller {
                         $this->db->insert_batch('chapters_subjects', $cs_data);
                     }
                 }
-                $this->session->set_flashdata("success", getLangText('ChapterAddSuccess'));
+                $this->session->set_flashdata("success", __('ChapterAddSuccess'));
             }
             redirect("admin/chapters");
         }
@@ -166,9 +166,9 @@ class Chapters extends CI_Controller {
             $has_permission = $this->acl->has_permission('chapter-delete', FALSE);
             if ($has_permission === TRUE) {
                 if ($id > 0 && $this->db->where("id", $id)->delete("chapters")) {
-                    $response['success'] = 'Chapter deleted successfully.';
+                    $response['success'] = __('ChapterDeleteSuccess');
                 } else {
-                    $response['error'] = 'Invalid request';
+                    $response['error'] = __('InvalidRequest');
                 }
             } else {
                 $response['error'] = $has_permission;
@@ -184,15 +184,14 @@ class Chapters extends CI_Controller {
             if ($has_permission === TRUE) {
                 $id = $this->input->post('id');
                 $status = $this->input->post('status');
-                $pageaction = '';
+
                 if ($status == "1") {
                     $this->db->where("id", $id)->update("chapters", array("status" => 0));
-                    $pageaction = 'Inactive';
+                    $response['success'] = __('ChapterInactiveSuccess');
                 } else if ($status == "0") {
                     $this->db->where("id", $id)->update("chapters", array("status" => 1));
-                    $pageaction = 'Active';
+                    $response['success'] = __('ChapterActiveSuccess');
                 }
-                $response['success'] = "Chapter $pageaction Successfully.";
             } else {
                 $response['error'] = $has_permission;
             }
@@ -205,7 +204,7 @@ class Chapters extends CI_Controller {
         $detail = $this->chapter->getById($chapter_id);
         $this->viewData['detail'] = $detail;
         if (empty($detail)) {
-            $this->session->set_flashdata("error", getLangText('LinkExpired'));
+            $this->session->set_flashdata("error", __('LinkExpired'));
             redirect('admin/chapters');
         }
         $condition = array('chapter_id' => $chapter_id);
@@ -223,7 +222,7 @@ class Chapters extends CI_Controller {
     public function manage_pages($chapter_id = null, $page_id = null) {
         $chapter_detail = $this->chapter->getById($chapter_id);
         if (empty($chapter_detail)) {
-            $this->session->set_flashdata("error", getLangText('LinkExpired'));
+            $this->session->set_flashdata("error", __('LinkExpired'));
             redirect('admin/chapters');
         }
         $this->load->library('form_validation');
@@ -232,7 +231,7 @@ class Chapters extends CI_Controller {
             $this->acl->has_permission('chapter-edit');
             $this->viewData['data'] = $data = $this->chapter->getChapterPageById($chapter_id, $page_id);
             if (empty($data)) {
-                $this->session->set_flashdata("error", getLangText('LinkExpired'));
+                $this->session->set_flashdata("error", __('LinkExpired'));
                 redirect('admin/chapters/manage_pages/' . $chapter_id);
             }
             $this->viewData['title'] = "Edit Chapter Page";
@@ -250,11 +249,11 @@ class Chapters extends CI_Controller {
             if ($chapter_id > 0 && $page_id > 0) {
                 $data['slug'] = create_unique_slug($this->input->post('title'), 'chapters_pages', 'slug', 'id', $page_id);
                 $this->db->update("chapters_pages", $data, array("id" => $this->input->post('id')));
-                $this->session->set_flashdata("success", getLangText('ChapterPageUpdateSuccess'));
+                $this->session->set_flashdata("success", __('ChapterPageUpdateSuccess'));
             } else {
                 $data['slug'] = create_unique_slug($this->input->post('title'), 'chapters_pages', 'slug');
                 $this->db->insert("chapters_pages", $data);
-                $this->session->set_flashdata("success", getLangText('ChapterPageAddSuccess'));
+                $this->session->set_flashdata("success", __('ChapterPageAddSuccess'));
             }
             redirect("admin/chapters/pages/" . $chapter_id);
         }
@@ -273,9 +272,9 @@ class Chapters extends CI_Controller {
             $has_permission = $this->acl->has_permission('chapter-delete', FALSE);
             if ($has_permission === TRUE) {
                 if ($id > 0 && $this->db->where("id", $id)->delete("chapters_pages")) {
-                    $response['success'] = 'Chapter page deleted successfully.';
+                    $response['success'] = __('ChapterPageDeleteSuccess');
                 } else {
-                    $response['error'] = 'Invalid request';
+                    $response['error'] = __('InvalidRequest');
                 }
             } else {
                 $response['error'] = $has_permission;

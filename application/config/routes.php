@@ -61,3 +61,4 @@ $route['news/(:any)'] = 'news/detail/$1';
 $route['form_alerts/(:any)'] = 'form_alerts/detail/$1';
 $route['subject/(:any)'] = 'subject/index/$1';
 $route['page/(:any)'] = 'page/index/$1';
+$route['chapter/(:any)/(:any)'] = 'subject/detail/$1/$2';

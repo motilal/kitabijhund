@@ -199,6 +199,28 @@ $config = array(
             'rules' => "trim|max_length[11]"
         )
     ),
+    'flash_messages/manage' => array(
+        array(
+            'field' => 'value',
+            'label' => 'Message',
+            'rules' => "trim|required|max_length[1500]"
+        ),
+        array(
+            'field' => 'key',
+            'label' => 'Key',
+            'rules' => "trim|required|max_length[255]|callback__validate_flash_message_key"
+        ),
+        array(
+            'field' => 'group',
+            'label' => 'group',
+            'rules' => "trim|required|max_length[255]"
+        ),
+        array(
+            'field' => 'order',
+            'label' => 'Order',
+            'rules' => "trim|max_length[11]"
+        )
+    ),
     'change_admin_password' => array(
         array(
             'field' => 'password',
@@ -221,6 +243,30 @@ $config = array(
             'field' => 'name',
             'label' => 'Subject Name',
             'rules' => "trim|required|max_length[200]"
+        ),
+        array(
+            'field' => 'course[]',
+            'label' => 'Course',
+            'rules' => "trim|required|max_length[255]"
+        )
+    ),
+    'courses/manage' => array(
+        array(
+            'field' => 'name',
+            'label' => 'Course Name',
+            'rules' => "trim|required|max_length[200]"
+        )
+    ),
+    'sub_courses/manage' => array(
+        array(
+            'field' => 'name',
+            'label' => 'Sub Course Name',
+            'rules' => "trim|required|max_length[200]"
+        ),
+        array(
+            'field' => 'course',
+            'label' => 'Course',
+            'rules' => "trim|required"
         )
     ),
     'chapters/manage' => array(

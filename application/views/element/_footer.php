@@ -4,7 +4,7 @@
             <div class="col-md-3">
                 <div class="footer-widget">
                     <h4 class="footer-widget-title">Contact Us</h4>
-                    <p>The simple contact form below comes packed within this theme. <br><br>Mailing address:<br>877 Filbert Street<br> Chester, PA 19013</p>
+                    <p>The simple contact form below comes packed within this theme. <br><br>Mailing address:<br><?php echo nl2br(get_site_setting('contact_address')); ?></p>
                 </div>
             </div>
             <div class="col-md-3">

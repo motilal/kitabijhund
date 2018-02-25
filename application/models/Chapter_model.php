@@ -50,6 +50,15 @@ class Chapter_model extends CI_Model {
         }
         return false;
     }
+    
+    public function getBySlag($type = "") {
+        if ($type != "") {
+            $result = $this->db->select("chapters.*")
+                    ->get_where("chapters", array("slug" => $type, "status" => 1));
+            return $result->num_rows() > 0 ? $result->row() : null;
+        }
+        return false;
+    }
 
     public function getChapterPageById($chapter_id, $page_id) {
         if (is_numeric($chapter_id) && $chapter_id > 0 && is_numeric($page_id) && $page_id > 0) {
