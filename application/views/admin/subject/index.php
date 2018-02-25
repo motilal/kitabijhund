@@ -34,12 +34,12 @@
                                     <td><?php echo $row->name; ?></td> 
                                     <td> 
                                         <?php
-                                        $courses = $this->course->get_subject_courses(array('subject_id' => $row->id));
-                                        $courses_ids = filterAssocArray($courses, 'id');
-                                        $courses = filterAssocArray($courses, 'name');
-                                        echo empty($courses) ? '' : implode(',', $courses);
+                                        $sub_courses = $this->sub_course->get_subject_subcourses(array('subject_id' => $row->id));
+                                        $sub_courses_ids = filterAssocArray($sub_courses, 'id');
+                                        $sub_courses = filterAssocArray($sub_courses, 'name');
+                                        echo empty($sub_courses) ? '' : implode(',', $sub_courses);
                                         ?>
-                                        <div class="courses" style="display:none;"><?php echo empty($courses_ids) ? '' : json_encode($courses_ids); ?></div>
+                                        <div class="sub_courses" style="display:none;"><?php echo empty($sub_courses_ids) ? '' : json_encode($sub_courses_ids); ?></div>
                                     </td>
                                     <td><?php echo date(DATE_FORMATE, strtotime($row->created)); ?></td>
                                     <td>
@@ -78,8 +78,8 @@
                             <?php echo form_input("name", '', "id='name' class='form-control'"); ?>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="course">Course(s)</label> 
-                            <?php echo form_dropdown('course[]', $course_options, '', 'class="form-control" multiple="multiple" id="course" style="width:100%;"'); ?>  
+                            <label class="control-label" for="sub_course">Sub Course(s)</label> 
+                            <?php echo form_dropdown('sub_course[]', $sub_course_options, '', 'class="form-control" multiple="multiple" id="sub_course" style="width:100%;"'); ?>  
                         </div>
                         <?php echo form_hidden('id'); ?> 
                     </div>
@@ -130,11 +130,11 @@
                     });
                 } else if (res.success && res.msg && res.data) {
                     if (res.mode == 'add') {
-                        datatbl.row.add([0, res.data.name, res.data.courses, res.data.created, res.data.statusButtons, res.data.actionButtons]).draw();
+                        datatbl.row.add([0, res.data.name, res.data.sub_courses, res.data.created, res.data.statusButtons, res.data.actionButtons]).draw();
                         $('.changestatus[data-id="' + res.data.id + '"]').closest('tr').attr('id', 'row_' + res.data.id);
                     } else if (res.mode == 'edit') {
                         $('#row_' + res.data.id).find('td:nth-child(2)').text(res.data.name);
-                        $('#row_' + res.data.id).find('td:nth-child(3)').html(res.data.courses);
+                        $('#row_' + res.data.id).find('td:nth-child(3)').html(res.data.sub_courses);
                     }
                     showMessage('success', {message: res.msg});
                     $('#modal-manage').modal('hide');
@@ -154,27 +154,25 @@
         $('.form-group').removeClass('has-error');
         $('#manage-form')[0].reset();
         $('#manage-form').find('[name="id"]').val('');
-        $('.modal-title').text('Add New Subject');
-        $('#course').val('');
-        $('#course').trigger('change.select2');
+        $('.modal-title').text('Add New Subject'); 
     });
 
     $(document).on('click', 'a.edit-row', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
         var name = $.trim($(this).closest('tr').find('td:nth-child(2)').text());
-        var courses_selected = $.trim($(this).closest('tr').find('td:nth-child(3)').find('.courses').text());
+        var sub_courses_selected = $.trim($(this).closest('tr').find('td:nth-child(3)').find('.sub_courses').text());
         $('#manage-form').find('[name="name"]').val(name);
         $('#manage-form').find('[name="id"]').val(id);
         $('.modal-title').text('Edit Subject');
-        if (courses_selected != "") {
-            $('#course').val(JSON.parse(courses_selected));
-            $('#course').trigger('change.select2');
+        if (sub_courses_selected != "") {
+            $('#sub_course').val(JSON.parse(sub_courses_selected));
+            $('#sub_course').trigger('change.select2');
         }
         $('#modal-manage').modal('show');
     });
 
-    $("#course").select2({
+    $("#sub_course").select2({
         tags: false
     });
 </script>

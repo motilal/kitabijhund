@@ -53,7 +53,7 @@ class Sub_course_model extends CI_Model {
     public function sub_course_options() {
         $sql = $this->db->select('name,id')->order_by('name', 'ASC')->get('sub_courses');
         if ($sql->num_rows() > 0) {
-            $array = array('' => 'Select Sub Course');
+            $array = array();
             foreach ($sql->result() as $row) {
                 $array[$row->id] = $row->name;
             }

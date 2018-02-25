@@ -15,3 +15,5 @@
 {"lavel":"ERROR","date":"2018-02-25 19:14:06","message":"Could not find the language line \"ChangeProfileSuccess\""}
 {"lavel":"ERROR","date":"2018-02-25 19:14:09","message":"Could not find the language line \"ChangeProfileSuccess\""}
 {"lavel":"ERROR","date":"2018-02-25 19:14:12","message":"Could not find the language line \"ChangeProfileSuccess\""}
+{"lavel":"ERROR","date":"2018-02-25 19:17:32","message":"Severity: Notice --> Undefined property: CI_Loader::$course E:\\xampp\\htdocs\\kitabijhund\\application\\views\\admin\\subject\\index.php 37"}
+{"lavel":"ERROR","date":"2018-02-25 19:17:32","message":"Severity: Error --> Call to a member function get_subject_courses() on null E:\\xampp\\htdocs\\kitabijhund\\application\\views\\admin\\subject\\index.php 37"}
