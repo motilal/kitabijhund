@@ -238,6 +238,33 @@ $config = array(
             'rules' => 'trim|required|min_length[6]|max_length[40]|matches[new_password]'
         )
     ),
+    'change_admin_profile' => array(
+        array(
+            'field' => 'first_name',
+            'label' => 'First Name',
+            'rules' => "trim|required|max_length[50]"
+        ),
+        array(
+            'field' => 'last_name',
+            'label' => 'Last Name',
+            'rules' => "trim|max_length[50]"
+        ),
+        array(
+            'field' => 'phone',
+            'label' => 'Phone',
+            'rules' => "trim|max_length[20]"
+        ),
+        array(
+            'field' => 'password',
+            'label' => 'Password',
+            'rules' => "trim|max_length[255]"
+        ),
+        array(
+            'field' => 'cpassword',
+            'label' => 'Confrim Password',
+            'rules' => "trim|matches[password]"
+        )
+    ),
     'subjects/manage' => array(
         array(
             'field' => 'name',
@@ -245,8 +272,8 @@ $config = array(
             'rules' => "trim|required|max_length[200]"
         ),
         array(
-            'field' => 'course[]',
-            'label' => 'Course',
+            'field' => 'sub_course[]',
+            'label' => 'Sub Course',
             'rules' => "trim|required|max_length[255]"
         )
     ),

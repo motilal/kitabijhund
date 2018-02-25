@@ -56,8 +56,9 @@ class Settings extends CI_Controller {
                 $this->_changeProfile();
             }
         }
-        $this->viewData['data'] = $data = $this->ion_auth->user()->row(); 
+        $this->viewData['data'] = $data = $this->ion_auth->user()->row();
         $this->viewData['title'] = "Profile Setting";
+        $this->viewData['action'] = $this->input->post('action');
         $this->viewData['pageModule'] = 'Profile Manager';
         $this->viewData['pageHeading'] = 'Manage Profile';
         $this->viewData['breadcrumb'] = array('Manage Profile' => '');
@@ -86,7 +87,7 @@ class Settings extends CI_Controller {
                 'phone' => $this->input->post('phone')
             );
             if ($this->ion_auth->update($this->ion_auth->get_user_id(), $data)) {
-                $this->session->set_flashdata("success", __('PasswordUpdatedSuccess'));
+                $this->session->set_flashdata("success", __('ChangeProfileSuccess'));
                 redirect("admin/settings/profile");
             }
         }

@@ -43,7 +43,7 @@
             function showMessage(type, params) {
                 toastr.remove();
                 toastr.options = {
-                    positionClass: 'toast-top-center'
+                    positionClass: 'toast-top-right'
                 };
                 if (type == 'success') {
                     toastr.success(params.message);

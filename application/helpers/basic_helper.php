@@ -126,20 +126,6 @@ if (!function_exists('create_unique_slug')) {
 
 }
 
-if (!function_exists('getLangText')) {
-
-    /**
-     * 
-     * @param type $string
-     * @return type
-     */
-    function getLangText($langKey) {
-        $CI = & get_instance();
-        return $CI->lang->line("$langKey", false);
-    }
-
-}
-
 /**
  * 
  * @param type $string
@@ -296,7 +282,9 @@ if (!function_exists('get_site_setting')) {
 
     function get_site_setting($field_name = "") {
         $CI = & get_instance();
+        
         $sql = $CI->db->select('value')->get_where('settings', array('field_name' => $field_name, 'status' => '1'));
+        
         if ($sql->num_rows() > 0) {
             return $sql->row()->value;
         } else {
