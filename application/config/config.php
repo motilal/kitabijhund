@@ -534,6 +534,4 @@ $config['mail_smtp'] = array(
     "newline" => "\r\n",
     "mailtype" => "html",
     "validate" => true
-);
-$config['site_email'] = 'motilalsoni@gmail.com';
-$config['site_title'] = 'Kitabi Jhund';
+); 

@@ -154,7 +154,8 @@
         $('.form-group').removeClass('has-error');
         $('#manage-form')[0].reset();
         $('#manage-form').find('[name="id"]').val('');
-        $('.modal-title').text('Add New Subject'); 
+        $('.modal-title').text('Add New Subject');
+        $('#sub_course').val('').trigger('change.select2');
     });
 
     $(document).on('click', 'a.edit-row', function (e) {
@@ -166,8 +167,7 @@
         $('#manage-form').find('[name="id"]').val(id);
         $('.modal-title').text('Edit Subject');
         if (sub_courses_selected != "") {
-            $('#sub_course').val(JSON.parse(sub_courses_selected));
-            $('#sub_course').trigger('change.select2');
+            $('#sub_course').val(JSON.parse(sub_courses_selected)).trigger('change.select2');
         }
         $('#modal-manage').modal('show');
     });

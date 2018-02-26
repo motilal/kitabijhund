@@ -28,7 +28,7 @@ $logIndex = ($segment_cntr == 'logs') ? 'active' : '';
 $user_permissions = $this->session->userdata('_subadmin_module_permissions');
 
 $courseIndex = ($segment_cntr == 'courses' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
-//$subcourseIndex = ($segment_cntr == 'sub_courses' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
+$subcourseIndex = ($segment_cntr == 'sub_courses' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 $subjectIndex = ($segment_cntr == 'subjects' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $segment_fun == '')) ? 'active' : '';
 ?>
@@ -82,9 +82,9 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
                     <?php if (is_allow_action('course-index')) { ?>
                         <li class="<?php echo $courseIndex; ?>"><a href="<?php echo site_url('admin/courses'); ?>"><i class="fa fa-circle-o"></i> Manage Courses</a></li>
                     <?php } ?>
-                    <?php /* if (is_allow_action('sub_course-index')) { ?>
-                      <li class="<?php echo $subcourseIndex; ?>"><a href="<?php echo site_url('admin/sub_courses'); ?>"><i class="fa fa-circle-o"></i> Manage Sub Courses</a></li>
-                      <?php } */ ?>
+                    <?php if (is_allow_action('sub_course-index')) { ?>
+                        <li class="<?php echo $subcourseIndex; ?>"><a href="<?php echo site_url('admin/sub_courses'); ?>"><i class="fa fa-circle-o"></i> Manage Sub Courses</a></li>
+                    <?php } ?>
                     <?php if (is_allow_action('subject-index')) { ?>
                         <li class="<?php echo $subjectIndex; ?>"><a href="<?php echo site_url('admin/subjects'); ?>"><i class="fa fa-circle-o"></i> Manage Subjects</a></li>
                     <?php } ?>

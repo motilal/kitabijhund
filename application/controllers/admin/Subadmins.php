@@ -192,10 +192,10 @@ class Subadmins extends CI_Controller {
             $status = $this->input->post('status');
             if ($status == "1") {
                 $this->db->where("id", $id)->update("users", array("active" => 0));
-                $response['success'] = __('PageDeleteSuccess');
+                $response['success'] = __('SubadminInactiveSuccess');
             } else if ($status == "0") {
                 $this->db->where("id", $id)->update("users", array("active" => 1));
-                $response['error'] = __('InvalidRequest');
+                $response['success'] = __('SubadminActiveSuccess');
             }
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
