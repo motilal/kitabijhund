@@ -39,18 +39,18 @@
             <script type="text/javascript" src="<?php echo base_url("asset/admin/plugin/ckeditor/ckeditor.js") ?>"></script>
             <script type="text/javascript" src="<?php echo base_url("asset/admin/plugin/ckfinder/ckfinder.js") ?>"></script>
             <script type="text/javascript">
-                $(function () {
-                    $('textarea.editor').each(function (e) {
-                        CKEDITOR.replace(this.id, {
-                            filebrowserBrowseUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/ckfinder.html'); ?>',
-                            filebrowserImageBrowseUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/ckfinder.html?type=Images'); ?>',
-                            filebrowserFlashBrowseUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/ckfinder.html?type=Flash'); ?>',
-                            filebrowserUploadUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>',
-                            filebrowserImageUploadUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>',
-                            filebrowserFlashUploadUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>'
-                        });
+            $(function () {
+                $('textarea.editor').each(function (e) {
+                    CKEDITOR.replace(this.id, {
+                        filebrowserBrowseUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/ckfinder.html'); ?>',
+                        filebrowserImageBrowseUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/ckfinder.html?type=Images'); ?>',
+                        filebrowserFlashBrowseUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/ckfinder.html?type=Flash'); ?>',
+                        filebrowserUploadUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>',
+                        filebrowserImageUploadUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>',
+                        filebrowserFlashUploadUrl: '<?php echo base_url('asset/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>'
                     });
                 });
+            });
             </script>
         <?php } ?>
 
@@ -94,7 +94,7 @@
         <div class="wrapper">
             <?php
             global $UserInfo;
-            $UserInfo = $this->ion_auth->user()->row(); 
+            $UserInfo = $this->ion_auth->user()->row();
             ?>
             <header class="main-header">
                 <!-- Logo -->
@@ -126,7 +126,7 @@
                                         <img src="<?php echo gravatar_url($UserInfo->email); ?>" class="img-circle" alt="User Image">
                                         <p>
                                             <?php echo $UserInfo->first_name . ' ' . $UserInfo->last_name ?> - <?php echo $this->ion_auth->is_subadmin() ? 'Sub Admin' : 'Administrator'; ?>
-                                            <small>Member since <?php echo date('M. Y',$UserInfo->created_on); ?></small>
+                                            <small>Member since <?php echo date('M. Y', $UserInfo->created_on); ?></small>
                                         </p>
                                     </li>                                      
                                     <!-- Menu Footer-->
@@ -142,9 +142,9 @@
                             </li>
                             <!-- Control Sidebar Toggle Button -->
                             <?php if (is_allow_action('settings-index')) { ?>
-                            <li>
-                                <a href="<?php echo site_url('admin/settings/index'); ?>"><i class="fa fa-gears"></i></a>
-                            </li>
+                                <li>
+                                    <a href="<?php echo site_url('admin/settings/index'); ?>"><i class="fa fa-gears"></i></a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>

@@ -36,6 +36,8 @@ class Settings extends CI_Controller {
                 );
                 $this->db->update("settings", $data, array("id" => $v->id));
             }
+            $this->load->driver('cache');
+            $this->cache->delete('site_setting_data');
             $this->session->set_flashdata("success", "Site settings updated successfully");
             redirect("admin/settings");
         }

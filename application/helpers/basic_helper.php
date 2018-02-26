@@ -281,15 +281,40 @@ if (!function_exists('gravatar_url')) {
 if (!function_exists('get_site_setting')) {
 
     function get_site_setting($field_name = "") {
-        $CI = & get_instance();
-        
-        $sql = $CI->db->select('value')->get_where('settings', array('field_name' => $field_name, 'status' => '1'));
-        
-        if ($sql->num_rows() > 0) {
-            return $sql->row()->value;
+        $value = get_site_setting_cache($field_name);
+        if ($value == false) {
+            $CI = & get_instance();
+            $sql = $CI->db->select('value')->get_where('settings', array('field_name' => $field_name, 'status' => '1'));
+            if ($sql->num_rows() > 0) {
+                return $sql->row()->value;
+            } else {
+                return '';
+            }
         } else {
-            return '';
+            return $value;
         }
+    }
+
+}
+if (!function_exists('get_site_setting_cache')) {
+
+    function get_site_setting_cache($field_name = "") {
+        $CI = & get_instance();
+        $CI->load->driver('cache');
+        if ($CI->cache->get('site_setting_data') == FALSE) {
+            $sql = $CI->db->select('field_name,value')->get_where('settings', array('status' => '1'));
+            $cacheData = array();
+            if ($sql->num_rows() > 0) {
+                foreach ($sql->result() as $row) {
+                    $cacheData[$row->field_name] = $row->value;
+                }
+            }
+            $CI->cache->file->save('site_setting_data', $cacheData, 60 * 60 * 24 * 1);
+        }
+        if ($site_setting_data = $CI->cache->get('site_setting_data')) {
+            return isset($site_setting_data[$field_name]) ? $site_setting_data[$field_name] : FALSE;
+        }
+        return FALSE;
     }
 
 }

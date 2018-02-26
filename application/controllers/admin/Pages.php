@@ -15,7 +15,7 @@ class Pages extends CI_Controller {
         $this->site_santry->redirect = "admin";
         $this->site_santry->allow(array());
         $this->layout->set_layout("admin/layout/layout_admin");
-        $this->load->model(array("page_model" => 'page'));
+        $this->load->model(array("page_model" => 'page')); 
     }
 
     public function index() {
