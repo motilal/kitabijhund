@@ -14,7 +14,7 @@ class Permissions extends CI_Controller {
         parent::__construct();
         $this->site_santry->redirect = "admin";
         $this->site_santry->allow(array());
-        is_allow_admin(); 
+        is_allow_admin();
         $this->layout->set_layout("admin/layout/layout_admin");
         $this->load->model(array("permission_model" => 'permission'));
     }
@@ -54,14 +54,14 @@ class Permissions extends CI_Controller {
         if ($id > 0) {
             $this->viewData['data'] = $data = $this->permission->getById($id);
             if (empty($data)) {
-                $this->session->set_flashdata("error", getLangText('LinkExpired'));
+                $this->session->set_flashdata("error", __('LinkExpired'));
                 redirect('admin/permissions');
             }
             $this->viewData['title'] = "Edit Permission";
         }
         $this->viewData['pageModule'] = 'Add New Permission';
         $this->viewData['breadcrumb'] = array('Permission Manager' => 'admin/permissions', $this->viewData['title'] => '');
-        $this->viewData['group_options'] = $this->permission->group_options(); 
+        $this->viewData['group_options'] = $this->permission->group_options();
         $this->layout->view("admin/permission/manage", $this->viewData);
     }
 

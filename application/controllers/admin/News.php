@@ -96,11 +96,11 @@ class News extends CI_Controller {
             if ($this->input->post('id') > 0) {
                 $data['updated'] = date("Y-m-d H:i:s");
                 $this->db->update("news", $data, array("id" => $this->input->post('id')));
-                $this->session->set_flashdata("success", getLangText('NewsUpdateSuccess'));
+                $this->session->set_flashdata("success", __('NewsUpdateSuccess'));
             } else {
                 $data['created'] = date("Y-m-d H:i:s");
                 $this->db->insert("news", $data);
-                $this->session->set_flashdata("success", getLangText('NewsAddSuccess'));
+                $this->session->set_flashdata("success", __('NewsAddSuccess'));
             }
             redirect("admin/news");
         }

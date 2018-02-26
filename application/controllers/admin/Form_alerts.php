@@ -95,11 +95,11 @@ class Form_alerts extends CI_Controller {
             if ($this->input->post('id') > 0) {
                 $data['updated'] = date("Y-m-d H:i:s");
                 $this->db->update("form_alerts", $data, array("id" => $this->input->post('id')));
-                $this->session->set_flashdata("success", getLangText('FormAlertUpdateSuccess'));
+                $this->session->set_flashdata("success", __('FormAlertUpdateSuccess'));
             } else {
                 $data['created'] = date("Y-m-d H:i:s");
                 $this->db->insert("form_alerts", $data);
-                $this->session->set_flashdata("success", getLangText('FormAlertAddSuccess'));
+                $this->session->set_flashdata("success", __('FormAlertAddSuccess'));
             }
             redirect("admin/form_alerts");
         }

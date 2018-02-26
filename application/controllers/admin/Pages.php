@@ -62,11 +62,11 @@ class Pages extends CI_Controller {
             if ($this->input->post('id') > 0) {
                 $data['updated'] = date("Y-m-d H:i:s");
                 $this->db->update("pages", $data, array("id" => $this->input->post('id')));
-                $this->session->set_flashdata("success", getLangText('PageUpdateSuccess'));
+                $this->session->set_flashdata("success", __('PageUpdateSuccess'));
             } else {
                 $data['created'] = date("Y-m-d H:i:s");
                 $this->db->insert("pages", $data);
-                $this->session->set_flashdata("success", getLangText('PageAddSuccess'));
+                $this->session->set_flashdata("success", __('PageAddSuccess'));
             }
             redirect("admin/pages");
         }

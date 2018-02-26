@@ -57,3 +57,4 @@
 {"lavel":"ERROR","date":"2018-02-26 07:24:00","message":"404 Page Not Found: Asset\/admin"}
 {"lavel":"ERROR","date":"2018-02-26 07:24:32","message":"404 Page Not Found: Asset\/admin"}
 {"lavel":"ERROR","date":"2018-02-26 07:46:50","message":"404 Page Not Found: Asset\/admin"}
+{"lavel":"ERROR","date":"2018-02-26 08:02:36","message":"Severity: Error --> Call to undefined function getLangText() E:\\xampp\\htdocs\\kitabijhund\\application\\controllers\\admin\\Form_alerts.php 102"}

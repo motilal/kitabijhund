@@ -87,69 +87,27 @@
                     <table class="table no-margin">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Item</th>
-                                <th>Status</th>
-                                <th>Popularity</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Status</th> 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                <td>Call of Duty IV</td>
-                                <td><span class="label label-success">Shipped</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                <td>Samsung Smart TV</td>
-                                <td><span class="label label-warning">Pending</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>iPhone 6 Plus</td>
-                                <td><span class="label label-danger">Delivered</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>Samsung Smart TV</td>
-                                <td><span class="label label-info">Processing</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                <td>Samsung Smart TV</td>
-                                <td><span class="label label-warning">Pending</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>iPhone 6 Plus</td>
-                                <td><span class="label label-danger">Delivered</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                <td>Call of Duty IV</td>
-                                <td><span class="label label-success">Shipped</span></td>
-                                <td>
-                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                </td>
-                            </tr>
+                            <?php if ($latest_form_alert->num_rows() > 0) { ?>
+                                <?php foreach ($latest_form_alert->result() as $key => $row) { ?>
+                                    <tr>
+                                        <td><a href="<?php echo site_url("form_alerts/$row->slug"); ?>" target="_blank"><?php echo $row->title; ?></a></td>
+                                        <td><?php echo $row->category_name; ?></td>
+                                        <td> 
+                                            <?php if ($row->status == '1') { ?>
+                                                <span class="label label-success">Active</span>
+                                            <?php } else { ?>
+                                                <span class="label label-danger">Inactive</span>
+                                            <?php } ?>
+                                        </td> 
+                                    </tr>
+                                <?php } ?>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -205,10 +163,15 @@
                                     <?php echo img($img_path, FALSE, array('width' => 100)); ?>
                                 </div>
                                 <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title"><?php echo $row->title; ?>
-                                        <span class="label label-warning pull-right">$1800</span></a>
+                                    <a href="<?php echo site_url("news/$row->slug"); ?>" target="_blank" class="product-title"><?php echo $row->title; ?>
+                                        <?php if ($row->status == '1') { ?>
+                                            <span class="label label-success pull-right">Active</span>
+                                        <?php } else { ?>
+                                            <span class="label label-danger pull-right">Inactive</span>
+                                        <?php } ?>
+                                    </a>
                                     <span class="product-description">
-                                        <?php echo strlen($row->short_description) > 150 ? substr($row->short_description, 0, 150) . '...' : $row->short_description; ?>
+                                        <?php echo strlen($row->short_description) > 100 ? substr($row->short_description, 0, 100) . '...' : $row->short_description; ?>
                                     </span>
                                 </div>
                             </li>
@@ -219,7 +182,7 @@
             <!-- /.box-body -->
             <?php if (is_allow_action('news-index')) { ?>
                 <div class="box-footer text-center">
-                    <a href="javascript:void(0)" class="uppercase">View All News</a>
+                    <a href="<?php echo site_url('admin/news'); ?>" class="uppercase">View All News</a>
                 </div>
             <?php } ?>
             <!-- /.box-footer -->
