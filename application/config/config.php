@@ -525,11 +525,10 @@ $config['proxy_ips'] = '';
 
 $config['mail_smtp'] = array(
     "protocol" => "smtp",
-    "smtp_host" => "ssl://smtp.gmail.com",
-    "smtp_port" => 465,
-    'smtp_crypto' => 'ssl',
-    "smtp_user" => "motilalsoni@gmail.com",
-    "smtp_pass" => "",
+    "smtp_host" => "smtp.gmail.com",
+    "smtp_port" => 465, 
+    "smtp_user" => "motilalsonics@gmail.com",
+    "smtp_pass" => "julie@fema",
     "charset" => "utf-8",
     "newline" => "\r\n",
     "mailtype" => "html",

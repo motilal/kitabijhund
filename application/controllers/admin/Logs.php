@@ -88,10 +88,9 @@ class Logs extends CI_Controller {
         $this->load->library('email');
         $mail_smtp = $this->config->item("mail_smtp"); 
         $this->email->initialize($mail_smtp);
-        $this->email->clear();
-
+        $this->email->clear(); 
         $this->email->from('motilalsoni@gmail.com', 'Kitabi Jhund');
-        $this->email->to('motilalsoni@mailinator.com');
+        $this->email->to('motilalsoni@gmail.com');
         $this->email->subject('hiii');
         $this->email->message('this is yest dhffi');
         $this->email->send();
