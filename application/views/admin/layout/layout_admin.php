@@ -193,6 +193,11 @@
             </footer>
 
         </div>
+        <?php 
+        if (ENV_HOST == 'localhost') {
+            $this->output->enable_profiler(TRUE);
+        }
+        ?>
         <!-- ./wrapper --> 
     </body>
 </html>
