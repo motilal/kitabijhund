@@ -14,7 +14,7 @@
                 </div>
             </div>     
             <!-- /.box-header -->
-            <div class="box-body"> 
+            <div class="box-body">  
                 <table id="dataTables-grid" class="table table-bordered table-striped" width="100%">
                     <thead>
                         <tr>
@@ -52,7 +52,7 @@
                             <?php endforeach; ?>
                         <?php } ?> 
                     </tbody> 
-                </table>
+                </table> 
             </div>
             <!-- /.box-body --> 
         </div>

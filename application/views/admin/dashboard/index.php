@@ -4,14 +4,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>150</h3>
+                <h3><?php echo $total_subjects; ?></h3> 
 
-                <p>New Orders</p>
+                <p>Subjects</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fa fa-book"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo site_url('admin/subjects'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -19,14 +19,14 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><?php echo $total_chapters; ?></h3>
 
-                <p>Bounce Rate</p>
+                <p>Chapters</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fa fa-file-text-o"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo site_url('admin/chapters'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -34,14 +34,14 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>44</h3>
+                <h3><?php echo $total_form_alerts; ?></h3>
 
-                <p>User Registrations</p>
+                <p>Form Alerts</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa fa-bell"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo site_url('admin/form_alerts'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -73,7 +73,7 @@
         <!-- TABLE: LATEST ORDERS -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Latest Orders</h3>
+                <h3 class="box-title">Latest Form Alerts</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -157,8 +157,12 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+                <?php if (is_allow_action('form_alert-add')) { ?>
+                    <a href="<?php echo site_url('admin/form_alerts/manage'); ?>" class="btn btn-sm btn-info btn-flat pull-left">Add New Alerts</a>
+                <?php } ?>
+                <?php if (is_allow_action('form_alert-index')) { ?>
+                    <a href="<?php echo site_url('admin/form_alerts'); ?>" class="btn btn-sm btn-default btn-flat pull-right">View All Alerts</a>
+                <?php } ?>
             </div>
             <!-- /.box-footer -->
         </div>
@@ -174,7 +178,7 @@
         <!-- PRODUCT LIST -->
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Recently Added Products</h3>
+                <h3 class="box-title">Recently Added News</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -185,64 +189,39 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <ul class="products-list product-list-in-box">
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="<?php echo base_url('asset/admin/images/theme/default-50x50.gif'); ?>" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">Samsung TV
-                                <span class="label label-warning pull-right">$1800</span></a>
-                            <span class="product-description">
-                                Samsung 32" 1080p 60Hz LED Smart HDTV.
-                            </span>
-                        </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="<?php echo base_url('asset/admin/images/theme/default-50x50.gif'); ?>" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">Bicycle
-                                <span class="label label-info pull-right">$700</span></a>
-                            <span class="product-description">
-                                26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                            </span>
-                        </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="<?php echo base_url('asset/admin/images/theme/default-50x50.gif'); ?>" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">Xbox One <span
-                                    class="label label-danger pull-right">$350</span></a>
-                            <span class="product-description">
-                                Xbox One Console Bundle with Halo Master Chief Collection.
-                            </span>
-                        </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="<?php echo base_url('asset/admin/images/theme/default-50x50.gif'); ?>" alt="Product Image">
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">PlayStation 4
-                                <span class="label label-success pull-right">$399</span></a>
-                            <span class="product-description">
-                                PlayStation 4 500GB Console (PS4)
-                            </span>
-                        </div>
-                    </li>
-                    <!-- /.item -->
+                    <?php if ($latest_news->num_rows() > 0) { ?>
+                        <?php foreach ($latest_news->result() as $key => $row) { ?>
+                            <?php
+                            $img_path = "asset/admin/images/no_image_100.jpg";
+                            if ($row->image != "") {
+                                $getNewsImg = getNewsImage($row->image, array('width' => 100, 'height' => 100));
+                                if ($getNewsImg) {
+                                    $img_path = $getNewsImg;
+                                }
+                            }
+                            ?>
+                            <li class="item">
+                                <div class="product-img">
+                                    <?php echo img($img_path, FALSE, array('width' => 100)); ?>
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title"><?php echo $row->title; ?>
+                                        <span class="label label-warning pull-right">$1800</span></a>
+                                    <span class="product-description">
+                                        <?php echo strlen($row->short_description) > 150 ? substr($row->short_description, 0, 150) . '...' : $row->short_description; ?>
+                                    </span>
+                                </div>
+                            </li>
+                        <?php } ?>
+                    <?php } ?>
                 </ul>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer text-center">
-                <a href="javascript:void(0)" class="uppercase">View All Products</a>
-            </div>
+            <?php if (is_allow_action('news-index')) { ?>
+                <div class="box-footer text-center">
+                    <a href="javascript:void(0)" class="uppercase">View All News</a>
+                </div>
+            <?php } ?>
             <!-- /.box-footer -->
         </div>
         <!-- /.box -->
