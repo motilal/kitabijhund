@@ -21,7 +21,7 @@ class Dashboard extends CI_Controller {
         $this->viewData['total_chapters'] = $this->db->select('id')->where(array('status' => 1))->get('chapters')->num_rows();
         $this->viewData['total_form_alerts'] = $this->db->select('id')->where(array('status' => 1))->get('form_alerts')->num_rows();
         $this->viewData['latest_news'] = $this->news->get_list(array(), array('start' => 0, 'limit' => 4));
-        $this->viewData['latest_form_alert'] = $this->form_alert->get_list(array(), array('start' => 0, 'limit' => 4));
+        $this->viewData['latest_form_alert'] = $this->form_alert->get_list(array(), array('start' => 0, 'limit' => 6));
         $this->layout->view('admin/dashboard/index', $this->viewData);
     }
 

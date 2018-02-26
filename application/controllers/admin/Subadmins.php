@@ -62,11 +62,12 @@ class Subadmins extends CI_Controller {
                 $rowData[2] = $row->email;
                 $rowData[3] = $row->phone;
                 $rowData[4] = date(DATE_FORMATE, $row->created_on);
-                $rowData[5] = $this->layout->element('admin/element/_module_status', array('status' => $row->active, 'id' => $row->id, 'url' => "admin/subadmins/changestatus"), true);
+                $rowData[5] = $row->last_login != "" ? date(DATETIME_FORMATE, $row->last_login) : '';
+                $rowData[6] = $this->layout->element('admin/element/_module_status', array('status' => $row->active, 'id' => $row->id, 'url' => "admin/subadmins/changestatus"), true);
                 $editUrl = 'admin/subadmins/edit/' . $row->id;
                 $deleteUrl = 'admin/subadmins/delete';
                 $permissionUrl = 'admin/subadmins/permissions/' . $row->id;
-                $rowData[6] = $this->layout->element('admin/element/_module_action', array('id' => $row->id, 'editUrl' => $editUrl, 'deleteUrl' => $deleteUrl, 'permissionUrl' => $permissionUrl), true);
+                $rowData[7] = $this->layout->element('admin/element/_module_action', array('id' => $row->id, 'editUrl' => $editUrl, 'deleteUrl' => $deleteUrl, 'permissionUrl' => $permissionUrl), true);
                 $resultData[] = $rowData;
             }
         }

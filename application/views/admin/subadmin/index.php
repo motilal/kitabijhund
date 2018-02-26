@@ -20,6 +20,7 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Created</th>
+                            <th>Last Login</th>
                             <th>Status</th>
                             <th width="12%">Action</th>
                         </tr>
@@ -35,6 +36,7 @@
                                     <td><?php echo $row[4]; ?></td>
                                     <td><?php echo $row[5]; ?></td>
                                     <td><?php echo $row[6]; ?></td>
+                                    <td><?php echo $row[7]; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php } ?> 

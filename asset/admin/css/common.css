@@ -71,3 +71,16 @@ a.add-cal-event:hover{
 .box-title label{
     font-weight: normal;
 } 
+.margin-b-5{
+    margin-bottom: 5px;
+}
+.folder-file-view{
+    color: #6c6363;
+    background: #efe6e6;
+    padding: 10px;
+    margin: 1px;
+    border-radius: 2px;
+}
+.folder-file-view a{
+    color: #666;
+} 
