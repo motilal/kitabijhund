@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2018 at 07:15 PM
+-- Generation Time: Feb 27, 2018 at 03:11 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -32,7 +32,7 @@ CREATE TABLE `chapters` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -42,7 +42,8 @@ CREATE TABLE `chapters` (
 --
 
 INSERT INTO `chapters` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
-(8, 'Basic', 'basic', 1, '2018-02-14 21:38:06', NULL);
+(8, 'Basic', 'basic', 1, '2018-02-14 21:38:06', NULL),
+(9, 'Political Science', 'political-science', 1, '2018-02-25 13:51:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,8 @@ CREATE TABLE `chapters_subjects` (
 --
 
 INSERT INTO `chapters_subjects` (`id`, `chapter_id`, `subject_id`) VALUES
-(3, 8, 16);
+(3, 8, 16),
+(4, 9, 21);
 
 -- --------------------------------------------------------
 
@@ -132,7 +134,65 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('q1m1fnsqbrcc4vmp5s0foe0anlem42pg', '127.0.0.1', 1519579625, '__ci_last_regenerate|i:1519579478;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519572161\";last_check|i:1519574459;'),
 ('imrgg3c570aknkkeri77h58kvmhufg0u', '127.0.0.1', 1519582356, '__ci_last_regenerate|i:1519582134;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
 ('b1ao9ooi8jpi60amr6c3un64eoqvucf0', '127.0.0.1', 1519582086, '__ci_last_regenerate|i:1519581791;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
-('js01uuo2im2gaupn6v5p7ogr6295svf5', '127.0.0.1', 1519582498, '__ci_last_regenerate|i:1519582443;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;');
+('js01uuo2im2gaupn6v5p7ogr6295svf5', '127.0.0.1', 1519582696, '__ci_last_regenerate|i:1519582443;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
+('5sm2qs4np687vjvfnec4guh9abauisd1', '127.0.0.1', 1519583000, '__ci_last_regenerate|i:1519582766;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
+('49vin7khc2kb57qiv9e5ho79563nsvn9', '127.0.0.1', 1519583748, '__ci_last_regenerate|i:1519583450;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
+('to4n450eiccale731dqrlusu0epc22q9', '127.0.0.1', 1519583772, '__ci_last_regenerate|i:1519583758;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519574459\";last_check|i:1519581863;'),
+('53ndhjj7320f3vhcmv5hjrkjkuhv2c6g', '127.0.0.1', 1519619965, '__ci_last_regenerate|i:1519619888;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('jm5ikbtrrob5rss0qljpj6mag3lc7r4r', '127.0.0.1', 1519620170, '__ci_last_regenerate|i:1519620170;'),
+('q154av62kqtk6mt6nt34n262f4e352po', '127.0.0.1', 1519620170, '__ci_last_regenerate|i:1519620170;'),
+('cr7fqinsmsdvdbor5crp1g05hmnfdbg2', '127.0.0.1', 1519621079, '__ci_last_regenerate|i:1519620782;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('nr0jsbl43jb3r6e99s9kfjsun2tosd1i', '127.0.0.1', 1519621398, '__ci_last_regenerate|i:1519621115;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('bmti60napl5mkrh3es4i2ph75i24kvsv', '127.0.0.1', 1519621578, '__ci_last_regenerate|i:1519621465;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('r4b1sji8ta81n5ci7i93u7lfvdnel8do', '127.0.0.1', 1519623158, '__ci_last_regenerate|i:1519623158;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('pp4pcb5v3ahodj3o9m3pv628gf2a4g76', '127.0.0.1', 1519623982, '__ci_last_regenerate|i:1519623849;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('55n9vopdfnta6dl3pgtjaitsr1e4f4cl', '127.0.0.1', 1519624558, '__ci_last_regenerate|i:1519624271;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('l88c3pe0mshpl91dtu8njkiciir74j34', '127.0.0.1', 1519624815, '__ci_last_regenerate|i:1519624590;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('5fds513daeb5pkljco0tpmmjh7ubecmg', '127.0.0.1', 1519625247, '__ci_last_regenerate|i:1519624960;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('9hltkg93i8ur539e5dnls2amhnta13le', '127.0.0.1', 1519625551, '__ci_last_regenerate|i:1519625271;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('o0va8en77102sr5j60rnlsq0cpvq76v2', '127.0.0.1', 1519625773, '__ci_last_regenerate|i:1519625587;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('07uhq70vdkq22oqk8a0si0132i1cog51', '127.0.0.1', 1519626270, '__ci_last_regenerate|i:1519626115;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('jggqvr259pk4fjl1o8eaem6nlk1c8a30', '127.0.0.1', 1519627876, '__ci_last_regenerate|i:1519627580;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('38chtlj0pddqnn5iffmgpbhl26ajg7c8', '127.0.0.1', 1519628132, '__ci_last_regenerate|i:1519627887;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('vh5a8ujpdn7384n5d33ha02kp7s5ifie', '127.0.0.1', 1519628526, '__ci_last_regenerate|i:1519628226;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('c00i7dor9b2t4sql19ljkm485ordepcd', '127.0.0.1', 1519628825, '__ci_last_regenerate|i:1519628529;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('n681cjapv1l727i3uo3tq6084ukn31ip', '127.0.0.1', 1519629117, '__ci_last_regenerate|i:1519628830;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('p8m1v8aej7rh292krbf5ua2ck9i4lfu1', '127.0.0.1', 1519630125, '__ci_last_regenerate|i:1519629133;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('90edror6t600cbr4kcl2tj59kp7mmo50', '127.0.0.1', 1519630419, '__ci_last_regenerate|i:1519630130;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('t5cvt3t1v3kh2pr7knggg89hk07atbha', '127.0.0.1', 1519630654, '__ci_last_regenerate|i:1519630488;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('k2m2l8ukqgm8t5ibudn82dd29843lr7n', '127.0.0.1', 1519631342, '__ci_last_regenerate|i:1519631042;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('lgo253q6grqb8cd8o498bcln1oetgu9a', '127.0.0.1', 1519631671, '__ci_last_regenerate|i:1519631374;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519581863\";last_check|i:1519619919;'),
+('5dqeq4ap8kv40sv0p99no69shbacok8n', '127.0.0.1', 1519631935, '__ci_last_regenerate|i:1519631892;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('sr1c2ooakimbm3iguhjr9sjco6j2dige', '127.0.0.1', 1519632394, '__ci_last_regenerate|i:1519632382;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('2i4ej7s6201069vlmctph6lrob54maoc', '127.0.0.1', 1519633003, '__ci_last_regenerate|i:1519632728;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('se9nskq7rmps7qkennjr1doj1tup5m68', '127.0.0.1', 1519632743, '__ci_last_regenerate|i:1519632743;'),
+('jls1hu6gog48h8n5ak35p0egddk22beh', '127.0.0.1', 1519632744, '__ci_last_regenerate|i:1519632743;'),
+('vjhctcp2t0f1bqsil8pdbdpret67teg2', '127.0.0.1', 1519633349, '__ci_last_regenerate|i:1519633049;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('1hcf145ufn8p1goirufmcfrljavsrkc1', '127.0.0.1', 1519633528, '__ci_last_regenerate|i:1519633353;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('44gnjlefhb0i2ft04s4drmshem4afdn9', '127.0.0.1', 1519633924, '__ci_last_regenerate|i:1519633671;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('2233q6m29p5nm4mdavu41t1maacnh0ff', '127.0.0.1', 1519634246, '__ci_last_regenerate|i:1519634242;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('ru3ts32ievimojmu3veagu1odt3p436g', '127.0.0.1', 1519634920, '__ci_last_regenerate|i:1519634711;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('hhpofqcfmicgkrogv8bf78916dges68c', '127.0.0.1', 1519635358, '__ci_last_regenerate|i:1519635060;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('tuquo97si5i3npur1e67mdnu790hqf41', '127.0.0.1', 1519635591, '__ci_last_regenerate|i:1519635363;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('510v5fktsnrnaontimak920k0d4c1511', '127.0.0.1', 1519636151, '__ci_last_regenerate|i:1519635851;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('tojaai57m7onj4r9sc53oj8ken9aljnc', '127.0.0.1', 1519636227, '__ci_last_regenerate|i:1519636158;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('1strjfai2h5pjn8duj6botfqd0mihao4', '127.0.0.1', 1519636806, '__ci_last_regenerate|i:1519636531;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('oruac1bkrfnn1u1p0di0iupjp7ca9dfa', '127.0.0.1', 1519637122, '__ci_last_regenerate|i:1519636853;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('fqderq2qm13s1kqlmqa8uo0qqnas073a', '127.0.0.1', 1519637521, '__ci_last_regenerate|i:1519637256;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('mhnib2l8luetnrhf3ba56b9u2d1vliv6', '127.0.0.1', 1519643283, '__ci_last_regenerate|i:1519643230;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519619919\";last_check|i:1519631926;'),
+('i8s5o1hmj7qbu5emvit7lnrmj72nr7jo', '127.0.0.1', 1519644651, '__ci_last_regenerate|i:1519644121;identity|s:15:\"mohit@gmail.com\";email|s:15:\"mohit@gmail.com\";user_id|s:1:\"3\";old_last_login|s:10:\"1519572206\";last_check|i:1519644218;_subadmin_allow_actions|a:14:{i:0;s:8:\"page-add\";i:1;s:10:\"page-index\";i:2;s:9:\"page-edit\";i:3;s:11:\"page-delete\";i:4;s:11:\"page-status\";i:5;s:21:\"email_templates-index\";i:6;s:20:\"email_templates-edit\";i:7;s:22:\"email_templates-status\";i:8;s:10:\"news-index\";i:9;s:8:\"news-add\";i:10;s:9:\"news-edit\";i:11;s:11:\"news-delete\";i:12;s:11:\"news-status\";i:13;s:13:\"chapter-index\";}_subadmin_allow_module|a:4:{i:0;s:4:\"page\";i:5;s:15:\"email templates\";i:8;s:4:\"news\";i:13;s:7:\"chapter\";}'),
+('kpmdjiblis2mlglloavh0mic7o465ovi', '127.0.0.1', 1519644717, '__ci_last_regenerate|i:1519644698;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('rpo7jil459sb9gp26cl08fd6nbr09026', '127.0.0.1', 1519645596, '__ci_last_regenerate|i:1519645398;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('pt0ckjrgrs74hf76u8fdumf7fbmde0b8', '127.0.0.1', 1519645974, '__ci_last_regenerate|i:1519645708;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('8l87nbbobi6dm9pthddkce5p8bfk5j30', '127.0.0.1', 1519646318, '__ci_last_regenerate|i:1519646022;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('6d3ajvvs36lcifpfndjfnkei8grpu8jo', '127.0.0.1', 1519646634, '__ci_last_regenerate|i:1519646335;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('qppfk6idlfm1a4o001ktbfj48n1t1i4k', '127.0.0.1', 1519646811, '__ci_last_regenerate|i:1519646658;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('lkuoo8oub827ill8c8tss3cac9d11pfv', '127.0.0.1', 1519647420, '__ci_last_regenerate|i:1519647133;identity|s:15:\"admin@admin.com\";email|s:15:\"admin@admin.com\";user_id|s:1:\"1\";old_last_login|s:10:\"1519644093\";last_check|i:1519644701;'),
+('tplvmfg5nvagdpadi8j8lrogqp8dud9r', '127.0.0.1', 1519649172, '__ci_last_regenerate|i:1519648879;'),
+('psuopk13mu171g7qf84ec9pnrkklvm5t', '127.0.0.1', 1519647677, '__ci_last_regenerate|i:1519647484;'),
+('b7k859g4n4l36fi9kcu91ok7g96pop8h', '127.0.0.1', 1519649289, '__ci_last_regenerate|i:1519649263;'),
+('jd8ab4va0u17sf166b05kjer7qa9rmfj', '127.0.0.1', 1519648020, '__ci_last_regenerate|i:1519647958;'),
+('2qk30dcbcg02m9pifq59pm91p6v678eh', '127.0.0.1', 1519648857, '__ci_last_regenerate|i:1519648574;error|s:30:\"<p>two_step_authentication</p>\";__ci_vars|a:1:{s:5:\"error\";s:3:\"old\";}');
 
 -- --------------------------------------------------------
 
@@ -156,7 +216,8 @@ CREATE TABLE `courses` (
 INSERT INTO `courses` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
 (3, 'SSC', 'ssc', 1, '2018-02-14 21:27:33', NULL),
 (4, 'Bank', 'bank', 1, '2018-02-14 21:27:47', '2018-02-25 12:20:47'),
-(5, 'RBSC', 'rbsc', 1, '2018-02-25 04:18:06', NULL);
+(5, 'RBSC', 'rbsc', 1, '2018-02-25 04:18:06', NULL),
+(6, 'RPSC', 'rpsc', 1, '2018-02-25 13:47:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -181,8 +242,8 @@ CREATE TABLE `email_templates` (
 --
 
 INSERT INTO `email_templates` (`id`, `title`, `subject`, `slug`, `body`, `variable`, `created`, `updated`, `status`) VALUES
-(4, 'Forgot Password', 'forgot password', 'forgot-password', '<p>Dear User,</p>\r\n\r\n<p>Your password is reset successfully, please click here to create new password.</p>\r\n\r\n<p>Please <a href=\"{link}\">click here</a> to create new password.</p>\r\n\r\n<p>Thank you</p>\r\n\r\n<p><strong>Regards,</strong></p>\r\n\r\n<p><strong>Kitabi Jhund</strong></p>', '{link}', '2015-09-28 17:37:15', '2018-02-25 17:24:28', 1),
-(6, 'Reset Password', 'Password Reset', 'reset-password', '<p>Dear User</p>\r\n\r\n<p>As per your request , Your password has been reset</p>\r\n\r\n<p>Password : <strong>{password} </strong></p>\r\n\r\n<p>This is auto generated password. You are advised to change your password as per you convenience.</p>\r\n\r\n<p><strong>Regards,</strong></p>\r\n\r\n<p><strong>Kitabi Jhund</strong></p>\r\n\r\n<p>&nbsp;</p>', '{password}', '2016-03-03 12:22:20', '2018-02-25 17:21:55', 1);
+(4, 'Forgot Password', 'forgot password', 'forgot-password', '<p>Dear User,</p>\r\n\r\n<p>Your password is reset successfully,&nbsp;</p>\r\n\r\n<p>Please <a href=\"{link}\">click here</a> to create new password.</p>\r\n\r\n<p>Thank you</p>\r\n\r\n<p><strong>Regards,</strong></p>\r\n\r\n<p><strong>Kitabi Jhund</strong></p>', '{link}', '2015-09-28 17:37:15', '2018-02-26 12:19:28', 1),
+(6, 'Reset Password', 'Password Reset', 'reset-password', '<p>Dear User</p>\r\n\r\n<p>As per your request , Your password has been reset</p>\r\n\r\n<p>New Password : <strong>{password} </strong></p>\r\n\r\n<p>This is auto generated password. You are advised to change your password as per you convenience.</p>\r\n\r\n<p><strong>Regards,</strong></p>\r\n\r\n<p><strong>Kitabi Jhund</strong></p>\r\n\r\n<p>&nbsp;</p>', '{password}', '2016-03-03 12:22:20', '2018-02-26 12:20:04', 1);
 
 -- --------------------------------------------------------
 
@@ -292,7 +353,8 @@ CREATE TABLE `form_alerts` (
 --
 
 INSERT INTO `form_alerts` (`id`, `title`, `slug`, `short_description`, `image`, `description`, `category`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
-(8, 'RPSC 2nd Grade Teacher Recruitment 2018', 'rpsc-2nd-grade-teacher-recruitment-2018', 'Here is good news that the candidates, who have been waiting for too long for the results of their notification for RPSC 2nd Grade Teacher recruitment 2018, can finally now take a long and deep breath as the notification regarding the release of the notice has been out now. The expected exam date for RPSC 2nd grade Recruitment 2018. The latest news by RPSC for Syllabus, Eligibility, Result, cut off, No.of Posts, Qualification, Age Limit in this official PDF.', NULL, '<p><strong>RPSC 2nd Grade Teacher Recruitment 2018:</strong> Here is good news that the candidates, who have been waiting for too long for the results of their notification for RPSC 2nd Grade Teacher recruitment 2018, can finally now take a long and deep breath as the notification regarding the release of the notice has been out now.&nbsp;The expected exam date for RPSC&nbsp;2nd grade Recruitment 2018. The latest news by RPSC for Syllabus, Eligibility, Result, cut off, No.of Posts, Qualification, Age Limit in this official PDF.<img alt=\"\" src=\"http://www.kitabijhund.com/kitabijhund/asset/admin/plugin/ckfinder/userfiles/images/2nd-Grade-Recruitment-2018.jpg\" /></p>\r\n\r\n<p>Latest News in July 2018:&amp;nbsp;The real information by the Rajasthan Patrika and Dainik Bhaskar newspaper for the B.E.D Students on the RPSC Online Web Portal. Now you can apply for the application form at the following link. Interested candidates open the link and apply for the post and book the nearest center because after some time the main exam centers are filled after 2-3 days of starting of Apply Online for RPSC Second Grade.</p>', 4, 'RPSC 2nd Grade Teacher Recruitment 2018', 'RPSC 2nd Grade Teacher Recruitment 2018', '2018-02-10 09:51:57', NULL, 1);
+(8, 'RPSC 2nd Grade Teacher Recruitment 2018', 'rpsc-2nd-grade-teacher-recruitment-2018', 'Here is good news that the candidates, who have been waiting for too long for the results of their notification for RPSC 2nd Grade Teacher recruitment 2018, can finally now take a long and deep breath as the notification regarding the release of the notice has been out now. The expected exam date for RPSC 2nd grade Recruitment 2018. The latest news by RPSC for Syllabus, Eligibility, Result, cut off, No.of Posts, Qualification, Age Limit in this official PDF.', NULL, '<p><strong>RPSC 2nd Grade Teacher Recruitment 2018:</strong> Here is good news that the candidates, who have been waiting for too long for the results of their notification for RPSC 2nd Grade Teacher recruitment 2018, can finally now take a long and deep breath as the notification regarding the release of the notice has been out now.&nbsp;The expected exam date for RPSC&nbsp;2nd grade Recruitment 2018. The latest news by RPSC for Syllabus, Eligibility, Result, cut off, No.of Posts, Qualification, Age Limit in this official PDF.<img alt=\"\" src=\"http://www.kitabijhund.com/kitabijhund/asset/admin/plugin/ckfinder/userfiles/images/2nd-Grade-Recruitment-2018.jpg\" /></p>\r\n\r\n<p>Latest News in July 2018:&amp;nbsp;The real information by the Rajasthan Patrika and Dainik Bhaskar newspaper for the B.E.D Students on the RPSC Online Web Portal. Now you can apply for the application form at the following link. Interested candidates open the link and apply for the post and book the nearest center because after some time the main exam centers are filled after 2-3 days of starting of Apply Online for RPSC Second Grade.</p>', 4, 'RPSC 2nd Grade Teacher Recruitment 2018', 'RPSC 2nd Grade Teacher Recruitment 2018', '2018-02-10 09:51:57', NULL, 1),
+(10, 'About us this is about us oage this is about us oage', 'about-us-this-is-about-us-oage-this-is-about-us-oage-1', 'Prime Minister Narendra Modi was conferred the \'Grand Collar of the State of Palestine\' by President of Palestine Mahmoud Abbas, recognising his key contribution to promote relations between India and Palestine', NULL, '<p>Prime Minister Narendra Modi was conferred the &#39;Grand Collar of the State of Palestine&#39; by President of Palestine Mahmoud Abbas, recognising his key contribution to promote relations between India and Palestine Prime Minister Narendra Modi was conferred the &#39;Grand Collar of the State of Palestine&#39; by President of Palestine Mahmoud Abbas, recognising his key contribution to promote relations between India and Palestine</p>', 3, 'ss', 'ss', '2018-02-26 08:04:06', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -356,7 +418,6 @@ CREATE TABLE `login_attempts` (
 --
 
 INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(1, '127.0.0.1', 'admin', 1519558010),
 (8, '127.0.0.1', 'amit', 1519567928),
 (9, '127.0.0.1', 'amit', 1519568208),
 (13, '127.0.0.1', 'amit@ddd.com', 1519568794),
@@ -389,7 +450,6 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `slug`, `short_description`, `start_date`, `image`, `description`, `meta_keywords`, `meta_description`, `created`, `updated`, `status`) VALUES
-(7, 'Current affairs 30/01/2018', 'current-affairs-30012018', '1. India and Cambodia signed four agreements in the field of cultural exchange, an exchange line of credit of $26.9 million, memorandum of understanding to cooperate in legal matter and an agreement on prevention of human trafficking.', '2018-01-30 00:00:00', 'images.jpg', '<p>1. India&nbsp;and Cambodia signed four agreements in the field of cultural exchange, an exchange line of credit of $26.9 million, memorandum of understanding to cooperate in legal matter and an agreement on prevention of human trafficking.</p>\r\n\r\n<p>CambodianCambodian Capital- Phnom Penh, Currency- Cambodian riel.</p>\r\n\r\n<p>2. Union Home Ministry is planning to set up Indian Cyber Crime Coordination Centre (I4C), an apex centre to deal with cyber crimes such as financial frauds, circulation of pornographic and communal contents.</p>\r\n\r\n<p>3. The first Khadi Haat of India was launched by Khadi and Village Industries Commission (KVIC) and New Delhi Municipal Council (NDMC), in Connaught Place, New Delhi.</p>\r\n\r\n<p>4. The Chief Minister of Himachal Pradesh, Jai Ram Thakur launched the &lsquo;Shakti&rsquo; app for women&rsquo;s safety in the state. The app was developed by the National Informatics Centre (NIC) of the Himachal Pradesh government.</p>\r\n\r\n<p>Himachal Pradesh Governor- Acharya Dev Vrat.</p>\r\n\r\n<p>5. Trade ministers from various countries including Australia, Japan and Switzerland met for an informal WTO ministerial gathering in Davos, Switzerland. India was represented by Deepak Jagdish Saksena, ambassador and permanent representative to the WTO.</p>\r\n\r\n<p>6. The 60th Annual Grammy Awards, honouring the best achievements from October 2016 to September 2017 were held at Madison Square Garden in New York City, the USA</p>\r\n\r\n<p>&nbsp;It was Bruno Mars&#39; night at the Grammy Awards held in New York, with the three biggest wins - Album Of The Year and Record Of The Year for 24K Magic and Song Of The Year for &#39;That&#39;s What I Like&#39;.</p>\r\n\r\n<p>7. International bird festival is to be held for 3 days starting from 9th February 2018, at Dudhwa National Park, in Lakhimpur Kheri, UP.&nbsp;</p>\r\n\r\n<p>8. Maharashtra State&rsquo;s tableau has been adjudged as the &lsquo;Best Tableau&rsquo; at the 69th Republic Day parade held at Rajghat, Delhi on January 25, 2018.</p>\r\n\r\n<p>9. Sandeep Lamichhane became the first Nepal cricketer to get IPL contract after he was bought by Delhi Daredevils at the 2018 Indian Premier League (IPL) Auction.</p>\r\n\r\n<p>10. Australian open: &nbsp;Roger Federer defeated Marin Cilic in the final. It was Federer&#39;s 20th Grand Slam title. In women&#39;s&#39; single, Caroline Wozniacki became the first Danish player to win a Grand Slam singles title, defeating Simona Halep in the final.</p>\r\n\r\n<p>11. The world no.1 Tai Tzu Ying of Taiwan has defeated Saina Nehwal in the finals of the Indonesia Masters in Jakarta.&nbsp;</p>', 'Current affairs, daily current affairs, today current affairs', '60th Annual Grammy Awards, Shakti app, first Khadi Haat, India and Cambodia signed four agreements, international birds festival, Australian open final results', '2018-01-30 07:59:31', '2018-01-31 18:26:45', 1),
 (8, 'Current affairs 31-01-2018', 'current-affairs-31-01-2018', '1.	Armies of India and Vietnam have begun a six-day-long military exercise in Jabalpur in Madhya Pradesh. The exercise named ‘VINBAX’ is the first military exercise between the two countries. Vietnam’s  Minister Nguyen Xuan Phuc was in New Delhi to participate in the India-ASEAN Commemorative summit and attend the Republic Day celebrations.', '2018-01-31 00:00:00', 'images(1).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Armies of India and Vietnam have begun a six-day-long military exercise in Jabalpur in Madhya Pradesh. The exercise named &lsquo;VINBAX&rsquo; is the first military exercise between the two countries. Vietnam&rsquo;s &nbsp;Minister Nguyen Xuan Phuc was in New Delhi to participate in the India-ASEAN Commemorative summit and attend the Republic Day celebrations.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Rating agency CRISIL has revised its outlook on 18 public sector banks (PSBs) from &ldquo;negative&rdquo; to &ldquo;stable&rdquo; after the government announced bank-wise capital infusion and reform plans. Ashu Suyash is the MD and CEO of CRISIL. GurpreetGurpreet Chhatwal President of CRISIL. Its Headquarters in Mumbai. CRISIL- Credit Rating Information Services of India Limited.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Mobile payments company Paytm and Alibaba Group-owned AGTech Holdings Ltd have formed a joint venture to launch &#39;Gamepind&#39; a gaming platform aimed at mobile users in India.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian-American Adobe CEO Shantanu Narayen has been elected as the Vice Chairman of the US-India Strategic and Partnership Forum. It is a new organisation set up to enhance business relations between India and the US.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>President Ram Nath Kovind launched the Pulse Polio programme for 2018 from Rashtrapati Bhavan, New Delhi, by administering polio drops to children below five years.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>The Assam Assembly is to introduce digital budget in its upcoming session, instead of the conventional printed booklet.</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Assam Governor Prof. Jagdish Mukhi released a postage stamp in memory of eminent football player Dr. Talimeren Ao at Sports Authority of India (SAI) complex playground in Paltan Bazar, Guwahati, Assam.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Information technology minister Ravi Shankar Prasad launched &lsquo;Stree Swabhiman&rsquo;, an initiative by CSC (Common Services Centres) on women&rsquo;s health and hygiene, in New Delhi.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Union Finance Minister, Arun Jaitley tabled the Economic Survey 2017-18 in Parliament. Economic Survey is a flagship annual document of the Ministry of Finance, Government of India. Indian economy is expected to grow between 7 per cent and 7.5 per cent in the next fiscal year i.e. April 1, 2018 &ndash; March 31, 2019. Economic Survey has revealed that average consumer price inflation based headline inflation declined to a six-year low of 3.3 per cent in 2017-18.</p>\r\n\r\n<p>10.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Thedo-Tibetan Border Police (ITBP) was named the best marching contingent in the paramilitary and auxiliary forces category at the Republic Day celebrations, in New Delhi.</p>\r\n\r\n<p>11.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Finland&rsquo;s incumbent President, Sauli Niinistowon &nbsp;has won second six-year term with an overwhelming 62.7% of the vote.</p>\r\n\r\n<p>12.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Daya Nath Singh, senior journalist, passed away following a short-term illness, at a hospital in Assam.</p>\r\n\r\n<p>13.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Dinesh Nandan Sahay, Chhattisgarh&rsquo;s first Governor passed away in Madhepura, Bihar.</p>', 'Current affairs, daily current affairs, current gk, current affairs today', 'vinbax, India and Vietnam, CRISIL rating, Adobe CEO Shantanu Narayen has been elected as the Vice Chairman, Pulse Polio programme', '2018-01-31 11:25:50', NULL, 1),
 (9, 'Current affairs 01/02/2018', 'current-affairs-01022018', '1.	On January 30, 2018, Uttar Pradesh State Cabinet launched ‘Mukhya Mantri Awas Yojna Grameen’, a new scheme to construct houses in rural areas. Mukhyamantri Awas Yojana Gramin is for those who have not been covered under Pradhan Mantri Awas Yojna and those who are not beneficiaries of any other government housing schemes. UnderUnder this scheme, Rs 1.30 lakh financial aid', '2018-02-01 00:00:00', 'images(3).jpg', '<p>1.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>On January 30, 2018, Uttar Pradesh State Cabinet launched &lsquo;Mukhya Mantri Awas Yojna Grameen&rsquo;, a new scheme to construct houses in rural areas. Mukhyamantri Awas Yojana Gramin is for those who have not been covered under Pradhan Mantri Awas Yojna and those who are not beneficiaries of any other government housing schemes. UnderUnder this scheme, Rs 1.30 lakh financial aid (for constructing houses) will be given to people residing in Naxal-affected areas of Uttar Pradesh and Rs 1.20 lakh to selected beneficiaries.</p>\r\n\r\n<p>2.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>On 30th January 2018, the Maharashtra state cabinet approved the introduction of Asmita (dignity), a scheme to provide sanitary pads to 7 lakh girls in government schools for Rs 5 a pack.</p>\r\n\r\n<p>3.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>India has ranked 42nd on the Economist Intelligence Unit&rsquo;s (EIU) Global Democracy Index 2017. This marks a drop by 10 spots as compared to 32nd rank last year. Topped by Norway.</p>\r\n\r\n<p>4.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Asian Development Bank (ADB) and Indian Government have signed USD 250 million loan agreement for construction of all-weather roads in five Indian states under Pradhan Mantri Gram Sadak Yojana. Funds procured through this loan will be used for construction of 6254 kilometres all-weather rural roads in West Bengal, Chhattisgarh, Assam, Madhya Pradesh and Odisha.</p>\r\n\r\n<p>5.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Prime Minister-appointed Group of Infrastructure, headed by Union Minister Nitin Gadkari constituted a high-level committee to look into procedures for sharing of infrastructure for utilities like water pipes and telecom cables.</p>\r\n\r\n<p>6.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian Government and World Bank signed a $100 million loan agreement to promote rural economy in across 26 districts of Tamil Nadu (TN).</p>\r\n\r\n<p>7.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Rewa Ultra Mega Solar Limited (RUMSL) and the World Bank signed USD 30 million loan agreement to develop solar power &nbsp;plants in Rewa and Mandsaur in Madhya Pradesh.</p>\r\n\r\n<p>8.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Lt. Gen Anil Chauhan assumed charge as the new Director General of Military Operations (DGMO) of the Indian Army. Lt. Gen Anil Chauhan replaces Lt General A K Bhatt. Lt General A K &nbsp;will take charge of Srinagar-based 15 Corps.</p>\r\n\r\n<p>9.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Shailendra Kumar Joshi was named the Chief Secretary of Telangana.</p>\r\n\r\n<p>10.<span class=\"Apple-tab-span\" style=\"white-space:pre\"> </span>Indian Navy chief Admiral Sunil Lanba&rsquo;s wife Reena Lanba launched the third Scorpene class submarine Karanj at Mazagon Dock Shipbuilders Limited (MDL) in Mumbai, Maharashtra.</p>\r\n\r\n<div>&nbsp;</div>', 'Daily current affairs, current affairs today, today current affairs, gk today, today gk', '', '2018-02-01 11:16:03', NULL, 1),
 (10, 'Budget 2018', 'budget-2018', 'Budget review\r\n\r\nAs per the FM in the Union Budget, India is expected to become the fifth largest economy very soon.', '2018-02-02 00:00:00', 'images(4).jpg', '<p>Budget review</p>\r\n\r\n<p>As per the FM in the Union Budget, India is expected to become the fifth largest economy very soon.&nbsp;</p>\r\n\r\n<p>The Growth rate is expected between 7.2-7.5% in the second half of 2017-18.</p>\r\n\r\n<p>Exports are expected to grow 15% in 2018.</p>\r\n\r\n<p>As per the FM, India is a Rs2.5 trillion economy.</p>\r\n\r\n<p>MSP to increase at least 1.5 times that of production cost.</p>\r\n\r\n<p>Minimum Support Price (MSP) of all crops shall increase to at least 1.5 times that of the production cost.&nbsp;</p>\r\n\r\n<p>The government will set up a fund of Rs 2,000 crore for developing agricultural markets.</p>\r\n\r\n<p>Our focus is on productive and gainful on-farm and non-farm employment for farmers and landless families, says Jaitley.</p>\r\n\r\n<p>MSP for Kharif cost will be 1.5 times the cost of production.</p>\r\n\r\n<p>As per the FM, APMCs will be linked with ENAM.&nbsp;</p>\r\n\r\n<p>The government will develop 22,000 Gramin agricultural markets.&nbsp;</p>\r\n\r\n<p>The cluster-model approach will be adopted for agricultural production.</p>\r\n\r\n<p>Allocation in food production sector doubled to Rs 1400 crore.</p>\r\n\r\n<p>Minimum Support Price shall be increased by 1.5 times. Operation Green will be launched for agriculture and the Minister allocates Rs500 crore for this.</p>\r\n\r\n<p>Agricultural corpus worth Rs 2000 crore will be set up. 470 APMCs have been connected to eNAM network, the rest to be connected by March 2018.</p>\r\n\r\n<p>A fund for the fishery, aquaculture development and animal husbandry will be set up with a total corpus to be Rs 10,000 crore. We will also allocate Rs 1290 crore for a bamboo mission, as it is green gold.&nbsp;</p>\r\n\r\n<p>In all, we are providing Rs 10 lakh crore to Rs 11 lakh crore as credit for agricultural activities.</p>\r\n\r\n<p>Jaitley proposes to increase the target of providing free LPG connections to 8 crore to poor women.</p>\r\n\r\n<p>Ujjwala Yojana, the free LPG connection scheme expanded to eight crore households.</p>\r\n\r\n<p>Six crore toilets have been built already, and in the next year, two crore additional toilets will be constructed.</p>\r\n\r\n<p>The government will provide 4 crore electricity connections to the poor under Saubhagya Yojana.</p>\r\n\r\n<p>Kisan credit card to be extended to fisheries,animal husbandry farmers.</p>\r\n\r\n<p>The government will establish a dedicated affordable housing fund.</p>\r\n\r\n<p>Loans to self-help groups will increase to Rs75,000 crore.</p>\r\n\r\n<p>Govt. allocated Rs5,750 crore to National Livelihood Mission and Rs2,600 crore to the groundwater irrigation scheme.</p>\r\n\r\n<p>Ayushman Bharat program discussed.</p>\r\n\r\n<p>Eklavya schools for tribal children.</p>\r\n\r\n<p>24 new government medical colleges.</p>\r\n\r\n<p>Government is implementing a comprehensive social security scheme.</p>\r\n\r\n<p>Govt. will initiate an integrated B-Ed programme for teachers.</p>\r\n\r\n<p>Government proposes to launch the Revitalising of Infrastructure and Systems of Education (RISE) by next year.&nbsp;</p>\r\n\r\n<p>Govt. proposed to set up two new full-fledged schools of planning and architecture.&nbsp;</p>\r\n\r\n<p>18 new schools of planning and architecture will be set up in the IITs and NITs.</p>\r\n\r\n<p>Rs. 1 lakh crore over 4 years for initiative for Infrastructure Devt. in education.</p>\r\n\r\n<p>2 major initiatives as part of Ayushman Bharat program.</p>\r\n\r\n<p>Eklavya schools to be open for tribal children.</p>\r\n\r\n<p>National health protection scheme to cover 10 cr poor families. Health cover of up to 5 lakh per family per year for poor &amp; vulnerable. National health protection scheme to benefit 50 crore people.</p>\r\n\r\n<p>24 new govt medical college &amp; hospitals.</p>\r\n\r\n<p>Rs. 600 crore for nutritional support to all TB patients.</p>\r\n\r\n<p>Rs. 1200 crore for health and wellness centres.</p>\r\n\r\n<p>Loans to women self-help groups of women to be increased to 75,000 cr by March 19.&nbsp;</p>\r\n\r\n<p>Govt. is launching a new national health protection scheme &ndash; Rashtriya Samaj Beema Yojana. This will have 50 crore beneficiaries and 10 crore families will get 5 lakh per year for their families to cover secondary and tertiary hospital expenses. This is the world&#39;s largest government-funded healthcare program.&nbsp;</p>\r\n\r\n<p>A Rs 600 crore corpus is being set up to help Tuberculosis patients. This will build a new India in 2022 and enhance productivity and will also generate lakhs of jobs for women.&nbsp;</p>\r\n\r\n<p>PM Jeevan Beema Yojana benefitted more than 2 crore families.&nbsp;</p>\r\n\r\n<p>Jan Dhan Yojana will be extended to all 60&nbsp;</p>', 'Budget 2018 review, budget', '', '2018-02-02 13:28:17', NULL, 1),
@@ -523,7 +583,7 @@ INSERT INTO `settings` (`id`, `title`, `field_name`, `type`, `select_items`, `va
 (8, 'Default meta keyworkds (comma seperated)', 'default_meta_keywords', 'textarea', NULL, 'Buy, Sell, Trade,mtgo, magic online, magic the gathering online, cards, collection, tickets, ix, store, shop, auctions', 0, 'trim|required', '2014-05-02 08:46:07', 1),
 (9, 'Default Meta Author', 'default_meta_author', 'text', NULL, 'Amit Yadav', 0, 'trim', '2014-05-02 08:50:39', 1),
 (11, 'Contact Email', 'contact_email', 'text', NULL, 'support@kitabijhund.com', 0, 'trim', NULL, 1),
-(12, 'Contact Phone', 'contact_phone', 'text', NULL, '+91 9024978491', 0, 'trim', NULL, 1),
+(12, 'Contact Phone', 'contact_phone', 'text', NULL, '+91 9024978493', 0, 'trim', NULL, 1),
 (13, 'Contact Address', 'contact_address', 'textarea', NULL, '877 Filbert Street\r\nRewari, Alwar 301001', 0, 'trim', NULL, 1);
 
 -- --------------------------------------------------------
@@ -546,9 +606,10 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `name`, `slug`, `status`, `created`, `updated`) VALUES
-(16, 'Political Science', 'political-science', 0, '2018-02-14 21:37:03', '2018-02-25 10:17:51'),
+(16, 'Political Science', 'political-science', 1, '2018-02-14 21:37:03', '2018-02-26 05:54:34'),
 (18, 'RTyu', 'rtyu-1', 1, '2018-02-25 04:44:39', '2018-02-25 10:16:36'),
-(20, 'Jock', 'jock', 1, '2018-02-25 04:46:59', '2018-02-25 10:18:05');
+(20, 'Jock', 'jock', 1, '2018-02-25 04:46:59', '2018-02-25 10:18:05'),
+(21, 'Hindi', 'hindi', 1, '2018-02-25 13:51:04', '2018-02-26 05:54:23');
 
 -- --------------------------------------------------------
 
@@ -568,11 +629,12 @@ CREATE TABLE `subject_subcourses` (
 
 INSERT INTO `subject_subcourses` (`id`, `sub_course_id`, `subject_id`) VALUES
 (2, 1, 18),
-(4, 2, 16),
 (5, 1, 16),
 (6, 2, 18),
 (8, 2, 20),
-(9, 3, 16);
+(9, 3, 16),
+(10, 3, 21),
+(11, 2, 21);
 
 -- --------------------------------------------------------
 
@@ -616,6 +678,8 @@ CREATE TABLE `users` (
   `forgotten_password_code` varchar(40) DEFAULT NULL,
   `forgotten_password_time` int(11) UNSIGNED DEFAULT NULL,
   `remember_code` varchar(40) DEFAULT NULL,
+  `two_step_authentication` tinyint(1) NOT NULL DEFAULT '0',
+  `authentication_code` varchar(40) DEFAULT NULL,
   `created_on` int(11) UNSIGNED NOT NULL,
   `last_login` int(11) UNSIGNED DEFAULT NULL,
   `active` tinyint(1) UNSIGNED DEFAULT NULL,
@@ -629,11 +693,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'admin', '$2y$08$DtNn/97d3CQ5dg0hwjLqM.1C6YIpVNmIcUMlEAIe8TyNEut80nKPO', NULL, 'admin@admin.com', '', NULL, 1519574412, NULL, 1268889823, 1519581863, 1, 'Amit', 'Yadav', 'ADMIN', '9024978491'),
-(2, '127.0.0.1', NULL, '$2y$08$njHn5resw7whKT4Svv6m.uWL//62ZJJ2jsIWI.Je4iZ9/NN/J/k8W', NULL, 'motilalsoni@gmail.com', NULL, '3aeQ17Jzttv6WWInzXZY1e5d0656d92deea61c82', 1519581796, NULL, 1514189309, NULL, 1, 'motilal', 'soni', NULL, '9024978491'),
-(3, '127.0.0.1', NULL, '$2y$08$6zyvKfChLbr.IdtgiEoYSOsoCpit/ljoUstUhKrbWGh/JVFqEEjLG', NULL, 'mohit@gmail.com', NULL, NULL, 1519574083, NULL, 1514189657, 1519572206, 1, 'Mohit', 'Soni', NULL, '123654789'),
-(5, '127.0.0.1', NULL, '$2y$08$RkW9FzddQUrtbpMzO6Z2gOqJyeT3EEEeaW8zf4fljnK6UaVShNKNu', NULL, 'pawanbamboli@gmail.com', NULL, NULL, NULL, NULL, 1514191227, NULL, 1, 'Pawan', 'Soni', NULL, '123654789');
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `two_step_authentication`, `authentication_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
+(1, '127.0.0.1', 'admin', '$2y$08$DtNn/97d3CQ5dg0hwjLqM.1C6YIpVNmIcUMlEAIe8TyNEut80nKPO', NULL, 'admin@admin.com', '', NULL, 1519574412, NULL, 1, NULL, 1268889823, 1519647947, 1, 'Amit', 'Yadav', 'ADMIN', '9024978491'),
+(2, '127.0.0.1', NULL, '$2y$08$njHn5resw7whKT4Svv6m.uWL//62ZJJ2jsIWI.Je4iZ9/NN/J/k8W', NULL, 'motilalsoni@gmail.com', NULL, '3aeQ17Jzttv6WWInzXZY1e5d0656d92deea61c82', 1519581796, NULL, 0, NULL, 1514189309, NULL, 1, 'motilal', 'soni', NULL, '9024978491'),
+(3, '127.0.0.1', NULL, '$2y$08$KLxPDj0WA.o2expa8BcXae4rl/60UjcKzNpwhzlbk5LybK3lR6V5S', NULL, 'mohit@gmail.com', NULL, NULL, 1519574083, NULL, 0, NULL, 1514189657, 1519644218, 1, 'Mohit', 'Soni', NULL, '123654789'),
+(5, '127.0.0.1', NULL, '$2y$08$RkW9FzddQUrtbpMzO6Z2gOqJyeT3EEEeaW8zf4fljnK6UaVShNKNu', NULL, 'pawanbamboli@gmail.com', NULL, NULL, NULL, NULL, 0, NULL, 1514191227, NULL, 1, 'Pawan', 'Soni', NULL, '123654789'),
+(6, '127.0.0.1', NULL, '$2y$08$Fu/IsOR2w1mTmT1NvUCQHO.Un4tcU8jZGNgg5zBDrUwVgzBEQF0di', NULL, 'soniya@gmail.com', NULL, NULL, NULL, NULL, 1, NULL, 1519647455, NULL, 1, 'Soniya', 'Soni', NULL, '5269856987');
 
 -- --------------------------------------------------------
 
@@ -656,7 +721,8 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (2, 1, 2),
 (3, 2, 3),
 (4, 3, 3),
-(6, 5, 3);
+(6, 5, 3),
+(7, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -689,7 +755,8 @@ INSERT INTO `users_permissions` (`id`, `user_id`, `permission_id`, `created`) VA
 (11, 3, 30, '2018-02-04 03:20:13'),
 (12, 3, 31, '2018-02-04 03:20:13'),
 (13, 3, 32, '2018-02-04 03:20:13'),
-(18, 3, 45, '2018-02-04 03:21:21');
+(18, 3, 45, '2018-02-04 03:21:21'),
+(19, 5, 1, '2018-02-25 18:30:59');
 
 --
 -- Indexes for dumped tables
@@ -843,7 +910,7 @@ ALTER TABLE `users_permissions`
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `chapters_pages`
 --
@@ -853,12 +920,12 @@ ALTER TABLE `chapters_pages`
 -- AUTO_INCREMENT for table `chapters_subjects`
 --
 ALTER TABLE `chapters_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `email_templates`
 --
@@ -873,7 +940,7 @@ ALTER TABLE `flash_messages`
 -- AUTO_INCREMENT for table `form_alerts`
 --
 ALTER TABLE `form_alerts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `form_alerts_categories`
 --
@@ -888,7 +955,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `news`
 --
@@ -913,12 +980,12 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `subject_subcourses`
 --
 ALTER TABLE `subject_subcourses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `sub_courses`
 --
@@ -928,17 +995,17 @@ ALTER TABLE `sub_courses`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users_permissions`
 --
 ALTER TABLE `users_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- Constraints for dumped tables
 --
