@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/controllers/admin/Chapters.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/controllers/Form_alerts.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/views/subject/subjects_index.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/views/subject/_sidebar.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/views/form_alert/_element_form_alerts_index.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/models/Subject_model.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/config/routes.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/controllers/Subject.php</file>
-            <file>file:/E:/xampp/htdocs/kitabijhund/application/models/Chapter_model.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/libraries/Ion_auth.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/models/Ion_auth_model.php</file>
+            <file>file:/E:/xampp/htdocs/kitabijhund/application/controllers/admin/Auth.php</file>
         </group>
     </open-files>
 </project-private>

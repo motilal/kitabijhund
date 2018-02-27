@@ -58,6 +58,24 @@
                                 <?php echo form_error('cpassword'); ?>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-4"> 
+                            <div class="form-group">
+                                <label class="control-label" for="cpassword">2-Step Authentication</label>  
+                                <div> 
+                                    <label style="font-weight:normal;">
+                                        <input name="two_step_authentication" id="two_step_authentication_on" value="1" type="radio" <?php echo set_value("two_step_authentication", isset($data->two_step_authentication) ? $data->two_step_authentication : "") === '1' ? 'checked' : ''; ?>>
+                                        On
+                                    </label> 
+                                    <label style="font-weight:normal;margin-left:15px;">
+                                        <input name="two_step_authentication" id="two_step_authentication_off" value="0" type="radio" <?php echo set_value("two_step_authentication", isset($data->two_step_authentication) ? $data->two_step_authentication : "") === '0' ? 'checked' : ''; ?>>
+                                        Off
+                                    </label> 
+                                </div>
+                            </div> 
+                        </div>
+
 
                         <div class="clearfix"></div>
                         <div class="col-lg-8">  

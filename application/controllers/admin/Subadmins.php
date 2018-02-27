@@ -83,7 +83,8 @@ class Subadmins extends CI_Controller {
             $additional_data = array(
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
-                'phone' => $this->input->post('phone')
+                'phone' => $this->input->post('phone'),
+                'two_step_authentication' => $this->input->post('two_step_authentication')
             );
             $group = array('3');
             $this->ion_auth->register($username, $password, $email, $additional_data, $group);
@@ -102,7 +103,8 @@ class Subadmins extends CI_Controller {
             $data = array(
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
-                'phone' => $this->input->post('phone')
+                'phone' => $this->input->post('phone'),
+                'two_step_authentication' => $this->input->post('two_step_authentication')
             );
             if ($this->input->post('password') != "") {
                 $data['password'] = $this->input->post('password');

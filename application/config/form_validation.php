@@ -140,6 +140,11 @@ $config = array(
             'rules' => "trim|max_length[20]"
         ),
         array(
+            'field' => 'two_step_authentication',
+            'label' => 'Two Step Authentication',
+            'rules' => "trim|required"
+        ),
+        array(
             'field' => 'password',
             'label' => 'Password',
             'rules' => "trim|required|max_length[255]"
@@ -238,33 +243,6 @@ $config = array(
             'rules' => 'trim|required|min_length[6]|max_length[40]|matches[new_password]'
         )
     ),
-    'change_admin_profile' => array(
-        array(
-            'field' => 'first_name',
-            'label' => 'First Name',
-            'rules' => "trim|required|max_length[50]"
-        ),
-        array(
-            'field' => 'last_name',
-            'label' => 'Last Name',
-            'rules' => "trim|max_length[50]"
-        ),
-        array(
-            'field' => 'phone',
-            'label' => 'Phone',
-            'rules' => "trim|max_length[20]"
-        ),
-        array(
-            'field' => 'password',
-            'label' => 'Password',
-            'rules' => "trim|max_length[255]"
-        ),
-        array(
-            'field' => 'cpassword',
-            'label' => 'Confrim Password',
-            'rules' => "trim|matches[password]"
-        )
-    ),
     'update_profile' => array(
         array(
             'field' => 'first_name',
@@ -280,6 +258,11 @@ $config = array(
             'field' => 'phone',
             'label' => 'Phone',
             'rules' => "trim|max_length[20]"
+        ),
+        array(
+            'field' => 'two_step_authentication',
+            'label' => 'Two Step Authentication',
+            'rules' => "trim|required"
         )
     ),
     'subjects/manage' => array(

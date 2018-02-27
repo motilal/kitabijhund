@@ -59,6 +59,23 @@
                     </div>
                     <div class="clearfix"></div>
 
+                    <div class="col-lg-4"> 
+                        <div class="form-group">
+                            <label class="control-label" for="cpassword">2-Step Authentication</label>  
+                            <div> 
+                                <label style="font-weight:normal;">
+                                    <input name="two_step_authentication" id="two_step_authentication_on" value="1" type="radio" <?php echo set_value("two_step_authentication") === '1' ? 'checked' : ''; ?>>
+                                    On
+                                </label> 
+                                <label style="font-weight:normal;margin-left:15px;">
+                                    <input name="two_step_authentication" id="two_step_authentication_off" value="0" type="radio" <?php echo (set_value("two_step_authentication") === '0' || set_value("two_step_authentication") == '') ? 'checked' : ''; ?>>
+                                    Off
+                                </label> 
+                            </div> 
+                        </div> 
+                    </div>
+
+                    <div class="clearfix"></div>
                     <div class="col-lg-8">             
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-default" onclick="window.location.href = '<?php echo site_url("admin/subadmins"); ?>'">Cancel</button>
