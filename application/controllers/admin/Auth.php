@@ -25,7 +25,6 @@ class Auth extends CI_Controller {
             $this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
 
             if ($this->form_validation->run() == TRUE) {
-
                 if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'))) {
                     $this->getSubadminPermission();
                     redirect($this->input->post('request') ? $this->input->post('request') : "/admin/dashboard/?auth=verify");

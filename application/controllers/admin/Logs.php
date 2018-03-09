@@ -84,15 +84,16 @@ class Logs extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }
 
-    public function test() {
+    public function test() {  
+        //$this->load->get_var('UserInfo'); 
         $this->load->library('email');
         $mail_smtp = $this->config->item("mail_smtp"); 
         $this->email->initialize($mail_smtp);
         $this->email->clear(); 
-        $this->email->from('motilalsoni@gmail.com', 'Kitabi Jhund');
+        $this->email->from('motilalsonics@gmail.com', 'Kitabi Jhund');
         $this->email->to('motilalsoni@gmail.com');
-        $this->email->subject('hiii');
-        $this->email->message('this is yest dhffi');
+        $this->email->subject('1111 hiii');
+        $this->email->message('11 this is yest dhffi');
         $this->email->send();
 
         echo $this->email->print_debugger();

@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 *
-* Last Updated:  25-02-2018 06:57:00 by Amit Yadav
+* Last Updated:  09-03-2018 15:06:42 by Amit Yadav
 *
 * Description: language file for falsh messages
 *
@@ -11,6 +11,7 @@
 /* General Group Messages */
 $lang['LinkExpired'] = "Sorry! This link has been expired.";
 $lang['InvalidRequest'] = "Invalid request.";
+$lang['FileNotExist'] = "File Does not exist";
 
 /* Page Group Messages */
 $lang['PageUpdateSuccess'] = "Page updted successfully.";
@@ -63,6 +64,8 @@ $lang['ChapterPageInactiveSuccess'] = "Chapter Page Inactive Successfully.";
 /* Setting Group Messages */
 $lang['SettingUpdateSuccess'] = "Setting updted successfully.";
 $lang['PasswordChangeSuccess'] = "Password changed successfully.";
+$lang['ProfileUpdatedSuccess'] = "Profile updated successfully.";
+$lang['ChangeProfileSuccess'] = "Your profile updated successfully.";
 
 /* Email Template Group Messages */
 $lang['EmailTemplateUpdateSuccess'] = "Email Template updted successfully.";

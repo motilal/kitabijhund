@@ -17,6 +17,4 @@ class MY_Log extends CI_Log {
         return $log . "\n";
     }
 
-}
-
-// /?/> /* Should never close php file - if you have a space after can mess your life up */
+} 

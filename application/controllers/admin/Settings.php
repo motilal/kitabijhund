@@ -86,8 +86,7 @@ class Settings extends CI_Controller {
             $data = array(
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
-                'phone' => $this->input->post('phone'),
-                'two_step_authentication' => $this->input->post('two_step_authentication')
+                'phone' => $this->input->post('phone')
             );
 
             if ($this->ion_auth->update($this->ion_auth->get_user_id(), $data)) {

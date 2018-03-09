@@ -12,7 +12,7 @@
                             <?php if (count($row['pages']) > 1) { ?>
                                 <a data-toggle="collapse" href="#collapseChapter<?php echo $key; ?>" aria-expanded="false" aria-controls="collapseExample">
                                     <?php echo $row['name']; ?>  
-                                    <span class="glyphicon glyphicon-plus menu-glyphicon-chapter"></span> 
+                                    <span class="glyphicon glyphicon-plus menu-glyphicon-chapter pull-right"></span> 
                                 </a> 
 
                                 <ul class="sub-menu-chapter collapse" id="collapseChapter<?php echo $key; ?>">	

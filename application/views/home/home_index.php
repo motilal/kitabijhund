@@ -5,36 +5,45 @@
         </div> 
 
         <div class="col-md-4">
-            <div class="widget-item">
-                <div class="request-information">
-                    <h4 class="widget-title">Request Information</h4>
-                    <form class="request-info clearfix">   
-                        <div class="full-row">
-                            <label for="yourname">First Name:</label>
-                            <input type="text" id="yourname" name="yourname">
-                        </div> <!-- /.full-row -->
-
-                        <div class="full-row">
-                            <label for="yourname">Last Name:</label>
-                            <input type="text" id="yourname" name="yourname">
-                        </div> <!-- /.full-row -->
-
-                        <div class="full-row">
-                            <label for="email-id">Email Address:</label>
-                            <input type="text" id="email-id" name="email-id">
-                        </div> <!-- /.full-row -->
-
-                        <div class="full-row">
-                            <div class="submit_field">
-                                <span class="small-text pull-left">Subscribe to our newsletter</span>
-                                <input class="mainBtn pull-right" type="submit" name="" value="Submit Request">
-                            </div> <!-- /.submit-field -->
-                        </div> <!-- /.full-row -->
-
-
-                    </form> <!-- /.request-info -->
-                </div> <!-- /.request-information -->
-            </div> <!-- /.widget-item -->
+            <div class="widget-main">
+								<div class="widget-main-title">
+									<h4 class="widget-title">Courses</h4>
+								</div> <!-- /.widget-main-title -->
+								<div class="widget-inner">
+									<div class="blog-list-post clearfix">
+										<div class="blog-list-thumb">
+											<a href="blog-single.html"><img src="http://demo.esmeth.com/universe/Blue/images/blog/blog-small-thumb1.jpg" alt=""></a>
+										</div>
+										<div class="blog-list-details">
+											<h5 class="blog-list-title"><a href="blog-single.html">SSC CGL</a></h5>
+											<p class="blog-list-meta small-text"><span><a href="#">SSC CGL is conducted...Read More</span></p>
+										</div>
+									</div> <!-- /.blog-list-post -->
+									<div class="blog-list-post clearfix">
+										<div class="blog-list-thumb">
+											<a href="blog-single.html"><img src="http://demo.esmeth.com/universe/Blue/images/blog/blog-small-thumb2.jpg" alt=""></a>
+										</div>
+										<div class="blog-list-details">
+											<h5 class="blog-list-title"><a href="blog-single.html">Bank Po</a></h5>
+											<p class="blog-list-meta small-text"><span><a href="#">For bank aspirants this.....Read More</a></span></p>
+										</div>
+									</div> <!-- /.blog-list-post -->
+									<div class="blog-list-post clearfix">
+										<div class="blog-list-thumb">
+											<a href="blog-single.html"><img src="http://demo.esmeth.com/universe/Blue/images/blog/blog-small-thumb3.jpg" alt=""></a>
+										</div>
+										<div class="blog-list-details">
+											<h5 class="blog-list-title"><a href="http://demo.esmeth.com/universe/Blue/blog-single.html">Reet</a></h5>
+											<p class="blog-list-meta small-text"><span><a href="#">This exam provides.....Read More</a></span></p>
+										</div>
+									</div> <!-- /.blog-list-post -->
+								</div> <!-- /.widget-inner -->
+							</div> <!-- /.widget-main -->
+							
+								
+							<div class="load-more-btn" style="margin-top: 8px; border-bottom: 1px solid;">
+								<a href="#" style="padding: 9px 20px;">View All Courses</a>
+							</div>
         </div> 
     </div>
 </div>
@@ -109,7 +118,7 @@
                                         </div>
                                         <div class="blog-list-details">
                                             <h5 class="blog-list-title"><a href="<?php echo site_url("form_alerts/$form_alerts->slug"); ?>"><?php echo $form_alerts->title; ?></a></h5>
-                                            <p class="blog-list-meta small-text"><span><?php echo strlen($form_alerts->short_description) > 80 ? substr($form_alerts->short_description, 0, 80) . '...' : $form_alerts->short_description; ?> <a href="<?php echo site_url("form_alerts/$news->slug"); ?>">Read More</a></span></p>
+                                            <p class="blog-list-meta small-text"><span><?php echo strlen($form_alerts->short_description) > 65 ? substr($form_alerts->short_description, 0, 65) . '...' : $form_alerts->short_description; ?> <a href="<?php echo site_url("form_alerts/$news->slug"); ?>">Read More</a></span></p>
                                         </div>
                                     </div> 
                                 <?php } ?>

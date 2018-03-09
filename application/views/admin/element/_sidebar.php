@@ -1,5 +1,4 @@
-<?php
-global $UserInfo;
+<?php 
 $segment_cntr = $this->uri->segment(2);
 $segment_fun = $this->uri->segment(3);
 
@@ -39,10 +38,10 @@ $chapterIndex = ($segment_cntr == 'chapters' && ($segment_fun == 'index' || $seg
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo gravatar_url($UserInfo->email); ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo gravatar_url($_UserAuth->email); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info"> 
-                <p><?php echo $UserInfo->first_name . ' ' . $UserInfo->last_name ?></p>
+                <p><?php echo $_UserAuth->first_name . ' ' . $_UserAuth->last_name ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div> 

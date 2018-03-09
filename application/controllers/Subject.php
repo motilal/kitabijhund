@@ -35,14 +35,14 @@ class Subject extends CI_Controller {
 
     /* chapter Detail page */
 
-    public function detail($subject_slug, $chapter_slug) {
+    public function detail($subject_slug, $chapter_slug, $pageSlug = "") {
         $subject_slug = urldecode($subject_slug);
         $this->viewData['subject_slug'] = $subject_slug;
         $sub_detail = $this->subject->getBySlag($subject_slug);
-        $chapter_detail = $this->chapter->getBySlag($chapter_slug);  
+        $chapter_detail = $this->chapter->getBySlag($chapter_slug);
         if (!empty($sub_detail) && !empty($chapter_detail)) {
             $this->viewData['title'] = $chapter_detail->name;
-            $pageSlug = $this->input->get('page');
+            //$pageSlug = $this->input->get('page');
             if ($pageSlug != "") {
                 $pageDetail = $this->db->get_where('chapters_pages', array('slug' => $pageSlug))->row();
             } else {
