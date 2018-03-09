@@ -10,7 +10,7 @@ class Auth extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->site_santry->redirect = "admin";
-        $this->site_santry->allow(array("login", "logout", "forgot_password", "reset_password"));
+        $this->site_santry->allow(array("login", "logout", "forgot_password", "reset_password","two_step_auth_login"));
         $this->load->library(array('ion_auth', 'form_validation'));
         $this->load->helper(array('language'));
         $this->layout->set_layout("admin/layout/layout_login");
@@ -39,6 +39,32 @@ class Auth extends CI_Controller {
         $this->layout->view("admin/auth/login", $this->viewData);
     }
 
+    public function two_step_auth_login() {
+        if ($this->ion_auth->is_admin()) {
+            redirect('admin/dashboard');
+        }
+        $this->form_validation->set_rules('email', 'Email Address', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->data['email'] = array(
+                'name' => 'email',
+                'id' => 'email'
+            );
+            $this->viewData['validation_message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+            $this->viewData['title'] = "Admin Forgot Password";
+            $this->layout->view("admin/auth/two_step_auth_login", $this->viewData);
+        } else {
+            $forgotten = $this->ion_auth->forgotten_password($this->input->post('email'));
+            if ($forgotten) {
+                $this->forgotPasswordEmail($forgotten);
+                $this->session->set_flashdata('success', $this->ion_auth->messages());
+                redirect("admin");
+            } else {
+                $this->session->set_flashdata('error', $this->ion_auth->errors());
+                redirect("admin/auth/two_step_auth_login", 'refresh');
+            }
+        }
+    }
+    
     public function forgot_password() {
         if ($this->ion_auth->is_admin()) {
             redirect('admin/dashboard');

@@ -98,11 +98,10 @@ class Flash_messages extends CI_Controller {
     private function checkLangFileNeedWrite() {
         $sql = $this->db->select('updated')->order_by('updated', 'DESC')->limit(1)->get_where('flash_messages');
         if ($sql->num_rows() > 0) {
-            $DbLastUpdated = $sql->row()->updated; 
-            $languageFilePath = './application/language/english/general_lang.php';
+            $DbLastUpdated = $sql->row()->updated;
+            $languageFilePath = APPPATH . 'language/english/general_lang.php';
             if (file_exists($languageFilePath)) {
                 $langFileUpdated = date("Y-m-d H:i:s", filemtime($languageFilePath));
-                echo $langFileUpdated; die;
                 if (strtotime($DbLastUpdated) > strtotime($langFileUpdated)) {
                     return true;
                 }
@@ -137,7 +136,7 @@ class Flash_messages extends CI_Controller {
                 }
                 $langstr .= "\n";
             }
-            $languageFilePath = './application/language/english/general_lang.php';
+            $languageFilePath = APPPATH . 'language/english/general_lang.php';
             if (!write_file($languageFilePath, $langstr)) {
                 $this->session->set_flashdata("error", "Unable to write language file.Please check permission of file $languageFilePath");
             } else {
