@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | a PHP script and you can easily do that on your own.
   |
  */
-$config['base_url'] = '';
+$config['base_url'] = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on" ? 'https://' . $_SERVER['SERVER_NAME'] . '/kitabijhund' : 'http://' . $_SERVER['SERVER_NAME'] . '/kitabijhund';
 
 /*
   |--------------------------------------------------------------------------
@@ -524,13 +524,14 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 $config['mail_smtp'] = array(
-    "protocol" => "smtp",
-    "smtp_host" => "smtp.gmail.com",
-    "smtp_port" => 465, 
-    "smtp_user" => "motilalsonics@gmail.com",
-    "smtp_pass" => "julie@fema",
-    "charset" => "utf-8",
-    "newline" => "\r\n",
-    "mailtype" => "html",
-    "validate" => true
-); 
+    'protocol' => 'smtp',
+    'smtp_host' => 'ssl://smtp.googlemail.com',
+    'smtp_port' => 465,
+    'crlf' => "\n",
+    'newline' => "\r\n",
+    'smtp_user' => 'motilalsonics@gmail.com',
+    'smtp_pass' => 'julie@fema',
+    'mailtype' => 'html',
+    'charset' => 'utf-8'
+);
+
