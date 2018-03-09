@@ -24,7 +24,7 @@ class Subadmins extends CI_Controller {
     public function index() {
         $condition = array('grp.id' => '3');
         if ($this->input->is_ajax_request()) {
-            $orderColomn = array(1 => 'first_name', 2 => 'email', 3 => 'phone', 4 => 'created_on', 5 => 'active');
+            $orderColomn = array(1 => 'first_name', 2 => 'email', 3 => 'phone', 4 => 'created_on', 5 => 'last_login', 6 => 'active');
             $params = dataTableGetRequest($this->input->get(), $orderColomn);
             if (!empty($params->search)) {
                 $keyword = $this->db->escape_str($params->search);
@@ -110,7 +110,7 @@ class Subadmins extends CI_Controller {
                 $data['password'] = $this->input->post('password');
             }
             $this->ion_auth->update($id, $data);
-            $this->session->set_flashdata("success", __('SubadminAddSuccess'));
+            $this->session->set_flashdata("success", __('SubadminUpdateSuccess'));
             redirect("admin/subadmins");
         }
         $this->viewData['data'] = $data = $this->ion_auth->user($id)->row();

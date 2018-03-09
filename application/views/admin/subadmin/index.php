@@ -58,5 +58,5 @@
      2 default sort order of colomn set default []
      3 default paging 
      */
-    var datatbl = dynamic_datatable_init(current_url, [0, 6], [], DEFAULT_PAGING);
+    var datatbl = dynamic_datatable_init(current_url, [0, 7], [], DEFAULT_PAGING);
 </script>
