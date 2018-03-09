@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 *
-* Last Updated:  09-03-2018 15:06:42 by Amit Yadav
+* Last Updated:  09-03-2018 22:04:08 by Amit Yadav
 *
 * Description: language file for falsh messages
 *
@@ -93,4 +93,7 @@ $lang['SubCourseAddSuccess'] = "Sub Course added successfully.";
 $lang['SubCourseDeleteSuccess'] = "Sub Course deleted successfully.";
 $lang['SubCourseActiveSuccess'] = "Sub Course Active Successfully.";
 $lang['SubCourseInactiveSuccess'] = "Sub Course Inactive Successfully.";
+
+/* Logs Group Messages */
+$lang['LogDeleteSuccess'] = "Log file deleted successfully.";
 
