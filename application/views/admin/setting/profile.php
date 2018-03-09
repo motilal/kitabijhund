@@ -33,6 +33,20 @@
                         <?php echo form_error('phone'); ?>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label" for="cpassword">2-Step Authentication</label>  
+                        <div> 
+                            <label style="font-weight:normal;">
+                                <input name="two_step_authentication" id="two_step_authentication_on" value="1" type="radio" <?php echo set_value("two_step_authentication", isset($data->two_step_authentication) ? $data->two_step_authentication : "") === '1' ? 'checked' : ''; ?>>
+                                On
+                            </label> 
+                            <label style="font-weight:normal;margin-left:15px;">
+                                <input name="two_step_authentication" id="two_step_authentication_off" value="0" type="radio" <?php echo set_value("two_step_authentication", isset($data->two_step_authentication) ? $data->two_step_authentication : "") === '0' ? 'checked' : ''; ?>>
+                                Off
+                            </label> 
+                        </div>
+                    </div>  
+                    
                     <?php echo form_hidden('action', 'change-profile'); ?>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-default" onclick="window.location.href = '<?php echo site_url("admin/dashboard"); ?>'">Cancel</button>
@@ -45,7 +59,7 @@
             <div class="row">
                 <div class="col-lg-6"> 
                     <?php echo form_open('admin/settings/profile', array("id" => "change-password-form", "method" => "post")); ?>
-                    <div class="form-group <?php echo form_error('password') != ""  ? 'has-error'   : ''; ?>">
+                    <div class="form-group <?php echo form_error('password') != "" ? 'has-error' : ''; ?>">
                                 <label class="control-label" for="password">Old Password</label>
                                 <?php echo form_password("password", set_value("password"), "id='password' class='form-control'"); ?>
                                 <?php echo form_error('password'); ?>
